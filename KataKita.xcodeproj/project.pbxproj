@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E5863742CB637C00080373A /* TextHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5863732CB637B90080373A /* TextHeadline.swift */; };
+		1E5863782CB63C640080373A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5863772CB63C600080373A /* CustomButton.swift */; };
+		1E58637C2CB681130080373A /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E58637B2CB6810E0080373A /* ActivityCard.swift */; };
 		1E84D8972CB4D99A0078B648 /* KataKitaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8962CB4D99A0078B648 /* KataKitaApp.swift */; };
 		1E84D8992CB4D99A0078B648 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8982CB4D99A0078B648 /* ContentView.swift */; };
 		1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D89A2CB4D99A0078B648 /* Item.swift */; };
@@ -15,6 +18,7 @@
 		1E84D8AC2CB4D99C0078B648 /* KataKitaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8AB2CB4D99C0078B648 /* KataKitaTests.swift */; };
 		1E84D8B62CB4D99C0078B648 /* KataKitaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */; };
 		1E84D8B82CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */; };
+		1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8C72CB61AC70078B648 /* colorConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E5863732CB637B90080373A /* TextHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeadline.swift; sourceTree = "<group>"; };
+		1E5863772CB63C600080373A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		1E58637B2CB6810E0080373A /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		1E84D8932CB4D99A0078B648 /* KataKita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KataKita.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E84D8962CB4D99A0078B648 /* KataKitaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaApp.swift; sourceTree = "<group>"; };
 		1E84D8982CB4D99A0078B648 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		1E84D8B12CB4D99C0078B648 /* KataKitaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KataKitaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITests.swift; sourceTree = "<group>"; };
 		1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1E84D8C72CB61AC70078B648 /* colorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,7 @@
 		1E84D8952CB4D99A0078B648 /* KataKita */ = {
 			isa = PBXGroup;
 			children = (
+				1E84D8C42CB6160C0078B648 /* Component */,
 				1E84D8962CB4D99A0078B648 /* KataKitaApp.swift */,
 				1E84D8982CB4D99A0078B648 /* ContentView.swift */,
 				1E84D89A2CB4D99A0078B648 /* Item.swift */,
@@ -132,6 +141,17 @@
 				1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */,
 			);
 			path = KataKitaUITests;
+			sourceTree = "<group>";
+		};
+		1E84D8C42CB6160C0078B648 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1E58637B2CB6810E0080373A /* ActivityCard.swift */,
+				1E5863772CB63C600080373A /* CustomButton.swift */,
+				1E5863732CB637B90080373A /* TextHeadline.swift */,
+				1E84D8C72CB61AC70078B648 /* colorConverter.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +285,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E84D8992CB4D99A0078B648 /* ContentView.swift in Sources */,
+				1E5863782CB63C640080373A /* CustomButton.swift in Sources */,
+				1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */,
 				1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */,
 				1E84D8972CB4D99A0078B648 /* KataKitaApp.swift in Sources */,
+				1E58637C2CB681130080373A /* ActivityCard.swift in Sources */,
+				1E5863742CB637C00080373A /* TextHeadline.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,8 +462,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,8 +492,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
