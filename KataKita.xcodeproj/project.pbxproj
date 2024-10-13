@@ -21,6 +21,9 @@
 		1E84D8B62CB4D99C0078B648 /* KataKitaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */; };
 		1E84D8B82CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */; };
 		1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8C72CB61AC70078B648 /* colorConverter.swift */; };
+		9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */; };
+		9B78DD132CB764A90069DBC5 /* AddAACCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD122CB764A90069DBC5 /* AddAACCardView.swift */; };
+		9B78DD172CBC89850069DBC5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD162CBC89850069DBC5 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITests.swift; sourceTree = "<group>"; };
 		1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1E84D8C72CB61AC70078B648 /* colorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorConverter.swift; sourceTree = "<group>"; };
+		9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		9B78DD122CB764A90069DBC5 /* AddAACCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAACCardView.swift; sourceTree = "<group>"; };
+		9B78DD162CBC89850069DBC5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				1E5863832CB6C0840080373A /* ActivitySequenceView.swift */,
+				9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */,
+				9B78DD122CB764A90069DBC5 /* AddAACCardView.swift */,
+				9B78DD162CBC89850069DBC5 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,11 +311,14 @@
 				1E5863782CB63C640080373A /* CustomButton.swift in Sources */,
 				1E5863842CB6C08C0080373A /* ActivitySequenceView.swift in Sources */,
 				1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */,
+				9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */,
+				9B78DD132CB764A90069DBC5 /* AddAACCardView.swift in Sources */,
 				1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */,
 				1E84D8972CB4D99A0078B648 /* KataKitaApp.swift in Sources */,
 				1E5863812CB6B9B30080373A /* CustomButtonSide.swift in Sources */,
 				1E58637C2CB681130080373A /* ActivityCard.swift in Sources */,
 				1E5863742CB637C00080373A /* TextHeadline.swift in Sources */,
+				9B78DD172CBC89850069DBC5 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
