@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Managing Schedule Data (schedule per day in a week)
+
 @Observable
 class ScheduleManager {
     var schedules: [Schedule]

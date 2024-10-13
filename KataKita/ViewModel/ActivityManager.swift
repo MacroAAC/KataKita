@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+
+// CRUD for Activity : Editing image, name, sequence
+
 @Observable
 class ActivityManager {
     var activity: Activity
@@ -15,7 +18,7 @@ class ActivityManager {
     init(_ activity: Activity = Activity(id: UUID(), name: "new activity", image: nil, sequence: [] )) {
         self.activity = activity
     }
-    // Kek ono underscore ben gausah ngisi
+    // kasih underscore di depan parameter pertama biar gausah ngisi nama parameter ketika dipanggil
     func addStep(_ step: Step) {
         self.activity.sequence.append(step)
     }
@@ -33,6 +36,7 @@ class ActivityManager {
     func setImage(image: String) {
         // Process image as String
     }
+    
     func setImage(image: UIImage) {
         // Process image from camera / URL
     }

@@ -21,14 +21,22 @@ enum Day : Equatable {
     /// Operator overloading dayum!
     static func ==(lhs: Day, rhs: Day) -> Bool {
         switch(lhs, rhs) {
-            case(.MONDAY(_), .MONDAY(_)): return true
-            case(.TUESDAY(_), .TUESDAY(_)): return true
-            case(.WEDNESDAY(_), .WEDNESDAY(_)): return true
-            case(.THURSDAY(_), .THURSDAY(_)): return true
-            case(.FRIDAY(_), .FRIDAY(_)): return true
-            case(.SATURDAY(_), .SATURDAY(_)): return true
-            case(.SUNDAY(_), .SUNDAY(_)): return true
-            default: return false
+            case(.MONDAY(_), .MONDAY(_)): 
+                return true
+            case(.TUESDAY(_), .TUESDAY(_)): 
+                return true
+            case(.WEDNESDAY(_), .WEDNESDAY(_)): 
+                return true
+            case(.THURSDAY(_), .THURSDAY(_)): 
+                return true
+            case(.FRIDAY(_), .FRIDAY(_)): 
+                return true
+            case(.SATURDAY(_), .SATURDAY(_)): 
+                return true
+            case(.SUNDAY(_), .SUNDAY(_)): 
+                return true
+            default: 
+                return false
         }
     }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 
+// CRUD for Activity list inside AddDailyActivity Feature
+
 @Observable
 class ActivitiesManager {
     var activities : [Activity]
@@ -19,7 +21,10 @@ class ActivitiesManager {
         self.activities.append(activity)
     }
     
-    func removeActivity(index: Int) {
-        
+    func removeActivity(_ index: Int) {
+        if(activities.count > index) {
+            self.activities.remove(at: index)
+        }
     }
+    
 }
