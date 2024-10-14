@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		105D7EE92CBCA84B00F7AA96 /* AACRuangMakanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105D7EE82CBCA84B00F7AA96 /* AACRuangMakanView.swift */; };
 		1E5863742CB637C00080373A /* TextHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5863732CB637B90080373A /* TextHeadline.swift */; };
 		1E5863782CB63C640080373A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5863772CB63C600080373A /* CustomButton.swift */; };
 		1E58637C2CB681130080373A /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E58637B2CB6810E0080373A /* ActivityCard.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		105D7EE82CBCA84B00F7AA96 /* AACRuangMakanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACRuangMakanView.swift; sourceTree = "<group>"; };
 		1E5863732CB637B90080373A /* TextHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeadline.swift; sourceTree = "<group>"; };
 		1E5863772CB63C600080373A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1E58637B2CB6810E0080373A /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				1E5863822CB6C07C0080373A /* View */,
 				1E84D8C42CB6160C0078B648 /* Component */,
 				1E84D8962CB4D99A0078B648 /* KataKitaApp.swift */,
+				105D7EE82CBCA84B00F7AA96 /* AACRuangMakanView.swift */,
 				1E84D8982CB4D99A0078B648 /* ContentView.swift */,
 				1E84D89A2CB4D99A0078B648 /* Item.swift */,
 				1E84D89C2CB4D99C0078B648 /* Assets.xcassets */,
@@ -305,6 +308,7 @@
 				1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */,
 				1E84D8972CB4D99A0078B648 /* KataKitaApp.swift in Sources */,
 				1E5863812CB6B9B30080373A /* CustomButtonSide.swift in Sources */,
+				105D7EE92CBCA84B00F7AA96 /* AACRuangMakanView.swift in Sources */,
 				1E58637C2CB681130080373A /* ActivityCard.swift in Sources */,
 				1E5863742CB637C00080373A /* TextHeadline.swift in Sources */,
 			);
