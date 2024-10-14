@@ -30,7 +30,7 @@ struct AACRuangMakanView: View {
     
     // Update columnsData to include an additional String for font color
     @State private var columnsData: [[(String, String, String)]] = [
-        [("saya", "#FFEBAF", "#000000"), ("kamu", "#FFEBAF", "#000000"), ("dia", "#FFEBAF", "#000000"), ("kita", "#FFEBAF", "#000000"), ("mama", "#FFEBAF", "#000000")],
+        [("saya", "#FFEBAF", "#000000"), ("kamu", "#FFEBAF", "#000000"), ("dia", "#FFEBAF", "#000000"), ("kita", "#FFEBAF", "#000000"), ("mama", "#FFEBAF", "#000000"), ("papa", "#FFEBAF", "#000000")],
         [("apa", "#A77DFF", "#000000"), ("dimana", "#A77DFF", "#000000"), ("siapa", "#A77DFF", "#000000")],
         [("suka", "#FFB0C7", "#000000"), ("tidak suka", "#FFB0C7", "#000000"), ("mau", "#FFB0C7", "#000000"), ("tidak mau", "#FFB0C7", "#000000"), ("tolong", "#FFB0C7", "#000000")],
         [("makan", "#CFF0C8", "#000000"), ("minum", "#CFF0C8", "#000000"), ("putar", "#CFF0C8", "#000000"), ("buka", "#CFF0C8", "#000000"), ("tutup", "#CFF0C8", "#000000")],
@@ -54,6 +54,8 @@ struct AACRuangMakanView: View {
     ]
     
     let speechSynthesizer = AVSpeechSynthesizer()
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
     
     var body: some View {
         VStack(spacing:-13) {
@@ -64,9 +66,9 @@ struct AACRuangMakanView: View {
                     ZStack {
                         Rectangle()
                             .fill(Color.white)
-                            .frame(width: 1190,height: 180)
+                            .frame(width:screenWidth * (1190 / 1376),height:screenHeight * (180 / 1032))
                             .cornerRadius(10)
-                            .padding(.leading,28)
+                            .padding(.leading, screenWidth * (28 / 1376))
                         
                         // HStack for displaying the selected buttons
                         HStack {
@@ -76,11 +78,11 @@ struct AACRuangMakanView: View {
                                     CustomButton(
                                         icon: "person.fill", // Use the new icon variable
                                         text: selectedButton[index].0, // Accessing the text from the tuple
-                                        width: 100,
-                                        height: 100,
-                                        font: 16,
-                                        iconWidth: 50,
-                                        iconHeight: 50,
+                                        width: Int(screenWidth * (100 / 1376)),
+                                        height: Int(screenHeight * (100 / 1032)),
+                                        font: Int(screenWidth * (16 / 1376)),
+                                        iconWidth: Int(screenWidth * (50 / 1376)),
+                                        iconHeight: Int(screenHeight * (50 / 1032)),
                                         bgColor: selectedButton[index].1, // Accessing the background color from the tuple
                                         bgTransparency: 1.0,
                                         fontColor: selectedButton[index].2, // Accessing the font color from the tuple
@@ -92,26 +94,26 @@ struct AACRuangMakanView: View {
                                 } else {
                                     // Display plain Text for items beyond the 11th
                                     Text(selectedButton[index].0)
-                                        .font(.system(size: 16))
+                                        .font(.system(size: screenWidth * (16 / 1376)))
                                         .foregroundColor(.black)
-                                        .padding(.horizontal, 5)
+                                        .padding(.horizontal, screenWidth * (5 / 1376))
                                         .background(Color.gray.opacity(0.2))
                                         .cornerRadius(5)
                                 }
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 33)
+                        .padding(.leading, screenWidth * (33 / 1376))
                         .padding()
-                        
+                     
                         HStack {
                             CustomButton(
                                 icon: "delete",
-                                width: 100,
-                                height: 100,
-                                font: 40,
-                                iconWidth: 50,
-                                iconHeight: 50,
+                                width: Int(screenWidth * (100/1376.0)),
+                                height: Int(screenHeight * (100/1032.0)),
+                                font: Int(screenWidth * (40/1376.0)),
+                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                iconHeight: Int(screenHeight * (50/1032.0)),
                                 bgColor: "#000000",
                                 bgTransparency: 0,
                                 fontColor: "#ffffff",
@@ -126,7 +128,7 @@ struct AACRuangMakanView: View {
                             )
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding(.trailing,4)
+                        .padding(.trailing,screenWidth * (4/1376.0))
 
                     }
                 }
@@ -134,17 +136,17 @@ struct AACRuangMakanView: View {
                 ZStack {
                     Rectangle()
                         .fill(Color.white.opacity(1.0))
-                        .frame(width: 130,height: 130)
+                        .frame(width: screenWidth * (130/1376.0),height: screenHeight * (130/1032.0))
                         .cornerRadius(20)
                         .shadow(radius: 5,x: 3,y:4)
                     
                     CustomButton(
                         icon: "trash",
-                        width: 100,
-                        height: 100,
-                        font: 40,
-                        iconWidth: 50,
-                        iconHeight: 50,
+                        width: Int(screenWidth * (100/1376.0)),
+                        height: Int(screenHeight * (100/1032.0)),
+                        font: Int(screenWidth * (40/1376.0)),
+                        iconWidth: Int(screenWidth * (50/1376.0)),
+                        iconHeight: Int(screenHeight * (50/1032.0)),
                         bgColor: "#000000",
                         bgTransparency: 0,
                         fontColor: "#ffffff",
@@ -162,17 +164,18 @@ struct AACRuangMakanView: View {
                 .frame(maxWidth: .infinity)
                 
             }
-            .padding(.top,50)
-            .padding(.bottom,30)
+            .padding(.top,screenHeight * (110/1032.0))
+            .padding(.bottom,screenHeight * (50/1032.0))
+            
             
             HStack {
                 CustomButton(
                     icon: "WarnaKuning",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -180,20 +183,18 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaUngu",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -201,20 +202,18 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaPink",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -222,20 +221,18 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaHijau",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -243,20 +240,18 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaHijau",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -264,20 +259,18 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaBiru",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -285,20 +278,18 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaOrange",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -306,20 +297,18 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaAbu",
-                    width: 100,
-                    height: 50,
-                    font: 40,
-                    iconWidth: 100,
-                    iconHeight: 50,
+                    width: Int(screenWidth * (100/1376.0)),
+                    height: Int(screenHeight * (50/1032.0)),
+                    font: Int(screenWidth * (40/1376.0)),
+                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
                     fontColor: "#ffffff",
@@ -327,29 +316,27 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        if !selectedButton.isEmpty {
-                            selectedButton.removeAll()
-                        }
+
                     }
                 )
-                .padding(.trailing,28)
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
             }
-            .padding(.trailing,213)
+            .padding(.trailing,screenWidth * (213/1376.0))
             
             // ScrollView for buttons
             ZStack {
                 Rectangle()
                     .fill(Color.white.opacity(1.0))
-                    .frame(width: 1370,height: 800)
+                    .frame(width: screenWidth * (1370/1376.0),height: screenHeight * (800/1032.0))
                     .cornerRadius(40)
                 
                 ScrollView {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))], spacing: 10) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)))], spacing: screenWidth * (10/1376.0)) {
                         ForEach(0..<columnsData.count, id: \.self) { columnIndex in
-                            VStack(spacing: 10) {
+                            VStack(spacing: screenWidth * (10/1376.0)) {
                                 // Determine the row limit for the current column
-                                let rowLimit = (columnIndex == columnsData.count - 1) ? 9 : 5
+                                let rowLimit = (columnIndex == columnsData.count - 1) ? 9 : 6
                                 
                                 ForEach(0..<rowLimit, id: \.self) { rowIndex in
                                     if rowIndex < columnsData[columnIndex].count {
@@ -359,11 +346,11 @@ struct AACRuangMakanView: View {
                                         if columnIndex == columnsData.count - 1 {
                                             CustomButton(
                                                 text: buttonData.0,
-                                                width: 100,
-                                                height: 50,
-                                                font: 18,
-                                                iconWidth: 50,
-                                                iconHeight: 50,
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (60/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
                                                 bgColor: buttonData.1,
                                                 bgTransparency: 1.0,
                                                 fontColor: buttonData.2, // Use font color from buttonData
@@ -375,16 +362,17 @@ struct AACRuangMakanView: View {
                                                     selectedButton.append(buttonData) // Append full data including icon
                                                 }
                                             )
+                                            .padding(.bottom,screenHeight * (3/1032.0))
                                         } else {
                                             // Default button for other columns
                                             CustomButton(
                                                 icon: "person.fill", // Add icon from buttonData
                                                 text: buttonData.0,
-                                                width: 100,
-                                                height: 100,
-                                                font: 16,
-                                                iconWidth: 40,
-                                                iconHeight: 40,
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (16/1376.0)),
+                                                iconWidth: Int(screenWidth * (40/1376.0)),
+                                                iconHeight: Int(screenHeight * (40/1032.0)),
                                                 bgColor: buttonData.1,
                                                 bgTransparency: 1.0,
                                                 fontColor: buttonData.2, // Use font color from buttonData
@@ -399,30 +387,30 @@ struct AACRuangMakanView: View {
                                         }
                                     } else {
                                         Spacer()
-                                            .frame(width: 100, height: 100)
+                                            .frame(width: screenWidth * (100/1376.0), height: screenHeight * (100/1032.0))
                                     }
                                 }
                             }
                         }
                     }
-                    .padding(.top, 30)
-                    .padding(.leading,25)
+                    .padding(.top, screenHeight * (40/1032.0))
+                    .padding(.leading,screenWidth * (25/1376.0))
                 }
                 VStack{
                     ZStack {
                         Rectangle()
                             .fill(Color(hex: "#EEEEEE"))
-                            .frame(width: 130,height: 130)
+                            .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
                             .cornerRadius(20)
                             .shadow(radius: 5,x: 3,y:4)
                         
                         CustomButton(
                             icon: "home",
-                            width: 60,
-                            height: 60,
-                            font: 40,
-                            iconWidth: 50,
-                            iconHeight: 50,
+                            width: Int(screenWidth * (50/1376.0)),
+                            height: Int(screenHeight * (50/1032.0)),
+                            font: Int(screenWidth * (40/1376.0)),
+                            iconWidth: Int(screenWidth * (40/1376.0)),
+                            iconHeight: Int(screenHeight * (40/1032.0)),
                             bgColor: "#000000",
                             bgTransparency: 0,
                             fontColor: "#ffffff",
@@ -439,17 +427,17 @@ struct AACRuangMakanView: View {
                     ZStack {
                         Rectangle()
                             .fill(Color(hex: "#EEEEEE"))
-                            .frame(width: 130,height: 130)
+                            .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
                             .cornerRadius(20)
                             .shadow(radius: 5,x: 3,y:4)
                         
                         CustomButton(
                             icon: "settings",
-                            width: 60,
-                            height: 60,
-                            font: 40,
-                            iconWidth: 50,
-                            iconHeight: 50,
+                            width: Int(screenWidth * (50/1376.0)),
+                            height: Int(screenHeight * (50/1032.0)),
+                            font: Int(screenWidth * (40/1376.0)),
+                            iconWidth: Int(screenWidth * (40/1376.0)),
+                            iconHeight: Int(screenHeight * (40/1032.0)),
                             bgColor: "#000000",
                             bgTransparency: 0,
                             fontColor: "#ffffff",
@@ -463,11 +451,15 @@ struct AACRuangMakanView: View {
                         
                     }
                 }
-                .padding(.leading,1230)
-                .padding(.top,60)
+                .padding(.leading,screenWidth * (1230/1376.0))
+                .padding(.top,screenHeight * (380/1032.0))
                 
             }
             
+            .onAppear{
+                print(UIScreen.main.bounds.width)
+                print(UIScreen.main.bounds.height)
+            }
             
         }
         .background(Color(hex: "#EEEEEE"))
