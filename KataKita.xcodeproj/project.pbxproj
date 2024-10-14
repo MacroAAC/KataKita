@@ -22,6 +22,13 @@
 		1E84D8B62CB4D99C0078B648 /* KataKitaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */; };
 		1E84D8B82CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */; };
 		1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8C72CB61AC70078B648 /* colorConverter.swift */; };
+		DAE1E7822CBAF59A00F5F9D1 /* SettingActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1E7812CBAF57F00F5F9D1 /* SettingActivityCard.swift */; };
+		DAE312FD2CB83499001DD0A0 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE312FC2CB83499001DD0A0 /* Activity.swift */; };
+		DAE312FF2CB835B9001DD0A0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE312FE2CB835B9001DD0A0 /* Schedule.swift */; };
+		DAE313012CB8375C001DD0A0 /* AddDailyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313002CB8375C001DD0A0 /* AddDailyActivityView.swift */; };
+		DAE313032CB84EC4001DD0A0 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */; };
+		DAE313052CB85677001DD0A0 /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313042CB85677001DD0A0 /* ScheduleManager.swift */; };
+		DAE313072CB86921001DD0A0 /* ActivitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */; };
 		1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +70,13 @@
 		1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITests.swift; sourceTree = "<group>"; };
 		1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1E84D8C72CB61AC70078B648 /* colorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorConverter.swift; sourceTree = "<group>"; };
+		DAE1E7812CBAF57F00F5F9D1 /* SettingActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingActivityCard.swift; sourceTree = "<group>"; };
+		DAE312FC2CB83499001DD0A0 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		DAE312FE2CB835B9001DD0A0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		DAE313002CB8375C001DD0A0 /* AddDailyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDailyActivityView.swift; sourceTree = "<group>"; };
+		DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
+		DAE313042CB85677001DD0A0 /* ScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
+		DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesManager.swift; sourceTree = "<group>"; };
 		1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				1E5863832CB6C0840080373A /* ActivitySequenceView.swift */,
+				DAE313002CB8375C001DD0A0 /* AddDailyActivityView.swift */,
 				1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */,
 			);
 			path = View;
@@ -123,6 +138,8 @@
 		1E84D8952CB4D99A0078B648 /* KataKita */ = {
 			isa = PBXGroup;
 			children = (
+				DAE312F92CB833D6001DD0A0 /* ViewModel */,
+				DAE312F82CB833CA001DD0A0 /* Model */,
 				1E5863822CB6C07C0080373A /* View */,
 				1E84D8C42CB6160C0078B648 /* Component */,
 				1E84D8962CB4D99A0078B648 /* KataKitaApp.swift */,
@@ -165,6 +182,7 @@
 		1E84D8C42CB6160C0078B648 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				DAE1E7812CBAF57F00F5F9D1 /* SettingActivityCard.swift */,
 				1E5863802CB6B9A70080373A /* CustomButtonSide.swift */,
 				1E58637B2CB6810E0080373A /* ActivityCard.swift */,
 				1E5863772CB63C600080373A /* CustomButton.swift */,
@@ -172,6 +190,25 @@
 				1E84D8C72CB61AC70078B648 /* colorConverter.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		DAE312F82CB833CA001DD0A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DAE312FC2CB83499001DD0A0 /* Activity.swift */,
+				DAE312FE2CB835B9001DD0A0 /* Schedule.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DAE312F92CB833D6001DD0A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */,
+				DAE313042CB85677001DD0A0 /* ScheduleManager.swift */,
+				DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,14 +343,22 @@
 			files = (
 				1E84D8992CB4D99A0078B648 /* ContentView.swift in Sources */,
 				1E5863782CB63C640080373A /* CustomButton.swift in Sources */,
+				DAE313052CB85677001DD0A0 /* ScheduleManager.swift in Sources */,
 				1E5863842CB6C08C0080373A /* ActivitySequenceView.swift in Sources */,
 				1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */,
+				DAE1E7822CBAF59A00F5F9D1 /* SettingActivityCard.swift in Sources */,
 				1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */,
+
+				DAE313072CB86921001DD0A0 /* ActivitiesManager.swift in Sources */,
 				1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */,
 				1E84D8972CB4D99A0078B648 /* KataKitaApp.swift in Sources */,
+				DAE312FF2CB835B9001DD0A0 /* Schedule.swift in Sources */,
+				DAE313012CB8375C001DD0A0 /* AddDailyActivityView.swift in Sources */,
 				1E5863812CB6B9B30080373A /* CustomButtonSide.swift in Sources */,
 				105D7EE92CBCA84B00F7AA96 /* AACRuangMakanView.swift in Sources */,
 				1E58637C2CB681130080373A /* ActivityCard.swift in Sources */,
+				DAE313032CB84EC4001DD0A0 /* ActivityManager.swift in Sources */,
+				DAE312FD2CB83499001DD0A0 /* Activity.swift in Sources */,
 				1E5863742CB637C00080373A /* TextHeadline.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
