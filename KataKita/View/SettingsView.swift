@@ -49,7 +49,7 @@ struct SettingsView: View {
                         Spacer()
                         Image(systemName: "checkmark")
                             .foregroundColor(.blue)
-                        NavigationLink(destination: DetailView()) {
+                        NavigationLink(destination: AddButtonView(navigateTooAddImage: .constant(true), selectedSymbolImage: .constant("people"), navigateFromSymbols: .constant(false), navigateFromImage: .constant(false), selectedSymbolName: .constant("people"))) {
                             
                         }
                     }
@@ -69,11 +69,6 @@ struct SettingsView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
                         // Action for Done button
-                    }
-                }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") {
-                        // Action for Cancel button
                     }
                 }
             }
