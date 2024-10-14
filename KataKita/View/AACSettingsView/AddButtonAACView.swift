@@ -88,3 +88,21 @@ struct AddButtonAACView: View {
         }
     }
 }
+
+struct AddButtonAACView_Previews: PreviewProvider {
+    @State static var navigateTooAddImage = true
+    @State static var selectedSymbolImage = "star.fill"
+    @State static var navigateFromSymbols = false
+    @State static var navigateFromImage = false
+    @State static var selectedSymbolName = ""
+
+    static var previews: some View {
+        AddButtonAACView(
+            navigateTooAddImage: $navigateTooAddImage,
+            selectedSymbolImage: $selectedSymbolImage,
+            navigateFromSymbols: $navigateFromSymbols,
+            navigateFromImage: $navigateFromImage,
+            selectedSymbolName: $selectedSymbolName
+        )
+    }
+}

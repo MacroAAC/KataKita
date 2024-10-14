@@ -1,8 +1,6 @@
 import SwiftUI
 import PhotosUI
 
-
-// MARK: - AddImageView
 struct AddImageAACView: View {
     @Binding var selectedImage: UIImage?
     @State private var showImage: Bool = true
@@ -56,11 +54,6 @@ struct AddImageAACView: View {
             }
         }
         .navigationBarTitle("Add Image", displayMode: .inline)
-        .navigationBarItems(
-            trailing: Button("Done") {
-                // Handle done action
-            }
-        )
     }
 }
 
@@ -98,6 +91,17 @@ struct ImagePicker: UIViewControllerRepresentable {
 
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true)
+        }
+    }
+}
+
+// MARK: - Preview
+struct AddImageAACView_Previews: PreviewProvider {
+    @State static var selectedImage: UIImage? = nil
+
+    static var previews: some View {
+        NavigationStack {
+            AddImageAACView(selectedImage: $selectedImage)
         }
     }
 }

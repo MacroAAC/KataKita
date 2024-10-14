@@ -51,3 +51,10 @@ struct AddSymbolsAACView: View {
         }
     }
 }
+
+// MARK: - Preview
+struct AddSymbolsAACView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddSymbolsAACView()
+    }
+}
