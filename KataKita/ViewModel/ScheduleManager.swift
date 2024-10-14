@@ -105,6 +105,39 @@ class ScheduleManager {
         updateDay(newDay)
     }
     
+    func removeAll(_ day: Day) {
+        var newDay = day;
+        if case var .MONDAY(activities) = day {
+            activities.removeAll()
+            newDay = .MONDAY(activities)
+        }
+        if case var .TUESDAY(activities) = day {
+            activities.removeAll()
+            newDay = .TUESDAY(activities)
+        }
+        if case var .WEDNESDAY(activities) = day {
+            activities.removeAll()
+            newDay = .WEDNESDAY(activities)
+        }
+        if case var .THURSDAY(activities) = day {
+            activities.removeAll()
+            newDay = .THURSDAY(activities)
+        }
+        if case var .FRIDAY(activities) = day {
+            activities.removeAll()
+            newDay = .FRIDAY(activities)
+        }
+        if case var .SATURDAY(activities) = day {
+            activities.removeAll()
+            newDay = .SATURDAY(activities)
+        }
+        if case var .SUNDAY(activities) = day {
+            activities.removeAll()
+            newDay = .SUNDAY(activities)
+        }
+        updateDay(newDay)
+    }
+    
     private func updateDay(_ day: Day) {
         if let index = self.schedules.firstIndex(where: {$0.day == day}) {
             self.schedules[index].day = day

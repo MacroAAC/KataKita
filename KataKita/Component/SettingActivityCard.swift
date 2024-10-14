@@ -29,7 +29,7 @@ struct SettingActivityCard: View {
             HStack{
                 if let image = activity.image {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.yellow)
+                        .fill(Color(hex: "FFEBAF", transparency: 1.0))
                         .frame(width: 60, height: 60)
                         .overlay(Image(systemName: "person.crop.circle")
                             .resizable()
@@ -37,7 +37,7 @@ struct SettingActivityCard: View {
                         )
                 } else {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.yellow)
+                        .fill(Color(hex: "FFEBAF", transparency: 1.0))
                         .frame(width: 60, height: 60)
                         .overlay(Image(systemName: "crossmark")
                             .resizable()
@@ -62,7 +62,6 @@ struct SettingActivityCard: View {
                             Image(systemName: "minus").foregroundStyle(.white)
                         )
                 }
-                    
             }
         }
         .padding(20)
