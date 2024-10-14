@@ -20,10 +20,11 @@ struct CustomButtonSide: View {
     let fontColor: String
     let fontTransparency: Double
     let cornerRadius: CGFloat
+    let strokeColor: String?
     let isSystemImage: Bool
     let action: (() -> Void)?
-
-    init(icon: String? = nil, text: String? = nil, width: Int, height: Int, font: Int, iconWidth: Int? = nil, iconHeight: Int? = nil, bgColor: String, bgTransparency: Double, fontColor: String, fontTransparency: Double, cornerRadius: CGFloat, isSystemImage: Bool = true, action: (() -> Void)? = nil) {
+    
+    init(icon: String? = nil, text: String? = nil, width: Int, height: Int, font: Int, iconWidth: Int? = nil, iconHeight: Int? = nil, bgColor: String, bgTransparency: Double, fontColor: String, fontTransparency: Double, cornerRadius: CGFloat,strokeColor: String? = nil, isSystemImage: Bool = true, action: (() -> Void)? = nil) {
         self.icon = icon
         self.text = text
         self.width = width
@@ -36,10 +37,11 @@ struct CustomButtonSide: View {
         self.fontColor = fontColor
         self.fontTransparency = fontTransparency
         self.cornerRadius = cornerRadius
+        self.strokeColor = strokeColor
         self.isSystemImage = isSystemImage
         self.action = action
     }
-
+    
     var body: some View {
         Button(action: {
             action?()
@@ -71,8 +73,8 @@ struct CustomButtonSide: View {
                     }
                 }
                 
-          
-
+                
+                
                 Spacer()
             }
         }
@@ -80,6 +82,17 @@ struct CustomButtonSide: View {
         .frame(width: CGFloat(width), height: CGFloat(height))
         .background(Color(hex: bgColor, transparency: bgTransparency))
         .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+        .overlay(
+                    // Apply stroke only if strokeColor is provided
+                    Group {
+                        if let strokeColor = strokeColor {
+                            RoundedRectangle(cornerRadius: cornerRadius)
+                                .stroke(Color(hex: strokeColor, transparency: 1.0), lineWidth: 1)
+                        } else {
+                            EmptyView()
+                        }
+                    }
+                )
         .shadow(radius:10)
     }
 }
