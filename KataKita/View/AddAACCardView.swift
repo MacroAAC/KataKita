@@ -6,40 +6,85 @@ struct AddButtonView: View {
     @State private var textToSpeak: String = ""
     @State private var showingAddImageView = false
     @State private var selectedImage: UIImage? = nil
+    @Binding var navigateTooAddImage: Bool
+    @Binding var selectedSymbolImage: String // Track the selected symbol
+    @Binding var navigateFromSymbols: Bool
+    @Binding var navigateFromImage: Bool
+    @Binding var selectedSymbolName: String
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    // Text field for input
-                    TextField("Text to Speak", text: $textToSpeak)
                     
-                    // Button to navigate to Add Image view
-                    Button(action: {
-                        showingAddImageView = true
-                    }) {
-                        HStack {
-                            Text("Add Image")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
+                    
+                    if navigateTooAddImage {
+                        TextField("Text to Speak", text: $textToSpeak)
+                        Button(action: {
+                            showingAddImageView = true
+                        }) {
+                            HStack {
+                                Text("Add Image")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        .background(
+                            NavigationLink(
+                                destination: AddImageView(selectedImage: $selectedImage),
+                                isActive: $showingAddImageView
+                            ) {
+                                EmptyView()
+                            }
+                        )
+                    } else {
+                        if navigateFromSymbols {
+                            TextField("Text to Speak", text: $selectedSymbolName)
+                            Button(action: {
+                                showingAddImageView = true
+                            }) {
+                                VStack {
+                                    Text("Which meaning?")
+                                        .foregroundColor(Color(red: 60 / 255, green: 60 / 255, blue: 67 / 255))
+                                        .font(.body)
+                                    CustomButton(
+                                        icon: selectedSymbolImage,
+                                        width: 100, height: 100, font: 40,
+                                        iconWidth: 50, iconHeight: 50, bgColor: "#000000",
+                                        bgTransparency: 1.0, fontColor: "#ffffff",
+                                        fontTransparency: 1.0, cornerRadius: 20,
+                                        isSystemImage: true
+                                    )
+                                }
+                            }
+                        }
+                        
+                        
+                        if navigateFromImage {
+                            Button(action: {
+                                showingAddImageView = true
+                            }) {
+                                VStack {
+                                    Text("Which meaning?")
+                                        .foregroundColor(Color(red: 60 / 255, green: 60 / 255, blue: 67 / 255))
+                                        .font(.body)
+                                    CustomButton(
+                                        icon: selectedSymbolImage,
+                                        width: 100, height: 100, font: 40,
+                                        iconWidth: 50, iconHeight: 50, bgColor: "#000000",
+                                        bgTransparency: 1.0, fontColor: "#ffffff",
+                                        fontTransparency: 1.0, cornerRadius: 20,
+                                        isSystemImage: true
+                                    )
+                                }
+                            }
                         }
                     }
-                    .background(
-                        NavigationLink(
-                            destination: AddImageView(selectedImage: $selectedImage),
-                            isActive: $showingAddImageView
-                        ) {
-                            EmptyView()
-                        }
-                    )
                 }
             }
             .navigationBarTitle("Add Button", displayMode: .inline)
             .navigationBarItems(
-                leading: Button("Cancel") {
-                    // Handle cancel action
-                },
                 trailing: Button("Done") {
                     // Handle done action
                 }
@@ -48,13 +93,17 @@ struct AddButtonView: View {
     }
 }
 
+
+
 // MARK: - SymbolsView
 import SwiftUI
 
 struct SymbolsView: View {
     @State private var searchText: String = ""
-    @State private var symbols = ["sleep", "sleep", "sleep"] // Example data
-    
+    @State private var symbols = ["sleep", "wake", "rest"] // Example data
+    @State private var navigateToAddButton = false
+    @State private var selectedSymbol: String = "" // Store selected symbol
+
     var filteredSymbols: [String] {
         if searchText.isEmpty {
             return symbols
@@ -62,9 +111,9 @@ struct SymbolsView: View {
             return symbols.filter { $0.contains(searchText) }
         }
     }
-    
+
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             VStack {
                 // Search Bar
                 TextField("Search", text: $searchText)
@@ -74,21 +123,33 @@ struct SymbolsView: View {
                 // List of Symbols
                 List {
                     ForEach(filteredSymbols, id: \.self) { symbol in
-                        HStack {
-                            Image(systemName: "person.fill") // Replace with custom symbol image
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                            Text(symbol)
+                        Button {
+                            selectedSymbol = symbol // Set the selected symbol
+                            navigateToAddButton = true // Trigger navigation
+                        } label: {
+                            HStack {
+                                Image(systemName: "person.fill")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                Text(symbol)
+                            }
                         }
                     }
                 }
+                
+                // Navigation to AddButtonView
+                NavigationLink(
+                    destination: AddButtonView(navigateTooAddImage: .constant(false), selectedSymbolImage: $selectedSymbol, navigateFromSymbols: .constant(true), navigateFromImage: .constant(false), selectedSymbolName: $selectedSymbol),
+                    isActive: $navigateToAddButton
+                ) {
+                    EmptyView()
+                }
             }
-           
-            
             .navigationBarTitle("Add Symbols", displayMode: .inline)
         }
     }
 }
+
 
 
 
@@ -194,11 +255,11 @@ struct ImagePicker: UIViewControllerRepresentable {
 }
 
 // MARK: - Previews
-struct AddButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddButtonView()
-    }
-}
+//struct AddButtonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddButtonView(navigateTooAddImage: .constant(true)) // Provide a sample binding
+//    }
+//}
 
 struct AddImageView_Previews: PreviewProvider {
     static var previews: some View {
