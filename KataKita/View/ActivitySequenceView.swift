@@ -32,13 +32,13 @@ struct ActivitySequenceView: View {
                 .padding(.trailing,24)
             }
             ScrollView{
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 250))]) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 200))]) {
                     ForEach(0..<steps.count, id: \.self) { index in
                         ActivityCard(
                             icon: "ball",
                             nomor: "\(index + 1)",
                             text: steps[index],
-                            width: Int(screenWidth * (250 / 1210.0)), height: Int(screenHeight * (150 / 834.0)),
+                            width: Int(screenWidth * (180 / 1210.0)), height: Int(screenWidth * (180 / 1210.0)),
                             font: Int(screenWidth * (15 / 1210.0)), iconWidth: Int(screenWidth * (50 / 1210.0)), iconHeight: Int(screenHeight * (50 / 834.0)),
                             bgColor: "FFFFFF", bgTransparency: 1.0,
                             fontColor: "000000", fontTransparency: 1.0,

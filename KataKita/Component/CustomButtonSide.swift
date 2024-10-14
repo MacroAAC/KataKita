@@ -93,7 +93,7 @@ struct CustomButtonSide: View {
                         }
                     }
                 )
-        .shadow(radius:10)
+        .shadow(color: Color(hex: "000000", transparency: 0.1), radius:10)
     }
 }
 
