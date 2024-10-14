@@ -16,8 +16,6 @@ struct AddButtonView: View {
         NavigationStack {
             Form {
                 Section {
-                    
-                    
                     if navigateTooAddImage {
                         TextField("Text to Speak", text: $textToSpeak)
                         Button(action: {
@@ -255,11 +253,11 @@ struct ImagePicker: UIViewControllerRepresentable {
 }
 
 // MARK: - Previews
-//struct AddButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddButtonView(navigateTooAddImage: .constant(true)) // Provide a sample binding
-//    }
-//}
+struct AddButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddButtonView(navigateTooAddImage: .constant(true), selectedSymbolImage: .constant("people"), navigateFromSymbols: .constant(false), navigateFromImage: .constant(false), selectedSymbolName: .constant("people")) // Provide a sample binding
+    }
+}
 
 struct AddImageView_Previews: PreviewProvider {
     static var previews: some View {
