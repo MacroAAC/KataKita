@@ -3,12 +3,14 @@ import PhotosUI
 
 struct AddImageAACView: View {
     @State var selectedImage: UIImage? = nil
-    @State private var showImage: Bool = true
     @State private var showImagePicker = false
     @State private var showCamera = false
     @State private var showingSymbolsView = false
     @State private var navigateToAddButton = false
     @State private var selectedSymbol = UIImage()
+    @State private var showAlert = false  // State to control the alert presentation
+    @ObservedObject var viewModel = CardViewModel()
+    @Binding var textToSpeak: String
     
     var body: some View {
         NavigationStack {
@@ -18,7 +20,7 @@ struct AddImageAACView: View {
                         showingSymbolsView = true
                     }) {
                         HStack {
-                            Text("Symbols")
+                            Text("Collections")
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.gray)
@@ -26,7 +28,7 @@ struct AddImageAACView: View {
                     }
                     .background(
                         NavigationLink(
-                            destination: AddSymbolsAACView(),
+                            destination: AddCollectionAACView(textToSpeak: .constant("")),
                             isActive: $showingSymbolsView
                         ) {
                             EmptyView()
@@ -45,10 +47,6 @@ struct AddImageAACView: View {
                     }
                     .sheet(isPresented: $showCamera) {
                         ImagePicker(sourceType: .camera, image: $selectedImage)
-                    }
-
-                    Toggle(isOn: $showImage) {
-                        Text("Show Image")
                     }
 
                     if let image = selectedImage {
@@ -76,12 +74,11 @@ struct AddImageAACView: View {
         .background(
             NavigationLink(
                 destination: AddButtonAACView(
-                    navigateTooAddImage: .constant(false),
-                    selectedSymbolImage: .constant(""),
+                    textToSpeak: $textToSpeak, navigateTooAddImage: .constant(false),
                     navigateFromSymbols: .constant(false),
                     navigateFromImage: .constant(true),
-                    selectedSymbolName: .constant(""),
-                    selectedImage: $selectedImage
+                    selectedImageName: .constant(""),
+                    selectedImage: $selectedImage, cardViewModel: viewModel
                 ),
                 isActive: $navigateToAddButton
             ) {
@@ -90,7 +87,6 @@ struct AddImageAACView: View {
         )
     }
 }
-
 
 // MARK: - ImagePicker Helper
 struct ImagePicker: UIViewControllerRepresentable {
@@ -135,11 +131,11 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 // MARK: - Preview
 struct AddImageAACView_Previews: PreviewProvider {
-    @State static var selectedImage: UIImage? = nil
+    @State static var textToSpeak = "This is the alert message"
     
     static var previews: some View {
         NavigationStack {
-            AddImageAACView()
+            AddImageAACView(textToSpeak: $textToSpeak)
         }
     }
 }

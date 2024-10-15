@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CallAACSettingsView: View {
     @State private var showAACSettings = false
-    
+    @ObservedObject var viewModel = CardViewModel()
     
     @State static var navigateTooAddImage = true
     @State static var selectedSymbolImage = "star.fill"
     @State static var navigateFromSymbols = false
     @State static var navigateFromImage = false
     @State static var selectedSymbolName = ""
+    @State static var textToSpeak = ""
     
     var body: some View {
         Button("Choose Image...") {
@@ -23,12 +24,11 @@ struct CallAACSettingsView: View {
         }
         .sheet(isPresented: $showAACSettings) {
             AddButtonAACView(
-                navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
-                selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
+                textToSpeak: CallAACSettingsView.$textToSpeak, navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
                 navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
                 navigateFromImage: CallAACSettingsView.$navigateFromImage,
-                selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
-                selectedImage: .constant(nil)
+                selectedImageName: CallAACSettingsView.$selectedSymbolName,
+                selectedImage: .constant(nil), cardViewModel: viewModel
             )
         }
     }

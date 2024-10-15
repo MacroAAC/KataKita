@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
+    @ObservedObject var viewModel = CardViewModel()
     var body: some View {
         NavigationStack {
             Form {
@@ -10,8 +10,14 @@ struct SettingsView: View {
                     HStack {
                         Text("testsubject@icloud.com")
                         Spacer()
-                        NavigationLink(destination: DetailView()) {
+                        //                        NavigationLink(destination: DetailView()) {
+                        //                            Text("Detail")
+                        //                                .foregroundColor(.gray)
+                        //                        }
+                        HStack {
                             Text("Detail")
+                                .foregroundColor(.gray)
+                            Image(systemName: "chevron.right")
                                 .foregroundColor(.gray)
                         }
                     }
@@ -20,15 +26,18 @@ struct SettingsView: View {
                         Spacer()
                         Image(systemName: "checkmark")
                             .foregroundColor(.blue)
-                        NavigationLink(destination: DetailView()) {
-                            
-                        }
                     }
                     HStack {
                         Text("Bahasa")
                         Spacer()
-                        NavigationLink(destination: DetailView()) {
+                        //                        NavigationLink(destination: DetailView()) {
+                        //                            Text("Detail")
+                        //                                .foregroundColor(.gray)
+                        //                        }
+                        HStack {
                             Text("Detail")
+                                .foregroundColor(.gray)
+                            Image(systemName: "chevron.right")
                                 .foregroundColor(.gray)
                         }
                     }
@@ -40,24 +49,38 @@ struct SettingsView: View {
                         Text("Pengaturan Aktivitas Harian")
                         Spacer()
                         NavigationLink(destination: DetailView()) {
-                            Text("Detail")
-                                .foregroundColor(.gray)
+                            HStack{
+                                Spacer()
+                                Text("Detail")
+                                    .foregroundColor(.gray)
+                            }
                         }
                     }
                     HStack {
-                        Text("Pengaturan Papan AAC")
+                        Text("Buat Kartu Papan AAC")
                         Spacer()
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.blue)
-                        NavigationLink(destination: AddButtonAACView(navigateTooAddImage: .constant(true), selectedSymbolImage: .constant("people"), navigateFromSymbols: .constant(false), navigateFromImage: .constant(false), selectedSymbolName: .constant("people"), selectedImage: .constant(nil))) {
-                            
+                        NavigationLink(destination: AddButtonAACView(textToSpeak: .constant(""), navigateTooAddImage: .constant(true), navigateFromSymbols: .constant(false), navigateFromImage: .constant(false), selectedImageName: .constant("people"), selectedImage: .constant(nil), cardViewModel: viewModel)) {
+                            HStack{
+                                Spacer()
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.blue)
+                            }
                         }
                     }
                     HStack {
                         Text("Pengaturan Urutan Aktifitas")
                         Spacer()
-                        NavigationLink(destination: DetailView()) {
+                        //                        NavigationLink(destination: DetailView()) {
+                        //                            HStack{
+                        //                                Spacer()
+                        //                                Text("Detail")
+                        //                                    .foregroundColor(.gray)
+                        //                            }
+                        //                        }
+                        HStack {
                             Text("Detail")
+                                .foregroundColor(.gray)
+                            Image(systemName: "chevron.right")
                                 .foregroundColor(.gray)
                         }
                     }
@@ -65,13 +88,6 @@ struct SettingsView: View {
             }
             .navigationTitle("Pengaturan")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
-                        // Action for Done button
-                    }
-                }
-            }
         }
     }
 }
