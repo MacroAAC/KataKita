@@ -34,21 +34,25 @@ struct HomePageView: View {
                 }
                 
                 HStack {
-                    CustomButton(
-                        icon: "calendar", text: "JADWAL", width: 350, height: 350,
-                        font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
-                        bgTransparency: 1.0, fontColor: "#555555",
-                        fontTransparency: 1.0, cornerRadius: 20
-                    )
-                    .padding(.trailing, 30)
+                    NavigationLink(destination: DailyActivityView()) {
+                        CustomButton(
+                            icon: "calendar", text: "JADWAL", width: 350, height: 350,
+                            font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
+                            bgTransparency: 1.0, fontColor: "#555555",
+                            fontTransparency: 1.0, cornerRadius: 20
+                        )
+                        .padding(.trailing, 30)
+                    }
                     
-                    CustomButton(
-                        icon: "keyboard", text: "AAC", width: 350, height: 350,
-                        font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
-                        bgTransparency: 1.0, fontColor: "#555555",
-                        fontTransparency: 1.0, cornerRadius: 20
-                    )
-                    .padding(.leading, 30)
+                    NavigationLink(destination: AACRuangMakanView()) {
+                        CustomButton(
+                            icon: "keyboard", text: "AAC", width: 350, height: 350,
+                            font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
+                            bgTransparency: 1.0, fontColor: "#555555",
+                            fontTransparency: 1.0, cornerRadius: 20
+                        )
+                        .padding(.leading, 30)
+                    }
                 }
                 
                 Spacer()

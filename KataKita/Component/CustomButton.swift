@@ -65,9 +65,13 @@ struct CustomButton: View {
                 }
                 
                 if let text = text, !text.isEmpty {
-                    Text(text)
-                        .font(.system(size: CGFloat(font), weight: .medium))
-                        .foregroundColor(Color(hex: fontColor, transparency: fontTransparency))
+                    TextHeadline(
+                        text: text,
+                        size: Int(CGFloat(font)),
+                        color: fontColor,
+                        transparency: fontTransparency,
+                        weight: "medium"
+                    )
                 }
 
                 Spacer()

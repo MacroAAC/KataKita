@@ -79,12 +79,16 @@ struct ActivityCard: View {
                     }
                     
                     if let text = text, !text.isEmpty {
-                        Text(text)
-                            .font(.system(size: CGFloat(font), weight: .medium))
-                            .foregroundColor(Color(hex: fontColor, transparency: fontTransparency))
-                            .multilineTextAlignment(.center)
-
-                            
+                        TextHeadline(
+                            text: text,
+                            size: Int(CGFloat(font)),
+                            color: fontColor,
+                            transparency: fontTransparency,
+                            weight: "bold"
+                        )
+                        .multilineTextAlignment(.center)
+                       
+   
                     }
                     
                     Spacer()
