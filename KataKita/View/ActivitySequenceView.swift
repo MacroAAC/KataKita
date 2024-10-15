@@ -66,8 +66,8 @@ struct ActivitySequenceView: View {
             }.frame(width: CGFloat(screenWidth) * (900 / 1210), height: CGFloat(screenHeight) * (780 / 1210))
         }
         
-    }
 }
+
 
 //#Preview {
 //    ActivitySequenceView(steps: [

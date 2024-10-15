@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,12 @@
 		1E84D8B62CB4D99C0078B648 /* KataKitaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */; };
 		1E84D8B82CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */; };
 		1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8C72CB61AC70078B648 /* colorConverter.swift */; };
+		1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */; };
+		9B5A47B02CBE18AE00ECDF17 /* AACBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */; };
+		9B5A47B22CBE18C000ECDF17 /* AACBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */; };
+		9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */; };
+		9B78DD172CBC89850069DBC5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD162CBC89850069DBC5 /* SettingsView.swift */; };
+		9B78DD282CBDE9C60069DBC5 /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD272CBDE9C60069DBC5 /* ImageCard.swift */; };
 		DAE1E7822CBAF59A00F5F9D1 /* SettingActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1E7812CBAF57F00F5F9D1 /* SettingActivityCard.swift */; };
 		DAE312FD2CB83499001DD0A0 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE312FC2CB83499001DD0A0 /* Activity.swift */; };
 		DAE312FF2CB835B9001DD0A0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE312FE2CB835B9001DD0A0 /* Schedule.swift */; };
@@ -29,7 +35,6 @@
 		DAE313032CB84EC4001DD0A0 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */; };
 		DAE313052CB85677001DD0A0 /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313042CB85677001DD0A0 /* ScheduleManager.swift */; };
 		DAE313072CB86921001DD0A0 /* ActivitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */; };
-		1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,12 @@
 		1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITests.swift; sourceTree = "<group>"; };
 		1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1E84D8C72CB61AC70078B648 /* colorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorConverter.swift; sourceTree = "<group>"; };
+		1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityView.swift; sourceTree = "<group>"; };
+		9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACBoardViewModel.swift; sourceTree = "<group>"; };
+		9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACBoardModel.swift; sourceTree = "<group>"; };
+		9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		9B78DD162CBC89850069DBC5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9B78DD272CBDE9C60069DBC5 /* ImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
 		DAE1E7812CBAF57F00F5F9D1 /* SettingActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingActivityCard.swift; sourceTree = "<group>"; };
 		DAE312FC2CB83499001DD0A0 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		DAE312FE2CB835B9001DD0A0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -77,8 +88,13 @@
 		DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
 		DAE313042CB85677001DD0A0 /* ScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
 		DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesManager.swift; sourceTree = "<group>"; };
-		1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9B78DD182CBDA3860069DBC5 /* AACSettingsView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AACSettingsView; sourceTree = "<group>"; };
+		9B78DD312CBE10B20069DBC5 /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
+		9B78DD322CBE10C50069DBC5 /* ViewModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModel; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1E84D8902CB4D99A0078B648 /* Frameworks */ = {
@@ -108,7 +124,10 @@
 		1E5863822CB6C07C0080373A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B78DD182CBDA3860069DBC5 /* AACSettingsView */,
 				1E5863832CB6C0840080373A /* ActivitySequenceView.swift */,
+				9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */,
+				9B78DD162CBC89850069DBC5 /* SettingsView.swift */,
 				DAE313002CB8375C001DD0A0 /* AddDailyActivityView.swift */,
 				1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */,
 			);
@@ -122,6 +141,7 @@
 				1E84D8AA2CB4D99C0078B648 /* KataKitaTests */,
 				1E84D8B42CB4D99C0078B648 /* KataKitaUITests */,
 				1E84D8942CB4D99A0078B648 /* Products */,
+				9B5A47A42CBE185E00ECDF17 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,13 +208,24 @@
 				1E5863772CB63C600080373A /* CustomButton.swift */,
 				1E5863732CB637B90080373A /* TextHeadline.swift */,
 				1E84D8C72CB61AC70078B648 /* colorConverter.swift */,
+				9B78DD272CBDE9C60069DBC5 /* ImageCard.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		9B5A47A42CBE185E00ECDF17 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				9B78DD312CBE10B20069DBC5 /* Model */,
+				9B78DD322CBE10C50069DBC5 /* ViewModel */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		DAE312F82CB833CA001DD0A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */,
 				DAE312FC2CB83499001DD0A0 /* Activity.swift */,
 				DAE312FE2CB835B9001DD0A0 /* Schedule.swift */,
 			);
@@ -204,6 +235,7 @@
 		DAE312F92CB833D6001DD0A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */,
 				DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */,
 				DAE313042CB85677001DD0A0 /* ScheduleManager.swift */,
 				DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */,
@@ -225,6 +257,11 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9B78DD182CBDA3860069DBC5 /* AACSettingsView */,
+				9B78DD312CBE10B20069DBC5 /* Model */,
+				9B78DD322CBE10C50069DBC5 /* ViewModel */,
 			);
 			name = KataKita;
 			productName = KataKita;
@@ -346,12 +383,14 @@
 				DAE313052CB85677001DD0A0 /* ScheduleManager.swift in Sources */,
 				1E5863842CB6C08C0080373A /* ActivitySequenceView.swift in Sources */,
 				1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */,
+				9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */,
 				DAE1E7822CBAF59A00F5F9D1 /* SettingActivityCard.swift in Sources */,
+				9B5A47B02CBE18AE00ECDF17 /* AACBoardViewModel.swift in Sources */,
 				1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */,
-
 				DAE313072CB86921001DD0A0 /* ActivitiesManager.swift in Sources */,
 				1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */,
 				1E84D8972CB4D99A0078B648 /* KataKitaApp.swift in Sources */,
+				9B78DD282CBDE9C60069DBC5 /* ImageCard.swift in Sources */,
 				DAE312FF2CB835B9001DD0A0 /* Schedule.swift in Sources */,
 				DAE313012CB8375C001DD0A0 /* AddDailyActivityView.swift in Sources */,
 				1E5863812CB6B9B30080373A /* CustomButtonSide.swift in Sources */,
@@ -360,6 +399,8 @@
 				DAE313032CB84EC4001DD0A0 /* ActivityManager.swift in Sources */,
 				DAE312FD2CB83499001DD0A0 /* Activity.swift in Sources */,
 				1E5863742CB637C00080373A /* TextHeadline.swift in Sources */,
+				9B5A47B22CBE18C000ECDF17 /* AACBoardModel.swift in Sources */,
+				9B78DD172CBC89850069DBC5 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,10 +565,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KataKita/Preview Content\"";
-				DEVELOPMENT_TEAM = V82QRJ28YB;
+				DEVELOPMENT_TEAM = NLFHS29F76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KataKita/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to allow users to take photos for new activity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -537,7 +579,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Gwen.KataKita;
+				PRODUCT_BUNDLE_IDENTIFIER = Gwynneth.KataKita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -554,10 +596,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KataKita/Preview Content\"";
-				DEVELOPMENT_TEAM = V82QRJ28YB;
+				DEVELOPMENT_TEAM = NLFHS29F76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KataKita/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to allow users to take photos for new activity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -567,7 +610,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Gwen.KataKita;
+				PRODUCT_BUNDLE_IDENTIFIER = Gwynneth.KataKita;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
