@@ -3,12 +3,13 @@ import SwiftUI
 struct AddButtonAACView: View {
     @State private var textToSpeak: String = ""
     @State private var showingAddImageView = false
-    @State private var selectedImage: UIImage? = nil
+    
     @Binding var navigateTooAddImage: Bool
     @Binding var selectedSymbolImage: String // Track the selected symbol
     @Binding var navigateFromSymbols: Bool
     @Binding var navigateFromImage: Bool
     @Binding var selectedSymbolName: String
+    @Binding var selectedImage: UIImage?
     
     var body: some View {
         NavigationStack {
@@ -116,7 +117,8 @@ struct AddButtonAACView_Previews: PreviewProvider {
             selectedSymbolImage: $selectedSymbolImage,
             navigateFromSymbols: $navigateFromSymbols,
             navigateFromImage: $navigateFromImage,
-            selectedSymbolName: $selectedSymbolName
+            selectedSymbolName: $selectedSymbolName,
+            selectedImage: .constant(nil)
         )
     }
 }

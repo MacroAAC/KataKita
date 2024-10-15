@@ -1,16 +1,17 @@
 import SwiftUI
 
 struct AddSymbolsAACView: View {
+    @ObservedObject var viewModel = CardViewModel()
     @State private var searchText: String = ""
-    @State private var symbols = ["sleep", "wake", "rest"] // Example data
     @State private var navigateToAddButton = false
     @State private var selectedSymbol: String = "" // Store selected symbol
 
     var filteredSymbols: [String] {
+        let allSymbols = viewModel.cards.map { $0.name } // Extracting card names as symbols
         if searchText.isEmpty {
-            return symbols
+            return allSymbols
         } else {
-            return symbols.filter { $0.contains(searchText) }
+            return allSymbols.filter { $0.lowercased().contains(searchText.lowercased()) }
         }
     }
 
@@ -22,26 +23,44 @@ struct AddSymbolsAACView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                 
-                // List of Symbols
+                // List of Symbols and Cards
                 List {
-                    ForEach(filteredSymbols, id: \.self) { symbol in
-                        Button {
-                            selectedSymbol = symbol // Set the selected symbol
-                            navigateToAddButton = true // Trigger navigation
-                        } label: {
-                            HStack {
-                                Image(systemName: "person.fill")
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                Text(symbol)
+                    // Displaying symbols from card names
+                    Section(header: Text("Symbols")) {
+                        ForEach(viewModel.cards) { card in
+                            Button {
+                                selectedSymbol = card.name // Set the selected symbol
+                                navigateToAddButton = true // Trigger navigation
+                            } label: {
+                                HStack {
+                                    Image(uiImage: card.image)
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .clipShape(Circle())
+                                    VStack(alignment: .leading) {
+                                        Text(card.name)
+                                            .font(.headline)
+                                        Text("Category: \(card.category.name)")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color(card.category.color))
+                                    }
+                                }
                             }
                         }
                     }
+                    
                 }
                 
                 // Navigation to AddButtonView
                 NavigationLink(
-                    destination: AddButtonAACView(navigateTooAddImage: .constant(false), selectedSymbolImage: $selectedSymbol, navigateFromSymbols: .constant(true), navigateFromImage: .constant(false), selectedSymbolName: $selectedSymbol),
+                    destination: AddButtonAACView(
+                        navigateTooAddImage: .constant(false),
+                        selectedSymbolImage: $selectedSymbol,
+                        navigateFromSymbols: .constant(true),
+                        navigateFromImage: .constant(false),
+                        selectedSymbolName: $selectedSymbol,
+                        selectedImage: .constant(nil)
+                    ),
                     isActive: $navigateToAddButton
                 ) {
                     EmptyView()

@@ -49,7 +49,7 @@ struct SettingsView: View {
                         Spacer()
                         Image(systemName: "checkmark")
                             .foregroundColor(.blue)
-                        NavigationLink(destination: AddButtonAACView(navigateTooAddImage: .constant(true), selectedSymbolImage: .constant("people"), navigateFromSymbols: .constant(false), navigateFromImage: .constant(false), selectedSymbolName: .constant("people"))) {
+                        NavigationLink(destination: AddButtonAACView(navigateTooAddImage: .constant(true), selectedSymbolImage: .constant("people"), navigateFromSymbols: .constant(false), navigateFromImage: .constant(false), selectedSymbolName: .constant("people"), selectedImage: .constant(nil))) {
                             
                         }
                     }

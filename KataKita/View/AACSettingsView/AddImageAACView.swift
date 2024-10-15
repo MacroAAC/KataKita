@@ -7,11 +7,13 @@ struct AddImageAACView: View {
     @State private var showImagePicker = false
     @State private var showCamera = false
     @State private var showingSymbolsView = false
-    @State private var useSymbol: Bool = false
-
+    @State private var navigateToAddButton = false
+    @State private var selectedSymbol = UIImage()
+    
     var body: some View {
-        Form {
-            Section {
+        NavigationStack {
+            Form {
+                Section {
 
                     Button(action: {
                         showingSymbolsView = true
@@ -31,7 +33,8 @@ struct AddImageAACView: View {
                             EmptyView()
                         }
                     )
-                    // Choose Image
+                    
+                    
                     Button("Choose Image...") {
                         showImagePicker = true
                     }
@@ -39,40 +42,60 @@ struct AddImageAACView: View {
                         ImagePicker(image: $selectedImage)
                     }
                     
-                    // Take Photo
+                   
                     Button("Take Photo...") {
                         showCamera = true
                     }
                     .sheet(isPresented: $showCamera) {
                         ImagePicker(sourceType: .camera, image: $selectedImage)
                     }
-                
-                
-                // Toggle to show image
-                Toggle(isOn: $showImage) {
-                    Text("Show Image")
-                }
-                
-                // Display the image or symbol
-                if showImage {
-                    if useSymbol {
-                        // Show symbol placeholder
-                        ImageCard(icon: "star", width: 100, height: 100, font: 40, bgColor: "#000000", bgTransparency: 1.0, fontColor: "#ffffff", fontTransparency: 1.0, cornerRadius: 20, isSystemImage: true)
-                    } else if let image = selectedImage {
-                        // Show the selected image
+                    
+                    
+                    Toggle(isOn: $showImage) {
+                        Text("Show Image")
+                    }
+                    
+                    
+                    if let image = selectedImage {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200)
                             .cornerRadius(20)
+                    } else {
+                        Text("No image selected")
+                            .foregroundColor(.red)
                     }
                 }
             }
         }
         .navigationBarTitle("Add Image", displayMode: .inline)
+        .navigationBarItems(
+            trailing: Button("Done") {
+                if let image = selectedImage {
+                    selectedSymbol = image  // Set the selected image to be passed
+                    navigateToAddButton = true  // Trigger navigation
+                }
+            }
+        )
+        .background(
+            NavigationLink(
+                destination: AddButtonAACView(
+                    navigateTooAddImage: .constant(false),
+                    selectedSymbolImage: .constant(""),
+                    navigateFromSymbols: .constant(false),
+                    navigateFromImage: .constant(true),
+                    selectedSymbolName: .constant(""),
+                    selectedImage: $selectedImage
+                ),
+                isActive: $navigateToAddButton
+            ) {
+                EmptyView()
+            }
+        )
     }
+    
 }
-
 
 // MARK: - ImagePicker Helper
 struct ImagePicker: UIViewControllerRepresentable {
@@ -102,6 +125,9 @@ struct ImagePicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let uiImage = info[.originalImage] as? UIImage {
                 parent.image = uiImage
+                print("Image selected: \(uiImage)")  // Debugging purpose
+            } else {
+                print("No image found")
             }
             picker.dismiss(animated: true)
         }
@@ -115,7 +141,7 @@ struct ImagePicker: UIViewControllerRepresentable {
 // MARK: - Preview
 struct AddImageAACView_Previews: PreviewProvider {
     @State static var selectedImage: UIImage? = nil
-
+    
     static var previews: some View {
         NavigationStack {
             AddImageAACView(selectedImage: $selectedImage)
