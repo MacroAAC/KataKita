@@ -22,6 +22,9 @@
 		1E84D8B62CB4D99C0078B648 /* KataKitaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */; };
 		1E84D8B82CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */; };
 		1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8C72CB61AC70078B648 /* colorConverter.swift */; };
+		1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */; };
+		9B5A47B02CBE18AE00ECDF17 /* AACBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */; };
+		9B5A47B22CBE18C000ECDF17 /* AACBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */; };
 		9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */; };
 		9B78DD172CBC89850069DBC5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD162CBC89850069DBC5 /* SettingsView.swift */; };
 		9B78DD282CBDE9C60069DBC5 /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78DD272CBDE9C60069DBC5 /* ImageCard.swift */; };
@@ -32,7 +35,6 @@
 		DAE313032CB84EC4001DD0A0 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */; };
 		DAE313052CB85677001DD0A0 /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313042CB85677001DD0A0 /* ScheduleManager.swift */; };
 		DAE313072CB86921001DD0A0 /* ActivitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */; };
-		1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,9 @@
 		1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITests.swift; sourceTree = "<group>"; };
 		1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1E84D8C72CB61AC70078B648 /* colorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorConverter.swift; sourceTree = "<group>"; };
+		1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityView.swift; sourceTree = "<group>"; };
+		9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACBoardViewModel.swift; sourceTree = "<group>"; };
+		9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACBoardModel.swift; sourceTree = "<group>"; };
 		9B78DD0C2CB74C510069DBC5 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		9B78DD162CBC89850069DBC5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9B78DD272CBDE9C60069DBC5 /* ImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
@@ -83,7 +88,6 @@
 		DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
 		DAE313042CB85677001DD0A0 /* ScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
 		DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesManager.swift; sourceTree = "<group>"; };
-		1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -137,6 +141,7 @@
 				1E84D8AA2CB4D99C0078B648 /* KataKitaTests */,
 				1E84D8B42CB4D99C0078B648 /* KataKitaUITests */,
 				1E84D8942CB4D99A0078B648 /* Products */,
+				9B5A47A42CBE185E00ECDF17 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,9 +213,19 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		9B5A47A42CBE185E00ECDF17 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				9B78DD312CBE10B20069DBC5 /* Model */,
+				9B78DD322CBE10C50069DBC5 /* ViewModel */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		DAE312F82CB833CA001DD0A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */,
 				DAE312FC2CB83499001DD0A0 /* Activity.swift */,
 				DAE312FE2CB835B9001DD0A0 /* Schedule.swift */,
 			);
@@ -220,6 +235,7 @@
 		DAE312F92CB833D6001DD0A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */,
 				DAE313022CB84EC4001DD0A0 /* ActivityManager.swift */,
 				DAE313042CB85677001DD0A0 /* ScheduleManager.swift */,
 				DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */,
@@ -369,8 +385,8 @@
 				1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */,
 				9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */,
 				DAE1E7822CBAF59A00F5F9D1 /* SettingActivityCard.swift in Sources */,
+				9B5A47B02CBE18AE00ECDF17 /* AACBoardViewModel.swift in Sources */,
 				1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */,
-
 				DAE313072CB86921001DD0A0 /* ActivitiesManager.swift in Sources */,
 				1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */,
 				1E84D8972CB4D99A0078B648 /* KataKitaApp.swift in Sources */,
@@ -383,6 +399,7 @@
 				DAE313032CB84EC4001DD0A0 /* ActivityManager.swift in Sources */,
 				DAE312FD2CB83499001DD0A0 /* Activity.swift in Sources */,
 				1E5863742CB637C00080373A /* TextHeadline.swift in Sources */,
+				9B5A47B22CBE18C000ECDF17 /* AACBoardModel.swift in Sources */,
 				9B78DD172CBC89850069DBC5 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
