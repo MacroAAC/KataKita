@@ -2,9 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIBackgroundModes</key>
+	<key>ATSApplicationFontsPath</key>
+	<string>Fonts/</string>
+	<key>UIAppFonts</key>
 	<array>
-		<string>remote-notification</string>
+		<string>Made-Black.otf</string>
+		<string>Made-Bold.otf</string>
+		<string>Made-ExtraLight.otf</string>
+		<string>Made-Light.otf</string>
+		<string>Made-Medium.otf</string>
+		<string>Made-Regular.otf</string>
+		<string>Made-SemiBold.otf</string>
+		<string>Made-Thin.otf</string>
+		<string>agency.otf</string>
 	</array>
 </dict>
 </plist>
