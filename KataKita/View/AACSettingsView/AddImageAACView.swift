@@ -2,7 +2,7 @@ import SwiftUI
 import PhotosUI
 
 struct AddImageAACView: View {
-    @Binding var selectedImage: UIImage?
+    @State var selectedImage: UIImage? = nil
     @State private var showImage: Bool = true
     @State private var showImagePicker = false
     @State private var showCamera = false
@@ -14,7 +14,6 @@ struct AddImageAACView: View {
         NavigationStack {
             Form {
                 Section {
-
                     Button(action: {
                         showingSymbolsView = true
                     }) {
@@ -33,29 +32,25 @@ struct AddImageAACView: View {
                             EmptyView()
                         }
                     )
-                    
-                    
+
                     Button("Choose Image...") {
                         showImagePicker = true
                     }
                     .sheet(isPresented: $showImagePicker) {
                         ImagePicker(image: $selectedImage)
                     }
-                    
-                   
+
                     Button("Take Photo...") {
                         showCamera = true
                     }
                     .sheet(isPresented: $showCamera) {
                         ImagePicker(sourceType: .camera, image: $selectedImage)
                     }
-                    
-                    
+
                     Toggle(isOn: $showImage) {
                         Text("Show Image")
                     }
-                    
-                    
+
                     if let image = selectedImage {
                         Image(uiImage: image)
                             .resizable()
@@ -94,8 +89,8 @@ struct AddImageAACView: View {
             }
         )
     }
-    
 }
+
 
 // MARK: - ImagePicker Helper
 struct ImagePicker: UIViewControllerRepresentable {
@@ -144,7 +139,7 @@ struct AddImageAACView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationStack {
-            AddImageAACView(selectedImage: $selectedImage)
+            AddImageAACView()
         }
     }
 }

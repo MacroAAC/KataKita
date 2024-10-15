@@ -29,7 +29,7 @@ struct AddButtonAACView: View {
                         }
                         .background(
                             NavigationLink(
-                                destination: AddImageAACView(selectedImage: $selectedImage),
+                                destination: AddImageAACView(),
                                 isActive: $showingAddImageView
                             ) {
                                 EmptyView()
@@ -58,34 +58,20 @@ struct AddButtonAACView: View {
                         }
                         
                         if navigateFromImage {
+                            TextField("Text to Speak", text: $selectedSymbolName)
                             Button(action: {
                                 showingAddImageView = true
                             }) {
                                 VStack {
-                                    Text("Which meaning?")
-                                        .foregroundColor(Color(red: 60 / 255, green: 60 / 255, blue: 67 / 255))
-                                        .font(.body)
                                     
                                     // Here we check if an image was selected and display it
                                     if let selectedImage = selectedImage {
-                                        ImageCard(
-                                            image: selectedImage,  // Pass the selected image
-                                            width: 100, height: 100, font: 40,
-                                            iconWidth: 50, iconHeight: 50, bgColor: "#000000",
-                                            bgTransparency: 1.0, fontColor: "#ffffff",
-                                            fontTransparency: 1.0, cornerRadius: 20,
-                                            isSystemImage: false // We are not using a system image
-                                        )
-                                    } else {
-                                        // Show placeholder if no image is selected yet
-                                        ImageCard(
-                                            icon: selectedSymbolImage,
-                                            width: 100, height: 100, font: 40,
-                                            iconWidth: 50, iconHeight: 50, bgColor: "#000000",
-                                            bgTransparency: 1.0, fontColor: "#ffffff",
-                                            fontTransparency: 1.0, cornerRadius: 20,
-                                            isSystemImage: true
-                                        )
+                                        
+                                        Image(uiImage: selectedImage)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: CGFloat(100), height: CGFloat(100))
+                                            .padding(.bottom, 8)
                                     }
                                 }
                             }
