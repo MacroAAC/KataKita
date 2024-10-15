@@ -79,12 +79,12 @@ struct ActivityCard: View {
                     }
                     
                     if let text = text, !text.isEmpty {
-                        TextHeadline(
+                        TextContent(
                             text: text,
                             size: Int(CGFloat(font)),
                             color: fontColor,
                             transparency: fontTransparency,
-                            weight: "bold"
+                            weight: "medium"
                         )
                         .multilineTextAlignment(.center)
                        

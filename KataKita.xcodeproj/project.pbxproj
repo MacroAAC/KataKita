@@ -22,6 +22,25 @@
 		1E84D8B62CB4D99C0078B648 /* KataKitaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */; };
 		1E84D8B82CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */; };
 		1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84D8C72CB61AC70078B648 /* colorConverter.swift */; };
+		1EA095542CBE653000B76917 /* Made-Black.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095412CBE625800B76917 /* Made-Black.otf */; };
+		1EA095552CBE653000B76917 /* Made-Bold.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095422CBE625800B76917 /* Made-Bold.otf */; };
+		1EA095562CBE653000B76917 /* Made-ExtraLight.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095432CBE625800B76917 /* Made-ExtraLight.otf */; };
+		1EA095572CBE653000B76917 /* Made-Light.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095442CBE625800B76917 /* Made-Light.otf */; };
+		1EA095582CBE653000B76917 /* Made-Medium.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095452CBE625800B76917 /* Made-Medium.otf */; };
+		1EA095592CBE653000B76917 /* Made-Regular.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095462CBE625800B76917 /* Made-Regular.otf */; };
+		1EA0955A2CBE653000B76917 /* Made-SemiBold.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095472CBE625800B76917 /* Made-SemiBold.otf */; };
+		1EA0955B2CBE653000B76917 /* Made-Thin.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095482CBE625800B76917 /* Made-Thin.otf */; };
+		1EA0955C2CBE653000B76917 /* agency.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1EA095512CBE627200B76917 /* agency.otf */; };
+		1EA0955D2CBE684D00B76917 /* Made-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095412CBE625800B76917 /* Made-Black.otf */; };
+		1EA0955E2CBE684D00B76917 /* Made-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095422CBE625800B76917 /* Made-Bold.otf */; };
+		1EA0955F2CBE684D00B76917 /* Made-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095432CBE625800B76917 /* Made-ExtraLight.otf */; };
+		1EA095602CBE684D00B76917 /* Made-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095442CBE625800B76917 /* Made-Light.otf */; };
+		1EA095612CBE684D00B76917 /* Made-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095452CBE625800B76917 /* Made-Medium.otf */; };
+		1EA095622CBE684D00B76917 /* Made-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095462CBE625800B76917 /* Made-Regular.otf */; };
+		1EA095632CBE684D00B76917 /* Made-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095472CBE625800B76917 /* Made-SemiBold.otf */; };
+		1EA095642CBE684D00B76917 /* Made-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095482CBE625800B76917 /* Made-Thin.otf */; };
+		1EA095652CBE684D00B76917 /* agency.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA095512CBE627200B76917 /* agency.otf */; };
+		1EA095672CBE6B8500B76917 /* TextContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA095662CBE6B7D00B76917 /* TextContent.swift */; };
 		1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */; };
 		9B5A47B02CBE18AE00ECDF17 /* AACBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */; };
 		9B5A47B22CBE18C000ECDF17 /* AACBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */; };
@@ -54,6 +73,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1EA095532CBE650A00B76917 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				1EA095542CBE653000B76917 /* Made-Black.otf in CopyFiles */,
+				1EA095552CBE653000B76917 /* Made-Bold.otf in CopyFiles */,
+				1EA095562CBE653000B76917 /* Made-ExtraLight.otf in CopyFiles */,
+				1EA095572CBE653000B76917 /* Made-Light.otf in CopyFiles */,
+				1EA095582CBE653000B76917 /* Made-Medium.otf in CopyFiles */,
+				1EA095592CBE653000B76917 /* Made-Regular.otf in CopyFiles */,
+				1EA0955A2CBE653000B76917 /* Made-SemiBold.otf in CopyFiles */,
+				1EA0955B2CBE653000B76917 /* Made-Thin.otf in CopyFiles */,
+				1EA0955C2CBE653000B76917 /* agency.otf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		105D7EE82CBCA84B00F7AA96 /* AACRuangMakanView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AACRuangMakanView 2.swift"; sourceTree = "<group>"; };
 		1E5863732CB637B90080373A /* TextHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeadline.swift; sourceTree = "<group>"; };
@@ -75,6 +115,16 @@
 		1E84D8B52CB4D99C0078B648 /* KataKitaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITests.swift; sourceTree = "<group>"; };
 		1E84D8B72CB4D99C0078B648 /* KataKitaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataKitaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1E84D8C72CB61AC70078B648 /* colorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorConverter.swift; sourceTree = "<group>"; };
+		1EA095412CBE625800B76917 /* Made-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-Black.otf"; sourceTree = "<group>"; };
+		1EA095422CBE625800B76917 /* Made-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-Bold.otf"; sourceTree = "<group>"; };
+		1EA095432CBE625800B76917 /* Made-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-ExtraLight.otf"; sourceTree = "<group>"; };
+		1EA095442CBE625800B76917 /* Made-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-Light.otf"; sourceTree = "<group>"; };
+		1EA095452CBE625800B76917 /* Made-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-Medium.otf"; sourceTree = "<group>"; };
+		1EA095462CBE625800B76917 /* Made-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-Regular.otf"; sourceTree = "<group>"; };
+		1EA095472CBE625800B76917 /* Made-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-SemiBold.otf"; sourceTree = "<group>"; };
+		1EA095482CBE625800B76917 /* Made-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Made-Thin.otf"; sourceTree = "<group>"; };
+		1EA095512CBE627200B76917 /* agency.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = agency.otf; sourceTree = "<group>"; };
+		1EA095662CBE6B7D00B76917 /* TextContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContent.swift; sourceTree = "<group>"; };
 		1EBBC2332CB78EF200673D97 /* DailyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityView.swift; sourceTree = "<group>"; };
 		9B5A47AF2CBE18AE00ECDF17 /* AACBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACBoardViewModel.swift; sourceTree = "<group>"; };
 		9B5A47B12CBE18C000ECDF17 /* AACBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACBoardModel.swift; sourceTree = "<group>"; };
@@ -159,6 +209,7 @@
 		1E84D8952CB4D99A0078B648 /* KataKita */ = {
 			isa = PBXGroup;
 			children = (
+				1EA0953E2CBE60DB00B76917 /* Fonts */,
 				DAE312F92CB833D6001DD0A0 /* ViewModel */,
 				DAE312F82CB833CA001DD0A0 /* Model */,
 				1E5863822CB6C07C0080373A /* View */,
@@ -202,6 +253,7 @@
 		1E84D8C42CB6160C0078B648 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				1EA095662CBE6B7D00B76917 /* TextContent.swift */,
 				DAE1E7812CBAF57F00F5F9D1 /* SettingActivityCard.swift */,
 				1E5863802CB6B9A70080373A /* CustomButtonSide.swift */,
 				1E58637B2CB6810E0080373A /* ActivityCard.swift */,
@@ -211,6 +263,38 @@
 				9B78DD272CBDE9C60069DBC5 /* ImageCard.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		1EA0953E2CBE60DB00B76917 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1EA095402CBE60FE00B76917 /* Made */,
+				1EA0953F2CBE60E300B76917 /* Agency */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1EA0953F2CBE60E300B76917 /* Agency */ = {
+			isa = PBXGroup;
+			children = (
+				1EA095512CBE627200B76917 /* agency.otf */,
+			);
+			path = Agency;
+			sourceTree = "<group>";
+		};
+		1EA095402CBE60FE00B76917 /* Made */ = {
+			isa = PBXGroup;
+			children = (
+				1EA095412CBE625800B76917 /* Made-Black.otf */,
+				1EA095422CBE625800B76917 /* Made-Bold.otf */,
+				1EA095432CBE625800B76917 /* Made-ExtraLight.otf */,
+				1EA095442CBE625800B76917 /* Made-Light.otf */,
+				1EA095452CBE625800B76917 /* Made-Medium.otf */,
+				1EA095462CBE625800B76917 /* Made-Regular.otf */,
+				1EA095472CBE625800B76917 /* Made-SemiBold.otf */,
+				1EA095482CBE625800B76917 /* Made-Thin.otf */,
+			);
+			path = Made;
 			sourceTree = "<group>";
 		};
 		9B5A47A42CBE185E00ECDF17 /* Recovered References */ = {
@@ -253,6 +337,7 @@
 				1E84D88F2CB4D99A0078B648 /* Sources */,
 				1E84D8902CB4D99A0078B648 /* Frameworks */,
 				1E84D8912CB4D99A0078B648 /* Resources */,
+				1EA095532CBE650A00B76917 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -352,6 +437,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA0955D2CBE684D00B76917 /* Made-Black.otf in Resources */,
+				1EA0955E2CBE684D00B76917 /* Made-Bold.otf in Resources */,
+				1EA0955F2CBE684D00B76917 /* Made-ExtraLight.otf in Resources */,
+				1EA095602CBE684D00B76917 /* Made-Light.otf in Resources */,
+				1EA095612CBE684D00B76917 /* Made-Medium.otf in Resources */,
+				1EA095622CBE684D00B76917 /* Made-Regular.otf in Resources */,
+				1EA095632CBE684D00B76917 /* Made-SemiBold.otf in Resources */,
+				1EA095642CBE684D00B76917 /* Made-Thin.otf in Resources */,
+				1EA095652CBE684D00B76917 /* agency.otf in Resources */,
 				1E84D8A02CB4D99C0078B648 /* Preview Assets.xcassets in Resources */,
 				1E84D89D2CB4D99C0078B648 /* Assets.xcassets in Resources */,
 			);
@@ -382,6 +476,7 @@
 				1E5863782CB63C640080373A /* CustomButton.swift in Sources */,
 				DAE313052CB85677001DD0A0 /* ScheduleManager.swift in Sources */,
 				1E5863842CB6C08C0080373A /* ActivitySequenceView.swift in Sources */,
+				1EA095672CBE6B8500B76917 /* TextContent.swift in Sources */,
 				1E84D8C82CB61AC70078B648 /* colorConverter.swift in Sources */,
 				9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */,
 				DAE1E7822CBAF59A00F5F9D1 /* SettingActivityCard.swift in Sources */,
