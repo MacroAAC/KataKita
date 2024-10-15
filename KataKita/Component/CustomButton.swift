@@ -65,7 +65,7 @@ struct CustomButton: View {
                 }
                 
                 if let text = text, !text.isEmpty {
-                    TextHeadline(
+                    TextContent(
                         text: text,
                         size: Int(CGFloat(font)),
                         color: fontColor,

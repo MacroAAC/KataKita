@@ -26,7 +26,6 @@ struct HomePageView: View {
                     .padding(.leading, 20)
                     
                     Spacer()
-                    
                     TextHeadline(text: "KanggoWicara", size: 60, color: "00000", transparency: 1.0, weight: "bold")
                         .padding(.trailing, 100)
                     

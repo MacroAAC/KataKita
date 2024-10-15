@@ -50,12 +50,12 @@ struct CustomButtonSide: View {
                 Spacer()
                 if let text = text, !text.isEmpty {
                     
-                    TextHeadline(
+                    TextContent(
                         text: text,
                         size: Int(CGFloat(font)),
                         color: fontColor,
                         transparency: fontTransparency,
-                        weight: "bold"
+                        weight: "medium"
                     )
                     .padding(.trailing,8)
 

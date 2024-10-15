@@ -24,7 +24,7 @@ struct TextHeadline: View {
     
     var body: some View {
             var styledText: Text = Text(text)
-            .font(.system(size: CGFloat(size), weight: .regular, design: .rounded))
+            .font(Font.custom("agency", size: CGFloat(size)))
                 .foregroundColor(Color(hex: color, transparency: transparency))
                 .fontWeight(mapFontWeight(weight))
 
@@ -49,5 +49,5 @@ struct TextHeadline: View {
 
 // heading
 #Preview {
-    TextHeadline(text: "Styled Text", size: 96, color: "00000", transparency: 1.0, weight: "bold")
+    TextHeadline(text: "Styled Text", size: 196, color: "00000", transparency: 1.0, weight: "bold")
 }
