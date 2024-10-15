@@ -49,10 +49,16 @@ struct CustomButtonSide: View {
             HStack(spacing: 4) {
                 Spacer()
                 if let text = text, !text.isEmpty {
-                    Text(text)
-                        .font(.system(size: CGFloat(font), weight: .medium))
-                        .foregroundColor(Color(hex: fontColor, transparency: fontTransparency))
-                        .padding(.trailing,8)
+                    
+                    TextHeadline(
+                        text: text,
+                        size: Int(CGFloat(font)),
+                        color: fontColor,
+                        transparency: fontTransparency,
+                        weight: "bold"
+                    )
+                    .padding(.trailing,8)
+
                 }
                 
                 if let icon = icon, !icon.isEmpty {
@@ -93,7 +99,7 @@ struct CustomButtonSide: View {
                         }
                     }
                 )
-        .shadow(radius:10)
+        .shadow(color: Color(hex: "000000", transparency: 0.1), radius:10)
     }
 }
 

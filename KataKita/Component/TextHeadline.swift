@@ -24,7 +24,7 @@ struct TextHeadline: View {
     
     var body: some View {
             var styledText: Text = Text(text)
-            .font(.custom("SF Pro Rounded", size: CGFloat(size)))
+            .font(.system(size: CGFloat(size), weight: .regular, design: .rounded))
                 .foregroundColor(Color(hex: color, transparency: transparency))
                 .fontWeight(mapFontWeight(weight))
 

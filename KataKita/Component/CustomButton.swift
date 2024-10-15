@@ -65,9 +65,13 @@ struct CustomButton: View {
                 }
                 
                 if let text = text, !text.isEmpty {
-                    Text(text)
-                        .font(.system(size: CGFloat(font), weight: .medium))
-                        .foregroundColor(Color(hex: fontColor, transparency: fontTransparency))
+                    TextHeadline(
+                        text: text,
+                        size: Int(CGFloat(font)),
+                        color: fontColor,
+                        transparency: fontTransparency,
+                        weight: "medium"
+                    )
                 }
 
                 Spacer()
@@ -77,7 +81,7 @@ struct CustomButton: View {
         .frame(width: CGFloat(width), height: CGFloat(height))
         .background(Color(hex: bgColor, transparency: bgTransparency))
         .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-        .shadow(radius:10)
+        .shadow(color: Color(hex: "000000", transparency: 0.1), radius:10)
     }
 }
 
