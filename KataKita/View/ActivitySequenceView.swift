@@ -52,10 +52,15 @@ struct ActivitySequenceView: View {
                 }
                 .padding()
                 
-                .onAppear{
-                    print(UIScreen.main.bounds.width)
-                    print(UIScreen.main.bounds.height)
-                    
+                CustomButtonSide(icon: "hand.thumbsup.fill", text: "SELESAI", width: 125, height: 35, font: 15,iconWidth: 15 , iconHeight: 15, bgColor: "#000000", bgTransparency: 1.0, fontColor: "ffffff", fontTransparency: 1.0, cornerRadius: 20)
+            }
+            .padding()
+            .frame(width: UIScreen.main.bounds.width-350)
+            .background(Color.red)
+            .cornerRadius(20) 
+            .onAppear{
+                print(UIScreen.main.bounds.width)
+                print(UIScreen.main.bounds.height)                
                 }
                 
             }.frame(width: CGFloat(screenWidth) * (900 / 1210), height: CGFloat(screenHeight) * (780 / 1210))
