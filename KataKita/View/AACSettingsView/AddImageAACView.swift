@@ -7,55 +7,72 @@ struct AddImageAACView: View {
     @State private var showImagePicker = false
     @State private var showCamera = false
     @State private var showingSymbolsView = false
-    
+    @State private var useSymbol: Bool = false
+
     var body: some View {
         Form {
             Section {
-                // Symbols Placeholder
-                Button(action: {
-                    showingSymbolsView = true
-                }) {
-                    HStack {
-                        Text("Symbols")
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+
+                    Button(action: {
+                        showingSymbolsView = true
+                    }) {
+                        HStack {
+                            Text("Symbols")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
                     }
-                }
-                .background(
-                    NavigationLink(
-                        destination: AddSymbolsAACView(),
-                        isActive: $showingSymbolsView
-                    ) {
-                        EmptyView()
+                    .background(
+                        NavigationLink(
+                            destination: AddSymbolsAACView(),
+                            isActive: $showingSymbolsView
+                        ) {
+                            EmptyView()
+                        }
+                    )
+                    // Choose Image
+                    Button("Choose Image...") {
+                        showImagePicker = true
                     }
-                )
+                    .sheet(isPresented: $showImagePicker) {
+                        ImagePicker(image: $selectedImage)
+                    }
+                    
+                    // Take Photo
+                    Button("Take Photo...") {
+                        showCamera = true
+                    }
+                    .sheet(isPresented: $showCamera) {
+                        ImagePicker(sourceType: .camera, image: $selectedImage)
+                    }
                 
-                // Choose Image
-                Button("Choose Image...") {
-                    showImagePicker = true
-                }
-                .sheet(isPresented: $showImagePicker) {
-                    ImagePicker(image: $selectedImage)
-                }
-                
-                // Take Photo
-                Button("Take Photo...") {
-                    showCamera = true
-                }
-                .sheet(isPresented: $showCamera) {
-                    ImagePicker(sourceType: .camera, image: $selectedImage)
-                }
                 
                 // Toggle to show image
                 Toggle(isOn: $showImage) {
                     Text("Show Image")
+                }
+                
+                // Display the image or symbol
+                if showImage {
+                    if useSymbol {
+                        // Show symbol placeholder
+                        ImageCard(icon: "star", width: 100, height: 100, font: 40, bgColor: "#000000", bgTransparency: 1.0, fontColor: "#ffffff", fontTransparency: 1.0, cornerRadius: 20, isSystemImage: true)
+                    } else if let image = selectedImage {
+                        // Show the selected image
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                            .cornerRadius(20)
+                    }
                 }
             }
         }
         .navigationBarTitle("Add Image", displayMode: .inline)
     }
 }
+
 
 // MARK: - ImagePicker Helper
 struct ImagePicker: UIViewControllerRepresentable {
