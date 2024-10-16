@@ -45,7 +45,11 @@ struct SettingActivityCard: View {
                         )
                 }
                 
-                Text("\(activity.name)")
+                TextContent(
+                    text: "\(activity.name)",
+                    size: 20,
+                    color: "313131",
+                    weight: "Light")
                 
             }
             Spacer()

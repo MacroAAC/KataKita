@@ -135,7 +135,11 @@ struct AddDailyActivityView: View {
                     )
                     ZStack {
                         if extractActivity.isEmpty {
-                            Text("Jadwal masih kosong")
+                            TextContent(
+                                text: "Jadwal kosong",
+                                size: 20,
+                                color: "616161",
+                                weight: "Light")
                         }
                         else {
                             ScrollView {
@@ -180,8 +184,12 @@ struct AddDailyActivityView: View {
                                     )
                                     .frame(width: 150, height: 40)
                                     .overlay(
-                                        Text("Hapus Semua").foregroundStyle(
-                                            Color(hex: "FBFBFB"))
+                                        TextContent(
+                                            text: "Hapus Semua",
+                                            size: 15,
+                                            color: "FBFBFB",
+                                            weight: "semibold"
+                                        )
                                     )
                             }
                         }
@@ -210,9 +218,9 @@ struct AddDailyActivityView: View {
                         TextField("Search", text: $searchText)
                     }
                     .padding(.horizontal, 10)
-                    .frame(height: 40)
+                    .frame(height: 50)
                     .background(
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 14)
                             .fill(Color(hex: "E0E0E1", transparency: 1.0))
                     )
 
@@ -234,9 +242,6 @@ struct AddDailyActivityView: View {
                     width: viewPortWidth * 0.5,
                     alignment: .topLeading
                 )
-
-                // View Kanan (List of Today's Activity)
-
             }
             .padding(EdgeInsets(top: 0, leading: 50, bottom: 50, trailing: 50))
             .frame(height: viewPortHeight - 50)
@@ -246,7 +251,6 @@ struct AddDailyActivityView: View {
                 .fill(Color(hex: "FBFBFB", transparency: 1.0))
                 .ignoresSafeArea()
         )
-
     }
 }
 
