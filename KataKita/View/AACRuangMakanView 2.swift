@@ -25,20 +25,27 @@ extension Color {
 }
 
 struct AACRuangMakanView: View {
+    @State private var showAACSettings = false
+    @State private var pencilPressed = false
+    @State private var showPlusButton = false
+    @State private var showAlert = false
+    @State private var hasSpoken = false
+    
+    
     // Update selectedButton to include the icon
-    @State private var selectedButton: [(String, String, String)] = []
+    @State private var selectedButton: [(String, String, String, String)] = []
     
     // Update columnsData to include an additional String for font color
-    @State private var columnsData: [[(String, String, String)]] = [
-        [("saya", "#FFEBAF", "#000000"), ("kamu", "#FFEBAF", "#000000"), ("dia", "#FFEBAF", "#000000"), ("kita", "#FFEBAF", "#000000"), ("mama", "#FFEBAF", "#000000"), ("papa", "#FFEBAF", "#000000")],
-        [("apa", "#A77DFF", "#000000"), ("dimana", "#A77DFF", "#000000"), ("siapa", "#A77DFF", "#000000")],
-        [("suka", "#FFB0C7", "#000000"), ("tidak suka", "#FFB0C7", "#000000"), ("mau", "#FFB0C7", "#000000"), ("tidak mau", "#FFB0C7", "#000000"), ("tolong", "#FFB0C7", "#000000")],
-        [("makan", "#CFF0C8", "#000000"), ("minum", "#CFF0C8", "#000000"), ("putar", "#CFF0C8", "#000000"), ("buka", "#CFF0C8", "#000000"), ("tutup", "#CFF0C8", "#000000")],
-        [("masukkan", "#CFF0C8", "#000000"), ("ambil", "#CFF0C8", "#000000"), ("kunyah", "#CFF0C8", "#000000"), ("potong", "#CFF0C8", "#000000"), ("buang", "#CFF0C8", "#000000")],
-        [("dingin", "#D4F3FF", "#000000"), ("panas", "#D4F3FF", "#000000"), ("asin", "#D4F3FF", "#000000"), ("manis", "#D4F3FF", "#000000")],
-        [("sendok", "#F2B95C", "#000000"), ("garpu", "#F2B95C", "#000000"), ("piring", "#F2B95C", "#000000"), ("mangkok", "#F2B95C", "#000000"), ("gelas", "#F2B95C", "#000000")],
-        [("di", "#FFFFFF", "#000000"), ("ke", "#FFFFFF", "#000000"), ("dan", "#FFFFFF", "#000000")],
-        [("hitam", "#000000", "#000000"), ("cokelat", "#835737", "#835737"), ("oranye", "#E9AE50", "#E9AE50"), ("merah", "#E54646", "#E54646"), ("ungu", "#B378D8", "#B378D8"), ("pink", "#EDB0DC", "#EDB0DC"), ("biru", "#889AE4", "#889AE4"), ("hijau", "#B7D273", "#B7D273"), ("kuning", "#EFDB76", "#EFDB76")]
+    @State private var columnsData: [[(String, String, String, String)]] = [
+        [("person.fill", "saya", "#FFEBAF", "#000000"), ("person.fill", "kamu", "#FFEBAF", "#000000"), ("person.fill", "dia", "#FFEBAF", "#000000"), ("person.fill", "kita", "#FFEBAF", "#000000"), ("person.fill", "mama", "#FFEBAF", "#000000"), ("person.fill", "papa", "#FFEBAF", "#000000")],
+        [("person.fill", "apa", "#A77DFF", "#000000"), ("person.fill", "dimana", "#A77DFF", "#000000"), ("person.fill", "siapa", "#A77DFF", "#000000")],
+        [("person.fill", "suka", "#FFB0C7", "#000000"), ("person.fill", "tidak suka", "#FFB0C7", "#000000"), ("person.fill", "mau", "#FFB0C7", "#000000"), ("person.fill", "tidak mau", "#FFB0C7", "#000000"), ("person.fill", "tolong", "#FFB0C7", "#000000")],
+        [("person.fill", "makan", "#CFF0C8", "#000000"), ("person.fill", "minum", "#CFF0C8", "#000000"), ("person.fill", "putar", "#CFF0C8", "#000000"), ("person.fill", "buka", "#CFF0C8", "#000000"), ("person.fill", "tutup", "#CFF0C8", "#000000")],
+        [("person.fill", "masukkan", "#CFF0C8", "#000000"), ("person.fill", "ambil", "#CFF0C8", "#000000"), ("person.fill", "kunyah", "#CFF0C8", "#000000"), ("person.fill", "potong", "#CFF0C8", "#000000"), ("person.fill", "buang", "#CFF0C8", "#000000")],
+        [("person.fill", "dingin", "#D4F3FF", "#000000"), ("person.fill", "panas", "#D4F3FF", "#000000"), ("person.fill", "asin", "#D4F3FF", "#000000"), ("person.fill", "manis", "#D4F3FF", "#000000")],
+        [("person.fill", "sendok", "#F2B95C", "#000000"), ("person.fill", "garpu", "#F2B95C", "#000000"), ("person.fill", "piring", "#F2B95C", "#000000"), ("person.fill", "mangkok", "#F2B95C", "#000000"), ("person.fill", "gelas", "#F2B95C", "#000000")],
+        [("person.fill", "di", "#FFFFFF", "#000000"), ("person.fill", "ke", "#FFFFFF", "#000000"), ("person.fill", "dan", "#FFFFFF", "#000000")],
+        [("person.fill", "hitam", "#000000", "#000000"), ("person.fill", "cokelat", "#835737", "#835737"), ("person.fill", "oranye", "#E9AE50", "#E9AE50"), ("person.fill", "merah", "#E54646", "#E54646"), ("person.fill", "ungu", "#B378D8", "#B378D8"), ("person.fill", "pink", "#EDB0DC", "#EDB0DC"), ("person.fill", "biru", "#889AE4", "#889AE4"), ("person.fill", "hijau", "#B7D273", "#B7D273"), ("person.fill", "kuning", "#EFDB76", "#EFDB76")]
     ]
     
     let columns = [
@@ -76,16 +83,16 @@ struct AACRuangMakanView: View {
                                 if index < 11 {
                                     // Display CustomButton for the first 11 items
                                     CustomButton(
-                                        icon: "person.fill", // Use the new icon variable
-                                        text: selectedButton[index].0, // Accessing the text from the tuple
+                                        icon: selectedButton[index].0, // Use the new icon variable
+                                        text: selectedButton[index].1, // Accessing the text from the tuple
                                         width: Int(screenWidth * (100 / 1376)),
                                         height: Int(screenHeight * (100 / 1032)),
                                         font: Int(screenWidth * (16 / 1376)),
                                         iconWidth: Int(screenWidth * (50 / 1376)),
                                         iconHeight: Int(screenHeight * (50 / 1032)),
-                                        bgColor: selectedButton[index].1, // Accessing the background color from the tuple
+                                        bgColor: selectedButton[index].2, // Accessing the background color from the tuple
                                         bgTransparency: 1.0,
-                                        fontColor: selectedButton[index].2, // Accessing the font color from the tuple
+                                        fontColor: selectedButton[index].3, // Accessing the font color from the tuple
                                         fontTransparency: 1.0,
                                         cornerRadius: 10,
                                         isSystemImage: true,
@@ -93,7 +100,7 @@ struct AACRuangMakanView: View {
                                     )
                                 } else {
                                     // Display plain Text for items beyond the 11th
-                                    Text(selectedButton[index].0)
+                                    Text(selectedButton[index].1)
                                         .font(.system(size: screenWidth * (16 / 1376)))
                                         .foregroundColor(.black)
                                         .padding(.horizontal, screenWidth * (5 / 1376))
@@ -345,49 +352,244 @@ struct AACRuangMakanView: View {
                                         // Special design for the last column
                                         if columnIndex == columnsData.count - 1 {
                                             CustomButton(
-                                                text: buttonData.0,
+                                                text: buttonData.1,
                                                 width: Int(screenWidth * (100/1376.0)),
                                                 height: Int(screenHeight * (60/1032.0)),
                                                 font: Int(screenWidth * (18/1376.0)),
                                                 iconWidth: Int(screenWidth * (50/1376.0)),
                                                 iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: buttonData.1,
+                                                bgColor: buttonData.2,
                                                 bgTransparency: 1.0,
-                                                fontColor: buttonData.2, // Use font color from buttonData
+                                                fontColor: buttonData.3,
                                                 fontTransparency: 1.0,
                                                 cornerRadius: 15,
                                                 isSystemImage: true,
                                                 action: {
-                                                    speakText(buttonData.0)
-                                                    selectedButton.append(buttonData) // Append full data including icon
+                                                    if selectedButton.count < 10 {
+                                                        showAlert = false
+                                                        speakText(buttonData.0)
+                                                        selectedButton.append(buttonData)
+                                                    } else {
+                                                        showAlert = true
+                                                        hasSpoken = false
+                                                        if hasSpoken == false {
+                                                            speakText("Kotak Kata Penuh")
+                                                        }
+                                                    }
                                                 }
                                             )
+                                            .alert(isPresented: $showAlert) {
+                                                Alert(
+                                                    title: Text("Kotak Kata Penuh"),
+                                                    message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
+                                                    dismissButton: .default(Text("OK"), action: {
+                                                        hasSpoken = true
+                                                    })
+                                                )
+                                            }
                                             .padding(.bottom,screenHeight * (3/1032.0))
                                         } else {
                                             // Default button for other columns
                                             CustomButton(
-                                                icon: "person.fill", // Add icon from buttonData
-                                                text: buttonData.0,
+                                                icon: buttonData.0,
+                                                text: buttonData.1,
                                                 width: Int(screenWidth * (100/1376.0)),
                                                 height: Int(screenHeight * (100/1032.0)),
                                                 font: Int(screenWidth * (16/1376.0)),
                                                 iconWidth: Int(screenWidth * (40/1376.0)),
                                                 iconHeight: Int(screenHeight * (40/1032.0)),
-                                                bgColor: buttonData.1,
+                                                bgColor: buttonData.2,
                                                 bgTransparency: 1.0,
-                                                fontColor: buttonData.2, // Use font color from buttonData
+                                                fontColor: buttonData.3,
                                                 fontTransparency: 1.0,
                                                 cornerRadius: 10,
                                                 isSystemImage: true,
                                                 action: {
-                                                    speakText(buttonData.0)
-                                                    selectedButton.append(buttonData) // Append full data including icon
+                                                    if selectedButton.count < 10 {
+                                                        showAlert = false
+                                                        speakText(buttonData.0)
+                                                        selectedButton.append(buttonData)
+                                                    } else {
+                                                        showAlert = true
+                                                        hasSpoken = false
+                                                        if hasSpoken == false {
+                                                            speakText("Kotak Kata Penuh")
+                                                        }
+                                                    }
+                                                }
+                                            )
+                                            .alert(isPresented: $showAlert) {
+                                                Alert(
+                                                    title: Text("Kotak Kata Penuh"),
+                                                    message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
+                                                    dismissButton: .default(Text("OK"), action: {
+                                                        hasSpoken = true
+                                                    })
+                                                )
+                                            }
+                                        }
+                                    }
+                                    else if showPlusButton && columnsData[columnIndex].count < 6 {
+                                        if columnIndex == 0{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#FFEBAF",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
                                                 }
                                             )
                                         }
-                                    } else {
-                                        Spacer()
-                                            .frame(width: screenWidth * (100/1376.0), height: screenHeight * (100/1032.0))
+                                        if columnIndex == 1{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#A77DFF",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                        }
+                                        if columnIndex == 2{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#FFB0C7",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                        }
+                                        if columnIndex == 3{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#CFF0C8",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                        }
+                                        if columnIndex == 4{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#CFF0C8",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                        }
+                                        if columnIndex == 5{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#D4F3FF",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                        }
+                                        if columnIndex == 6{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#F2B95C",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                        }
+                                        if columnIndex == 7{
+                                            
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: "#FFFFFF",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                        }
                                     }
                                 }
                             }
@@ -397,6 +599,45 @@ struct AACRuangMakanView: View {
                     .padding(.leading,screenWidth * (25/1376.0))
                 }
                 VStack{
+                    ZStack {
+                        Rectangle()
+                            .fill(Color(hex: "#EEEEEE"))
+                            .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
+                            .cornerRadius(20)
+                            .shadow(radius: 5,x: 3,y:4)
+                        
+                        CustomButton(
+                            icon: "pencil",
+                            width: Int(screenWidth * (50/1376.0)),
+                            height: Int(screenHeight * (50/1032.0)),
+                            font: Int(screenWidth * (40/1376.0)),
+                            iconWidth: Int(screenWidth * (40/1376.0)),
+                            iconHeight: Int(screenHeight * (40/1032.0)),
+                            bgColor: "#000000",
+                            bgTransparency: 0,
+                            fontColor: "#696767",
+                            fontTransparency: 1.0,
+                            cornerRadius: 20,
+                            isSystemImage: true,
+                            action:{
+//                                showAACSettings = true
+                                handlePencilPress()
+                            }
+                        )
+                        
+                    }
+                    .sheet(isPresented: $showAACSettings) {
+                        AddButtonAACView(
+                            navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
+                            selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
+                            navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
+                            navigateFromImage: CallAACSettingsView.$navigateFromImage,
+                            selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
+                            selectedImage: .constant(nil)
+                        )
+                    }
+                    
+                    
                     ZStack {
                         Rectangle()
                             .fill(Color(hex: "#EEEEEE"))
@@ -452,7 +693,7 @@ struct AACRuangMakanView: View {
                     }
                 }
                 .padding(.leading,screenWidth * (1230/1376.0))
-                .padding(.top,screenHeight * (380/1032.0))
+                .padding(.top,screenHeight * (270/1032.0))
                 
             }
             
@@ -473,10 +714,10 @@ struct AACRuangMakanView: View {
         speechSynthesizer.speak(utterance)
     }
     
-    func speakAllText(from buttons: [(String, String, String)]) {
+    func speakAllText(from buttons: [(String, String, String, String)]) {
             // Concatenate all the strings from the tuples into a single text
             var fullText = ""
-            for (text, warnaButton, warnaText) in buttons {
+            for (icon, text, warnaButton, warnaText) in buttons {
                 fullText += "\(text) "
             }
             
@@ -486,6 +727,16 @@ struct AACRuangMakanView: View {
             utterance.rate = 0.5
             speechSynthesizer.speak(utterance)
         }
+    
+    private func handlePencilPress() {
+        // Check if any column has less than 6 items
+        if columnsData.contains(where: { $0.count < 6 }) {
+            showPlusButton.toggle() // Show/hide plus button based on current state
+        } else {
+            showPlusButton = false // Hide the plus button if all columns are filled
+        }
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
