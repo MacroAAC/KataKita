@@ -29,23 +29,27 @@ struct SettingActivityCard: View {
             HStack{
                 if let image = activity.image {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "FFEBAF", transparency: 1.0))
-                        .frame(width: 60, height: 60)
+                        .fill(number != nil ? Color(hex: "F7F5F0", transparency: 1.0): Color(hex: "BDD4CE", transparency: 1.0))
+                        .frame(width: 70, height: 70)
                         .overlay(Image(systemName: "person.crop.circle")
                             .resizable()
                             .frame(width: 30, height: 30)
                         )
                 } else {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "FFEBAF", transparency: 1.0))
-                        .frame(width: 60, height: 60)
+                        .fill(number != nil ? Color(hex: "F7F5F0", transparency: 1.0): Color(hex: "BDD4CE", transparency: 1.0))
+                        .frame(width: 70, height: 70)
                         .overlay(Image(systemName: "crossmark")
                             .resizable()
                             .frame(width: 30, height: 30)
                         )
                 }
                 
-                Text("\(activity.name)")
+                TextContent(
+                    text: "\(activity.name)",
+                    size: 20,
+                    color: "313131",
+                    weight: "Light")
                 
             }
             Spacer()
@@ -56,12 +60,15 @@ struct SettingActivityCard: View {
                     }
                 } label: {
                     Circle()
-                        .fill(.red)
+                        .fill(Color(hex: "EB7D7B"))
                         .frame(width: 20, height: 20)
                         .overlay(
                             Image(systemName: "minus").foregroundStyle(.white)
                         )
                 }
+            }
+            else {
+                Image(systemName: "plus")
             }
         }
         .padding(20)

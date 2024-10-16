@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct KataKitaApp: App {
+    @State private var scheduleManager = ScheduleManager()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -28,5 +29,6 @@ struct KataKitaApp: App {
             HomePageView()
         }
         .modelContainer(sharedModelContainer)
+        .environment(scheduleManager)
     }
 }
