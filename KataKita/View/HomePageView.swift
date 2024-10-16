@@ -40,6 +40,8 @@ struct HomePageView: View {
                 }
                 
                 HStack {
+                    NavigationLink(destination: DailyActivityView()) {
+                        
                         CustomButton(
                             icon: "calendar", text: "JADWAL", width: 350, height: 350,
                             font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
@@ -51,7 +53,9 @@ struct HomePageView: View {
                             }
                         )
                         .padding(.trailing, 30)
-                    
+                    }
+                    NavigationLink(destination: AACRuangMakanView()) {
+                        
                         CustomButton(
                             icon: "keyboard", text: "AAC", width: 350, height: 350,
                             font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
@@ -63,7 +67,7 @@ struct HomePageView: View {
                             }
                         )
                         .padding(.leading, 30)
-                    
+                    }
                 }
                 
                 Spacer()
