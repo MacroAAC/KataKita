@@ -20,8 +20,11 @@ struct DailyActivityView: View {
     ]
     
     @State private var selectedActivity: String = "Gosok Gigi"
+    @State private var isSetting: Bool = false
+
     @State private var currentIndex: Int = 0
     @State private var shouldNavigate: Bool = false
+    @Environment(\.dismiss) var dismiss
     
     
     let screenWidth = UIScreen.main.bounds.width
@@ -144,7 +147,7 @@ struct DailyActivityView: View {
                                                                         print("index \(index)")
                                                                         
                                                                         speakText(dummyActivity[index].name)
-
+                                                                        
                                                                     }
                                                                 ) .id(index)
                                                             }
@@ -193,7 +196,7 @@ struct DailyActivityView: View {
                                                 
                                                 Spacer()
                                                 
-                                                HStack(spacing:CGFloat(screenWidth * (40 / 1366.0))) {
+                                                HStack(spacing:CGFloat(screenWidth * (25 / 1366.0))) {
                                                     CustomButton(
                                                         icon: "keyboard",
                                                         width: Int(screenWidth * (90 / 1366.0)),
@@ -212,21 +215,25 @@ struct DailyActivityView: View {
                                                         }
                                                         
                                                     )
-                                                    
-                                                    CustomButton(
-                                                        icon: "settings",
-                                                        width: Int(screenWidth * (90 / 1366.0)),
-                                                        height: Int(screenHeight * (90 / 1024.0)),
-                                                        font: 40,
-                                                        iconWidth: Int(screenWidth * (40 / 1366.0)),
-                                                        iconHeight: Int(screenWidth * (40 / 1366.0)),
-                                                        bgColor: "eeeeee",
-                                                        bgTransparency: 1.0,
-                                                        fontColor: "696767",
-                                                        fontTransparency: 1.0,
-                                                        cornerRadius: 20,
-                                                        isSystemImage: false
-                                                    )
+                                                    NavigationLink(destination: SettingsView()) {
+                                                        CustomButton(
+                                                            icon: "settings",
+                                                            width: Int(screenWidth * (90 / 1366.0)),
+                                                            height: Int(screenHeight * (90 / 1024.0)),
+                                                            font: 40,
+                                                            iconWidth: Int(screenWidth * (40 / 1366.0)),
+                                                            iconHeight: Int(screenWidth * (40 / 1366.0)),
+                                                            bgColor: "eeeeee",
+                                                            bgTransparency: 1.0,
+                                                            fontColor: "696767",
+                                                            fontTransparency: 1.0,
+                                                            cornerRadius: 20,
+                                                            isSystemImage: false,
+                                                            action: {
+                                                                isSetting = true
+                                                            }
+                                                        )
+                                                    }
                                                     CustomButton(
                                                         icon: "house.fill",
                                                         width: Int(screenWidth * (90 / 1366.0)),
@@ -238,7 +245,11 @@ struct DailyActivityView: View {
                                                         bgTransparency: 1.0,
                                                         fontColor: "696767",
                                                         fontTransparency: 1.0,
-                                                        cornerRadius: 20
+                                                        cornerRadius: 20,
+                                                        action: {
+                                                            dismiss()
+                                                            
+                                                        }
                                                     )
                                                 }.padding(.trailing, CGFloat(screenWidth * (50 / 1366.0)))
                                                     .padding(.top, CGFloat(screenHeight * (14 / 1024.0)))
@@ -310,25 +321,47 @@ struct DailyActivityView: View {
             .onAppear{
                 print(selectedActivity)
             }
+//            NavigationLink(
+//                destination: selectedActivity == "Makan" ? AnyView(AACRuangMakanView()) : AnyView(EmptyView()),
+//                isActive: $shouldNavigate,
+//                label: {
+//                    EmptyView()
+//                }
+//            )
             NavigationLink(
-                destination: selectedActivity == "Makan" ? AnyView(AACRuangMakanView()) : AnyView(EmptyView()),
+                destination: {
+                    switch selectedActivity {
+                    case "Makan":
+                        AnyView(AACRuangMakanView())
+//                    case "Setting":
+//                        AnyView(SettingsView().onAppear{
+//                            selectedActivity = "Gosok Gigi"
+//                        })
+//                            
+                    default:
+                        AnyView(EmptyView())
+                    }
+                }(),
                 isActive: $shouldNavigate,
                 label: {
                     EmptyView()
                 }
             )
+            NavigationLink(destination: SettingsView(), isActive: $isSetting) {
+                    EmptyView()  // Label is hidden, but link is active
+                }
         }
     }
     
     let speechSynthesizer = AVSpeechSynthesizer()
-        
-        // Speak function
-        func speakText(_ text: String) {
-            let utterance = AVSpeechUtterance(string: text)
-            utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
-            utterance.rate = 0.5
-            speechSynthesizer.speak(utterance)
-        }
+    
+    // Speak function
+    func speakText(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
+        utterance.rate = 0.5
+        speechSynthesizer.speak(utterance)
+    }
 }
 
 #Preview {

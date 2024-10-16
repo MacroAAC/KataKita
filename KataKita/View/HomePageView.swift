@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct HomePageView: View {
+    @State private var selectedOption: String = "Jadwal"
+    @State private var shouldNavigate: Bool = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -19,7 +22,11 @@ struct HomePageView: View {
                                 icon: "gear", width: 100, height: 100, font: 50,
                                 iconWidth: 50, iconHeight: 50, bgColor: "#EEEEEE",
                                 bgTransparency: 1.0, fontColor: "#696767",
-                                fontTransparency: 1.0, cornerRadius: 20
+                                fontTransparency: 1.0, cornerRadius: 20,
+                                action: {
+                                    selectedOption = "Setting"
+                                    shouldNavigate = true
+                                }
                             )
                         }
                     }
@@ -33,30 +40,54 @@ struct HomePageView: View {
                 }
                 
                 HStack {
-                    NavigationLink(destination: DailyActivityView()) {
                         CustomButton(
                             icon: "calendar", text: "JADWAL", width: 350, height: 350,
                             font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
                             bgTransparency: 1.0, fontColor: "#555555",
-                            fontTransparency: 1.0, cornerRadius: 20
+                            fontTransparency: 1.0, cornerRadius: 20,
+                            action: {
+                                selectedOption = "Jadwal"
+                                shouldNavigate = true
+                            }
                         )
                         .padding(.trailing, 30)
-                    }
                     
-                    NavigationLink(destination: AACRuangMakanView()) {
                         CustomButton(
                             icon: "keyboard", text: "AAC", width: 350, height: 350,
                             font: 40, iconWidth: 60, iconHeight: 60, bgColor: "#ffffff",
                             bgTransparency: 1.0, fontColor: "#555555",
-                            fontTransparency: 1.0, cornerRadius: 20
+                            fontTransparency: 1.0, cornerRadius: 20,
+                            action: {
+                                selectedOption = "AAC"
+                                shouldNavigate = true
+                            }
                         )
                         .padding(.leading, 30)
-                    }
+                    
                 }
                 
                 Spacer()
             }
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
+            NavigationLink(
+                destination: {
+                    switch selectedOption {
+                    case "Setting":
+                        AnyView(SettingsView())
+                    case "Jadwal":
+                        AnyView(DailyActivityView())
+                    case "AAC":
+                        AnyView(AACRuangMakanView())
+                    default:
+                        AnyView(EmptyView())
+                    }
+                }(),
+                isActive: $shouldNavigate,
+                label: {
+                    EmptyView()
+                }
+            )
+
         }
     }
 }
