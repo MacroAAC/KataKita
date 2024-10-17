@@ -429,9 +429,20 @@ struct AACRuangMakanView: View {
                                             }
                                         }
                                     }
-                                    else if showPlusButton && columnsData[columnIndex].count < 6 {
-                                        if columnIndex == 0{
-                                            
+                                    else if columnsData[columnIndex].count < 6 {
+                                        let buttonsData = [
+                                            0: ("#FFEBAF", "#000000"),
+                                            1: ("#A77DFF", "#000000"),
+                                            2: ("#FFB0C7", "#000000"),
+                                            3: ("#CFF0C8", "#000000"),
+                                            4: ("#CFF0C8", "#000000"),
+                                            5: ("#D4F3FF", "#000000"),
+                                            6: ("#F2B95C", "#000000"),
+                                            7: ("#FFFFFF", "#000000")
+                                        ]
+                                        
+                                        if let (bgColor, fontColor) = buttonsData[columnIndex] {
+                                            // Show the CustomButton if showPlusButton is true
                                             CustomButton(
                                                 text: "+",
                                                 width: Int(screenWidth * (100/1376.0)),
@@ -439,9 +450,9 @@ struct AACRuangMakanView: View {
                                                 font: Int(screenWidth * (18/1376.0)),
                                                 iconWidth: Int(screenWidth * (50/1376.0)),
                                                 iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#FFEBAF",
+                                                bgColor: bgColor,
                                                 bgTransparency: 1.0,
-                                                fontColor: "#000000",
+                                                fontColor: fontColor,
                                                 fontTransparency: 1.0,
                                                 cornerRadius: 15,
                                                 isSystemImage: false,
@@ -449,148 +460,10 @@ struct AACRuangMakanView: View {
                                                     showAACSettings = true
                                                 }
                                             )
-                                        }
-                                        if columnIndex == 1{
-                                            
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#A77DFF",
-                                                bgTransparency: 1.0,
-                                                fontColor: "#000000",
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
-                                        }
-                                        if columnIndex == 2{
-                                            
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#FFB0C7",
-                                                bgTransparency: 1.0,
-                                                fontColor: "#000000",
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
-                                        }
-                                        if columnIndex == 3{
-                                            
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#CFF0C8",
-                                                bgTransparency: 1.0,
-                                                fontColor: "#000000",
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
-                                        }
-                                        if columnIndex == 4{
-                                            
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#CFF0C8",
-                                                bgTransparency: 1.0,
-                                                fontColor: "#000000",
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
-                                        }
-                                        if columnIndex == 5{
-                                            
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#D4F3FF",
-                                                bgTransparency: 1.0,
-                                                fontColor: "#000000",
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
-                                        }
-                                        if columnIndex == 6{
-                                            
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#F2B95C",
-                                                bgTransparency: 1.0,
-                                                fontColor: "#000000",
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
-                                        }
-                                        if columnIndex == 7{
-                                            
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: "#FFFFFF",
-                                                bgTransparency: 1.0,
-                                                fontColor: "#000000",
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
+                                            .opacity(showPlusButton ? 1 : 0)
                                         }
                                     }
+
                                 }
                             }
                         }
@@ -703,7 +576,7 @@ struct AACRuangMakanView: View {
             }
             
         }
-        .background(Color(hex: "#EEEEEE"))
+        .background(Color(hex: "#F7F5F0"))
     }
     
     

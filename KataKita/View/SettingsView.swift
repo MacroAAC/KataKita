@@ -10,9 +10,13 @@ struct SettingsView: View {
                     HStack {
                         Text("testsubject@icloud.com")
                         Spacer()
-                        NavigationLink(destination: DetailView()) {
+                        
+                        HStack
+                        {
                             Text("Detail")
                                 .foregroundColor(.gray)
+                            Image(systemName: "chevron.right")
+                                       .foregroundColor(.gray)
                         }
                     }
                     HStack {
@@ -20,16 +24,23 @@ struct SettingsView: View {
                         Spacer()
                         Image(systemName: "checkmark")
                             .foregroundColor(.blue)
-                        NavigationLink(destination: DetailView()) {
-                            
-                        }
+//                        NavigationLink(destination: DetailView()) {
+//
+//                        }
                     }
                     HStack {
                         Text("Bahasa")
                         Spacer()
-                        NavigationLink(destination: DetailView()) {
+//                        NavigationLink(destination: DetailView()) {
+//                            Text("Detail")
+//                                .foregroundColor(.gray)
+//                        }
+                        HStack
+                        {
                             Text("Detail")
                                 .foregroundColor(.gray)
+                            Image(systemName: "chevron.right")
+                                       .foregroundColor(.gray)
                         }
                     }
                 }
@@ -40,38 +51,32 @@ struct SettingsView: View {
                         Text("Pengaturan Aktivitas Harian")
                         Spacer()
                         NavigationLink(destination: DetailView()) {
-                            Text("Detail")
-                                .foregroundColor(.gray)
+                            HStack{
+                                Spacer()
+                                Text("Detail")
+                                    .foregroundColor(.gray)
+                            }
                         }
                     }
-                    HStack {
-                        Text("Pengaturan Papan AAC")
-                        Spacer()
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.blue)
-                        NavigationLink(destination: AddButtonAACView(navigateTooAddImage: .constant(true), selectedSymbolImage: .constant("people"), navigateFromSymbols: .constant(false), navigateFromImage: .constant(false), selectedSymbolName: .constant("people"), selectedImage: .constant(nil))) {
-                            
-                        }
-                    }
+                    
                     HStack {
                         Text("Pengaturan Urutan Aktifitas")
                         Spacer()
-                        NavigationLink(destination: DetailView()) {
+//                        NavigationLink(destination: DetailView()) {
+//                            Text("Detail")
+//                                .foregroundColor(.gray)
+//                        }
+                        HStack
+                        {
                             Text("Detail")
                                 .foregroundColor(.gray)
+                            Image(systemName: "chevron.right")
+                                       .foregroundColor(.gray)
                         }
                     }
                 }
             }
             .navigationTitle("Pengaturan")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
-                        // Action for Done button
-                    }
-                }
-            }
         }
     }
 }
