@@ -13,16 +13,16 @@ import Foundation
 class ScheduleManager {
     var schedules: [Schedule]
     
-    init() {
-        self.schedules = [
-            Schedule(id: UUID(), day: .MONDAY([])),
-            Schedule(id: UUID(), day: .TUESDAY([])),
-            Schedule(id: UUID(), day: .WEDNESDAY([])),
-            Schedule(id: UUID(), day: .THURSDAY([])),
-            Schedule(id: UUID(), day: .FRIDAY([])),
-            Schedule(id: UUID(), day: .SATURDAY([])),
-            Schedule(id: UUID(), day: .SUNDAY([]))
-        ]
+    init(_ schedules: [Schedule] = [
+        Schedule(id: UUID(), day: .MONDAY([])),
+        Schedule(id: UUID(), day: .TUESDAY([])),
+        Schedule(id: UUID(), day: .WEDNESDAY([])),
+        Schedule(id: UUID(), day: .THURSDAY([])),
+        Schedule(id: UUID(), day: .FRIDAY([])),
+        Schedule(id: UUID(), day: .SATURDAY([])),
+        Schedule(id: UUID(), day: .SUNDAY([]))
+    ]) {
+        self.schedules = schedules
     }
     
     func addActivity(_ activity: Activity, day: Day) {

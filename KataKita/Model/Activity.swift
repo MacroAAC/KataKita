@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 struct Step {
-    var image: UIImage
+    var image: String
     var description: String
 }
 
 struct Activity: Identifiable {
     var id: UUID
     var name: String
-    var image: UIImage? // Optional
+    var image: String // Optional
     var sequence: [Step]   // Activities consist of many steps (Sequence)!
     var isCompleted: Bool?
 }

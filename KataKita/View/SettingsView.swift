@@ -50,12 +50,9 @@ struct SettingsView: View {
                     HStack {
                         Text("Pengaturan Aktivitas Harian")
                         Spacer()
-                        NavigationLink(destination: DetailView()) {
-                            HStack{
-                                Spacer()
-                                Text("Detail")
-                                    .foregroundColor(.gray)
-                            }
+                        NavigationLink(destination: AddDailyActivityView()) {
+                            Text("Detail")
+                                .foregroundColor(.gray)
                         }
                     }
                     

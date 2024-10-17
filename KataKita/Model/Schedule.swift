@@ -10,13 +10,14 @@ import UIKit
 
 /// Enum with inner value (Associated value)
 enum Day : Equatable {
+    case SUNDAY([Activity])
     case MONDAY([Activity])
     case TUESDAY([Activity])
     case WEDNESDAY([Activity])
     case THURSDAY([Activity])
     case FRIDAY([Activity])
     case SATURDAY([Activity])
-    case SUNDAY([Activity])
+    
     
     /// Operator overloading dayum!
     static func ==(lhs: Day, rhs: Day) -> Bool {
@@ -38,6 +39,19 @@ enum Day : Equatable {
             default: 
                 return false
         }
+    }
+    
+    func extractActivities() -> [Activity] {
+        switch self {
+            case .SUNDAY(let activities): return activities
+            case .MONDAY(let activities): return activities
+            case .TUESDAY(let activities): return activities
+            case .WEDNESDAY(let activities): return activities
+            case .THURSDAY(let activities): return activities
+            case .FRIDAY(let activities): return activities
+            case .SATURDAY(let activities): return activities
+        }
+        
     }
 }
 

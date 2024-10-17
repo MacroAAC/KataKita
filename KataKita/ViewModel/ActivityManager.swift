@@ -15,7 +15,7 @@ import UIKit
 class ActivityManager {
     var activity: Activity
     
-    init(_ activity: Activity = Activity(id: UUID(), name: "new activity", image: nil, sequence: [] )) {
+    init(_ activity: Activity = Activity(id: UUID(), name: "new activity", image: "", sequence: [] )) {
         self.activity = activity
     }
     // kasih underscore di depan parameter pertama biar gausah ngisi nama parameter ketika dipanggil
@@ -37,8 +37,8 @@ class ActivityManager {
         // Process image as String
     }
     
-    func setImage(image: UIImage) {
-        // Process image from camera / URL
-    }
+//    func setImage(image: UIImage) {
+//        // Process image from camera / URL
+//    }
     
 }
