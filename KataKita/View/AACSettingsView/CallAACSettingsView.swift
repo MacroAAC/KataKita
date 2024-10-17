@@ -21,16 +21,16 @@ struct CallAACSettingsView: View {
         Button("Choose Image...") {
             showAACSettings = true
         }
-        .sheet(isPresented: $showAACSettings) {
-            AddButtonAACView(
-                navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
-                selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
-                navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
-                navigateFromImage: CallAACSettingsView.$navigateFromImage,
-                selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
-                selectedImage: .constant(nil)
-            )
-        }
+//        .sheet(isPresented: $showAACSettings) {
+//            AddButtonAACView(
+//                navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
+//                selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
+//                navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
+//                navigateFromImage: CallAACSettingsView.$navigateFromImage,
+//                selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
+//                selectedImage: .constant(nil)
+//            )
+//        }
     }
 }
 
