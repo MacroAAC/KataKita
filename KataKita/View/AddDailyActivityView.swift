@@ -8,36 +8,33 @@
 import SwiftUI
 
 struct AddDailyActivityView: View {
-    @State private var scheduleManager: ScheduleManager
-    @State private var activitiesManager: ActivitiesManager
-    @State private var searchText: String = ""
+    @Environment(ScheduleManager.self) private var scheduleManager
+    @Environment(ActivitiesManager.self) private var activitiesManager
+    @Environment(\.dismiss) var dismiss
     
+    @State private var searchText: String = ""
     @State private var selectedDayString: Int = 0
     // Viewport size
     private let viewPortWidth: CGFloat = UIScreen.main.bounds.width - 100
     private let viewPortHeight: CGFloat = UIScreen.main.bounds.height - 100
 
-    init(_ scheduleManager: ScheduleManager, activities: [Activity]) {
-        self.scheduleManager = scheduleManager
-        self.activitiesManager = ActivitiesManager(activities)
-    }
     /// Computed Property
     var selectedDay: Day {
         switch selectedDayString {
             case 0:
-                return .MONDAY([])
-            case 1:
-                return .TUESDAY([])
-            case 2:
-                return .WEDNESDAY([])
-            case 3:
-                return .THURSDAY([])
-            case 4:
-                return .FRIDAY([])
-            case 5:
-                return .SATURDAY([])
-            default:
                 return .SUNDAY([])
+            case 1:
+                return .MONDAY([])
+            case 2:
+                return .TUESDAY([])
+            case 3:
+                return .WEDNESDAY([])
+            case 4:
+                return .THURSDAY([])
+            case 5:
+                return .FRIDAY([])
+            default:
+                return .SATURDAY([])
         }
     }
     var day: Day {
@@ -46,34 +43,14 @@ struct AddDailyActivityView: View {
         })?.day ?? selectedDay
     }
     var extractActivity: [Activity] {
-        if case let .MONDAY(activities) = self.day {
-            return activities
-        }
-        if case let .TUESDAY(activities) = self.day {
-            return activities
-        }
-        if case let .WEDNESDAY(activities) = self.day {
-            return activities
-        }
-        if case let .THURSDAY(activities) = self.day {
-            return activities
-        }
-        if case let .FRIDAY(activities) = self.day {
-            return activities
-        }
-        if case let .SATURDAY(activities) = self.day {
-            return activities
-        }
-        if case let .SUNDAY(activities) = self.day {
-            return activities
-        }
-        return []
+        return self.day.extractActivities()
     }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 30) {
                 Button {
-                    // isi dengan function back
+                    dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
                         .resizable()
@@ -117,13 +94,13 @@ struct AddDailyActivityView: View {
                         )
                         Spacer()
                         Picker("Hari", selection: $selectedDayString) {
-                            Text("Senin").tag(0)
-                            Text("Selasa").tag(1)
-                            Text("Rabu").tag(2)
-                            Text("Kamis").tag(3)
-                            Text("Jumat").tag(4)
-                            Text("Sabtu").tag(5)
-                            Text("Minggu").tag(6)
+                            Text("Minggu").tag(0)
+                            Text("Senin").tag(1)
+                            Text("Selasa").tag(2)
+                            Text("Rabu").tag(3)
+                            Text("Kamis").tag(4)
+                            Text("Jumat").tag(5)
+                            Text("Sabtu").tag(6)
                         }
                         .accentColor(Color(hex: "B4B4B5"))
                     }
@@ -251,61 +228,6 @@ struct AddDailyActivityView: View {
                 .fill(Color(hex: "FBFBFB", transparency: 1.0))
                 .ignoresSafeArea()
         )
+        .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    AddDailyActivityView(
-        ScheduleManager(),
-        activities: [
-            Activity(
-                id: UUID(),
-                name: "Tidur",
-                image: nil,
-                sequence: []
-            ),
-            Activity(
-                id: UUID(),
-                name: "Mencuci Piring",
-                image: nil,
-                sequence: []
-            ),
-            Activity(
-                id: UUID(),
-                name: "Menyapu lantai",
-                image: nil,
-                sequence: []
-            ),
-            Activity(
-                id: UUID(),
-                name: "Mencuci Baju",
-                image: nil,
-                sequence: []
-            ),
-            Activity(
-                id: UUID(),
-                name: "Makan",
-                image: nil,
-                sequence: []
-            ),
-            Activity(
-                id: UUID(),
-                name: "Minum",
-                image: nil,
-                sequence: []
-            ),
-            Activity(
-                id: UUID(),
-                name: "Belajar",
-                image: nil,
-                sequence: []
-            ),
-            Activity(
-                id: UUID(),
-                name: "Gosok Gigi",
-                image: nil,
-                sequence: []
-            ),
-        ]
-    )
 }
