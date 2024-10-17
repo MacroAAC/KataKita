@@ -50,21 +50,22 @@ struct AddImageAACView: View {
                 }
             }
         )
-        .background(
-            NavigationLink(
-                destination: AddButtonAACView(
-                    navigateTooAddImage: .constant(false),
-                    selectedSymbolImage: .constant(""),
-                    navigateFromSymbols: .constant(false),
-                    navigateFromImage: .constant(true),
-                    selectedSymbolName: .constant(""),
-                    selectedImage: $selectedImage
-                ),
-                isActive: $navigateToAddButton
-            ) {
-                EmptyView()
-            }
-        )
+//        .background(
+//            NavigationLink(
+//                destination: AddButtonAACView(
+//                    navigateTooAddImage: .constant(false),
+//                    selectedSymbolImage: .constant(""),
+//                    navigateFromSymbols: .constant(false),
+//                    navigateFromImage: .constant(true),
+//                    selectedSymbolName: .constant(""),
+//                    selectedImage: $selectedImage,
+//                    categoryColor: "#000000"
+//                ),
+//                isActive: $navigateToAddButton
+//            ) {
+//                EmptyView()
+//            }
+//        )
     }
 }
 

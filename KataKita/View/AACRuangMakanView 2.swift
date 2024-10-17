@@ -30,23 +30,25 @@ struct AACRuangMakanView: View {
     @State private var showPlusButton = false
     @State private var showAlert = false
     @State private var hasSpoken = false
+    @State private var selectedCategoryColor: String = "#FFFFFF"
     
+    @StateObject private var boardModel = AACBoardModel()
+    @ObservedObject var viewModel = AACRuangMakanViewModel()
     
-    // Update selectedButton to include the icon
-    @State private var selectedButton: [(String, String, String, String)] = []
+    @State private var selectedButton: [Card] = []
     
     // Update columnsData to include an additional String for font color
-    @State private var columnsData: [[(String, String, String, String)]] = [
-        [("person.fill", "saya", "#FFEBAF", "#000000"), ("person.fill", "kamu", "#FFEBAF", "#000000"), ("person.fill", "dia", "#FFEBAF", "#000000"), ("person.fill", "kita", "#FFEBAF", "#000000"), ("person.fill", "mama", "#FFEBAF", "#000000"), ("person.fill", "papa", "#FFEBAF", "#000000")],
-        [("person.fill", "apa", "#A77DFF", "#000000"), ("person.fill", "dimana", "#A77DFF", "#000000"), ("person.fill", "siapa", "#A77DFF", "#000000")],
-        [("person.fill", "suka", "#FFB0C7", "#000000"), ("person.fill", "tidak suka", "#FFB0C7", "#000000"), ("person.fill", "mau", "#FFB0C7", "#000000"), ("person.fill", "tidak mau", "#FFB0C7", "#000000"), ("person.fill", "tolong", "#FFB0C7", "#000000")],
-        [("person.fill", "makan", "#CFF0C8", "#000000"), ("person.fill", "minum", "#CFF0C8", "#000000"), ("person.fill", "putar", "#CFF0C8", "#000000"), ("person.fill", "buka", "#CFF0C8", "#000000"), ("person.fill", "tutup", "#CFF0C8", "#000000")],
-        [("person.fill", "masukkan", "#CFF0C8", "#000000"), ("person.fill", "ambil", "#CFF0C8", "#000000"), ("person.fill", "kunyah", "#CFF0C8", "#000000"), ("person.fill", "potong", "#CFF0C8", "#000000"), ("person.fill", "buang", "#CFF0C8", "#000000")],
-        [("person.fill", "dingin", "#D4F3FF", "#000000"), ("person.fill", "panas", "#D4F3FF", "#000000"), ("person.fill", "asin", "#D4F3FF", "#000000"), ("person.fill", "manis", "#D4F3FF", "#000000")],
-        [("person.fill", "sendok", "#F2B95C", "#000000"), ("person.fill", "garpu", "#F2B95C", "#000000"), ("person.fill", "piring", "#F2B95C", "#000000"), ("person.fill", "mangkok", "#F2B95C", "#000000"), ("person.fill", "gelas", "#F2B95C", "#000000")],
-        [("person.fill", "di", "#FFFFFF", "#000000"), ("person.fill", "ke", "#FFFFFF", "#000000"), ("person.fill", "dan", "#FFFFFF", "#000000")],
-        [("person.fill", "hitam", "#000000", "#000000"), ("person.fill", "cokelat", "#835737", "#835737"), ("person.fill", "oranye", "#E9AE50", "#E9AE50"), ("person.fill", "merah", "#E54646", "#E54646"), ("person.fill", "ungu", "#B378D8", "#B378D8"), ("person.fill", "pink", "#EDB0DC", "#EDB0DC"), ("person.fill", "biru", "#889AE4", "#889AE4"), ("person.fill", "hijau", "#B7D273", "#B7D273"), ("person.fill", "kuning", "#EFDB76", "#EFDB76")]
-    ]
+//    @State private var columnsData: [[(String, String, String, String)]] = [
+//        [("person.fill", "saya", "#FFEBAF", "#000000"), ("person.fill", "kamu", "#FFEBAF", "#000000"), ("person.fill", "dia", "#FFEBAF", "#000000"), ("person.fill", "kita", "#FFEBAF", "#000000"), ("person.fill", "mama", "#FFEBAF", "#000000"), ("person.fill", "papa", "#FFEBAF", "#000000")],
+//        [("person.fill", "apa", "#A77DFF", "#000000"), ("person.fill", "dimana", "#A77DFF", "#000000"), ("person.fill", "siapa", "#A77DFF", "#000000")],
+//        [("person.fill", "suka", "#FFB0C7", "#000000"), ("person.fill", "tidak suka", "#FFB0C7", "#000000"), ("person.fill", "mau", "#FFB0C7", "#000000"), ("person.fill", "tidak mau", "#FFB0C7", "#000000"), ("person.fill", "tolong", "#FFB0C7", "#000000")],
+//        [("person.fill", "makan", "#CFF0C8", "#000000"), ("person.fill", "minum", "#CFF0C8", "#000000"), ("person.fill", "putar", "#CFF0C8", "#000000"), ("person.fill", "buka", "#CFF0C8", "#000000"), ("person.fill", "tutup", "#CFF0C8", "#000000")],
+//        [("person.fill", "masukkan", "#CFF0C8", "#000000"), ("person.fill", "ambil", "#CFF0C8", "#000000"), ("person.fill", "kunyah", "#CFF0C8", "#000000"), ("person.fill", "potong", "#CFF0C8", "#000000"), ("person.fill", "buang", "#CFF0C8", "#000000")],
+//        [("person.fill", "dingin", "#D4F3FF", "#000000"), ("person.fill", "panas", "#D4F3FF", "#000000"), ("person.fill", "asin", "#D4F3FF", "#000000"), ("person.fill", "manis", "#D4F3FF", "#000000")],
+//        [("person.fill", "sendok", "#F2B95C", "#000000"), ("person.fill", "garpu", "#F2B95C", "#000000"), ("person.fill", "piring", "#F2B95C", "#000000"), ("person.fill", "mangkok", "#F2B95C", "#000000"), ("person.fill", "gelas", "#F2B95C", "#000000")],
+//        [("person.fill", "di", "#FFFFFF", "#000000"), ("person.fill", "ke", "#FFFFFF", "#000000"), ("person.fill", "dan", "#FFFFFF", "#000000")],
+//        [("person.fill", "hitam", "#000000", "#000000"), ("person.fill", "cokelat", "#835737", "#835737"), ("person.fill", "oranye", "#E9AE50", "#E9AE50"), ("person.fill", "merah", "#E54646", "#E54646"), ("person.fill", "ungu", "#B378D8", "#B378D8"), ("person.fill", "pink", "#EDB0DC", "#EDB0DC"), ("person.fill", "biru", "#889AE4", "#889AE4"), ("person.fill", "hijau", "#B7D273", "#B7D273"), ("person.fill", "kuning", "#EFDB76", "#EFDB76")]
+//    ]
     
     let columns = [
         GridItem(.flexible()),
@@ -79,28 +81,30 @@ struct AACRuangMakanView: View {
                         
                         // HStack for displaying the selected buttons
                         HStack {
-                            ForEach(selectedButton.indices, id: \.self) { index in
+                            ForEach(Array(selectedButton.enumerated()), id: \.offset) { index, card in
                                 if index < 11 {
                                     // Display CustomButton for the first 11 items
                                     CustomButton(
-                                        icon: selectedButton[index].0, // Use the new icon variable
-                                        text: selectedButton[index].1, // Accessing the text from the tuple
+                                        icon: selectedButton[index].icon, // Access the icon from the Card model
+                                        text: selectedButton[index].name, // Access the name from the Card model
                                         width: Int(screenWidth * (100 / 1376)),
                                         height: Int(screenHeight * (100 / 1032)),
                                         font: Int(screenWidth * (16 / 1376)),
                                         iconWidth: Int(screenWidth * (50 / 1376)),
                                         iconHeight: Int(screenHeight * (50 / 1032)),
-                                        bgColor: selectedButton[index].2, // Accessing the background color from the tuple
+                                        bgColor: selectedButton[index].category.color, // Convert hex string to Color
                                         bgTransparency: 1.0,
-                                        fontColor: selectedButton[index].3, // Accessing the font color from the tuple
+                                        fontColor: selectedButton[index].category.fontColor, // Convert hex string to Color
                                         fontTransparency: 1.0,
                                         cornerRadius: 10,
                                         isSystemImage: true,
-                                        action: {}
+                                        action: {
+                                            // Define the button action here if needed
+                                        }
                                     )
                                 } else {
                                     // Display plain Text for items beyond the 11th
-                                    Text(selectedButton[index].1)
+                                    Text(selectedButton[index].name) // Access the 'name' from the Card model
                                         .font(.system(size: screenWidth * (16 / 1376)))
                                         .foregroundColor(.black)
                                         .padding(.horizontal, screenWidth * (5 / 1376))
@@ -108,6 +112,7 @@ struct AACRuangMakanView: View {
                                         .cornerRadius(5)
                                 }
                             }
+
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, screenWidth * (33 / 1376))
@@ -339,36 +344,35 @@ struct AACRuangMakanView: View {
                     .cornerRadius(40)
                 
                 ScrollView {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)))], spacing: screenWidth * (10/1376.0)) {
-                        ForEach(0..<columnsData.count, id: \.self) { columnIndex in
-                            VStack(spacing: screenWidth * (10/1376.0)) {
-                                // Determine the row limit for the current column
-                                let rowLimit = (columnIndex == columnsData.count - 1) ? 9 : 6
-                                
-                                ForEach(0..<rowLimit, id: \.self) { rowIndex in
-                                    if rowIndex < columnsData[columnIndex].count {
-                                        let buttonData = columnsData[columnIndex][rowIndex]
-                                        
-                                        // Special design for the last column
-                                        if columnIndex == columnsData.count - 1 {
-                                            CustomButton(
-                                                text: buttonData.1,
+                     LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)))], spacing: screenWidth * (10/1376.0)) {
+                         ForEach(0..<viewModel.cards.count, id: \.self) { columnIndex in
+                             VStack(spacing: screenWidth * (10/1376.0)) {
+                                 let rowLimit = (columnIndex == viewModel.cards.count - 1) ? 9 : 6
+                                 
+                                 ForEach(0..<rowLimit, id: \.self) { rowIndex in
+                                     if rowIndex < viewModel.cards[columnIndex].count {
+                                         let card = viewModel.cards[columnIndex][rowIndex]
+                                         
+                                         // Special design for the last column
+                                         if columnIndex == viewModel.cards.count - 1 {
+                                             CustomButton(
+                                                text: card.name,
                                                 width: Int(screenWidth * (100/1376.0)),
                                                 height: Int(screenHeight * (60/1032.0)),
                                                 font: Int(screenWidth * (18/1376.0)),
                                                 iconWidth: Int(screenWidth * (50/1376.0)),
                                                 iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: buttonData.2,
+                                                bgColor: card.category.color,
                                                 bgTransparency: 1.0,
-                                                fontColor: buttonData.3,
+                                                fontColor: card.category.fontColor,
                                                 fontTransparency: 1.0,
                                                 cornerRadius: 15,
                                                 isSystemImage: true,
                                                 action: {
                                                     if selectedButton.count < 10 {
                                                         showAlert = false
-                                                        speakText(buttonData.0)
-                                                        selectedButton.append(buttonData)
+                                                        speakText(card.name)
+                                                        selectedButton.append(card)
                                                     } else {
                                                         showAlert = true
                                                         hasSpoken = false
@@ -377,38 +381,38 @@ struct AACRuangMakanView: View {
                                                         }
                                                     }
                                                 }
-                                            )
-                                            .alert(isPresented: $showAlert) {
-                                                Alert(
+                                             )
+                                             .alert(isPresented: $showAlert) {
+                                                 Alert(
                                                     title: Text("Kotak Kata Penuh"),
                                                     message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
                                                     dismissButton: .default(Text("OK"), action: {
                                                         hasSpoken = true
                                                     })
-                                                )
-                                            }
-                                            .padding(.bottom,screenHeight * (3/1032.0))
-                                        } else {
-                                            // Default button for other columns
-                                            CustomButton(
-                                                icon: buttonData.0,
-                                                text: buttonData.1,
+                                                 )
+                                             }
+                                             .padding(.bottom, screenHeight * (3/1032.0))
+                                         } else {
+                                             // Default button for other columns
+                                             CustomButton(
+                                                icon: card.icon,
+                                                text: card.name,
                                                 width: Int(screenWidth * (100/1376.0)),
                                                 height: Int(screenHeight * (100/1032.0)),
                                                 font: Int(screenWidth * (16/1376.0)),
                                                 iconWidth: Int(screenWidth * (40/1376.0)),
                                                 iconHeight: Int(screenHeight * (40/1032.0)),
-                                                bgColor: buttonData.2,
+                                                bgColor: card.category.color,
                                                 bgTransparency: 1.0,
-                                                fontColor: buttonData.3,
+                                                fontColor: card.category.fontColor,
                                                 fontTransparency: 1.0,
                                                 cornerRadius: 10,
                                                 isSystemImage: true,
                                                 action: {
                                                     if selectedButton.count < 10 {
                                                         showAlert = false
-                                                        speakText(buttonData.0)
-                                                        selectedButton.append(buttonData)
+                                                        speakText(card.name)
+                                                        selectedButton.append(card)
                                                     } else {
                                                         showAlert = true
                                                         hasSpoken = false
@@ -417,98 +421,108 @@ struct AACRuangMakanView: View {
                                                         }
                                                     }
                                                 }
-                                            )
-                                            .alert(isPresented: $showAlert) {
-                                                Alert(
-                                                    title: Text("Kotak Kata Penuh"),
-                                                    message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
-                                                    dismissButton: .default(Text("OK"), action: {
-                                                        hasSpoken = true
-                                                    })
-                                                )
-                                            }
-                                        }
-                                    }
-                                    else if columnsData[columnIndex].count < 6 {
-                                        let buttonsData = [
-                                            0: ("#FFEBAF", "#000000"),
-                                            1: ("#A77DFF", "#000000"),
-                                            2: ("#FFB0C7", "#000000"),
-                                            3: ("#CFF0C8", "#000000"),
-                                            4: ("#CFF0C8", "#000000"),
-                                            5: ("#D4F3FF", "#000000"),
-                                            6: ("#F2B95C", "#000000"),
-                                            7: ("#FFFFFF", "#000000")
-                                        ]
-                                        
-                                        if let (bgColor, fontColor) = buttonsData[columnIndex] {
-                                            // Show the CustomButton if showPlusButton is true
-                                            CustomButton(
-                                                text: "+",
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                                bgColor: bgColor,
-                                                bgTransparency: 1.0,
-                                                fontColor: fontColor,
-                                                fontTransparency: 1.0,
-                                                cornerRadius: 15,
-                                                isSystemImage: false,
-                                                action: {
-                                                    showAACSettings = true
-                                                }
-                                            )
-                                            .opacity(showPlusButton ? 1 : 0)
-                                        }
-                                    }
+                                             )
+                                             .alert(isPresented: $showAlert) {
+                                                 Alert(
+                                                     title: Text("Kotak Kata Penuh"),
+                                                     message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
+                                                     dismissButton: .default(Text("OK"), action: {
+                                                         hasSpoken = true
+                                                     })
+                                                 )
+                                             }
+                                         }
+                                     }
+                                     else if viewModel.cards[columnIndex].count < 6 {
+                                         let buttonsData = [
+                                             0: ("#FFEBAF", "#000000"),
+                                             1: ("#A77DFF", "#000000"),
+                                             2: ("#FFB0C7", "#000000"),
+                                             3: ("#CFF0C8", "#000000"),
+                                             4: ("#CFF0C8", "#000000"),
+                                             5: ("#D4F3FF", "#000000"),
+                                             6: ("#F2B95C", "#000000"),
+                                             7: ("#FFFFFF", "#000000")
+                                         ]
+                                         
+                                         if let (bgColor, fontColor) = buttonsData[columnIndex] {
+                                             // Show the CustomButton if showPlusButton is true
+                                             CustomButton(
+                                                 text: "+",
+                                                 width: Int(screenWidth * (100/1376.0)),
+                                                 height: Int(screenHeight * (100/1032.0)),
+                                                 font: Int(screenWidth * (18/1376.0)),
+                                                 iconWidth: Int(screenWidth * (50/1376.0)),
+                                                 iconHeight: Int(screenHeight * (50/1032.0)),
+                                                 bgColor: bgColor,
+                                                 bgTransparency: 1.0,
+                                                 fontColor: fontColor,
+                                                 fontTransparency: 1.0,
+                                                 cornerRadius: 15,
+                                                 isSystemImage: false,
+                                                 action: {
+                                                     selectedCategoryColor = bgColor
+                                                     showAACSettings = true
+                                                 }
+                                             )
+                                             .opacity(showPlusButton ? 1 : 0)
+                                         }
+                                     }
 
-                                }
-                            }
-                        }
-                    }
-                    .padding(.top, screenHeight * (40/1032.0))
-                    .padding(.leading,screenWidth * (25/1376.0))
-                }
-                VStack{
-                    ZStack {
-                        Rectangle()
-                            .fill(Color(hex: "#EEEEEE"))
-                            .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
-                            .cornerRadius(20)
-                            .shadow(radius: 5,x: 3,y:4)
-                        
-                        CustomButton(
-                            icon: "pencil",
-                            width: Int(screenWidth * (50/1376.0)),
-                            height: Int(screenHeight * (50/1032.0)),
-                            font: Int(screenWidth * (40/1376.0)),
-                            iconWidth: Int(screenWidth * (40/1376.0)),
-                            iconHeight: Int(screenHeight * (40/1032.0)),
-                            bgColor: "#000000",
-                            bgTransparency: 0,
-                            fontColor: "#696767",
-                            fontTransparency: 1.0,
-                            cornerRadius: 20,
-                            isSystemImage: true,
-                            action:{
-//                                showAACSettings = true
-                                handlePencilPress()
-                            }
-                        )
-                        
-                    }
-                    .sheet(isPresented: $showAACSettings) {
-                        AddButtonAACView(
-                            navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
-                            selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
-                            navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
-                            navigateFromImage: CallAACSettingsView.$navigateFromImage,
-                            selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
-                            selectedImage: .constant(nil)
-                        )
-                    }
+
+                                 }
+                             }
+                         }
+                     }
+                     .padding(.top, screenHeight * (40/1032.0))
+                     .padding(.leading,screenWidth * (25/1376.0))
+                 }
+                 VStack{
+                     ZStack {
+                         Rectangle()
+                             .fill(Color(hex: "#EEEEEE"))
+                             .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
+                             .cornerRadius(20)
+                             .shadow(radius: 5,x: 3,y:4)
+                         
+                         CustomButton(
+                             icon: "pencil",
+                             width: Int(screenWidth * (50/1376.0)),
+                             height: Int(screenHeight * (50/1032.0)),
+                             font: Int(screenWidth * (40/1376.0)),
+                             iconWidth: Int(screenWidth * (40/1376.0)),
+                             iconHeight: Int(screenHeight * (40/1032.0)),
+                             bgColor: "#000000",
+                             bgTransparency: 0,
+                             fontColor: "#696767",
+                             fontTransparency: 1.0,
+                             cornerRadius: 20,
+                             isSystemImage: true,
+                             action:{
+ //                                showAACSettings = true
+                                 handlePencilPress()
+                             }
+                         )
+                         
+                     }
+                     .sheet(isPresented: $showAACSettings) {
+                         // Ensure this closure returns a View
+                         let colorToPass = selectedCategoryColor // Capture the color to use
+                         print("Presenting AddButtonAACView with categoryColor: \(colorToPass)")
+
+                         return AddButtonAACView(
+                             viewModel: AACRuangMakanViewModel(),
+                             navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
+                             selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
+                             navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
+                             navigateFromImage: CallAACSettingsView.$navigateFromImage,
+                             selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
+                             selectedImage: .constant(nil),
+                             categoryColor: colorToPass // Pass the selected category color
+                         )
+                     }
+
+
                     
                     
                     ZStack {
@@ -587,28 +601,29 @@ struct AACRuangMakanView: View {
         speechSynthesizer.speak(utterance)
     }
     
-    func speakAllText(from buttons: [(String, String, String, String)]) {
-            // Concatenate all the strings from the tuples into a single text
-            var fullText = ""
-            for (icon, text, warnaButton, warnaText) in buttons {
-                fullText += "\(text) "
-            }
-            
-            // Use the AVSpeechSynthesizer to speak the full text
-            let utterance = AVSpeechUtterance(string: fullText)
-            utterance.voice = AVSpeechSynthesisVoice(language: "id-ID") // Indonesian language
-            utterance.rate = 0.5
-            speechSynthesizer.speak(utterance)
+    func speakAllText(from buttons: [Card]) {
+        // Concatenate all the names from the Card models into a single text
+        var fullText = ""
+        for card in buttons {
+            fullText += "\(card.name) "
         }
+        
+        // Use the AVSpeechSynthesizer to speak the full text
+        let utterance = AVSpeechUtterance(string: fullText)
+        utterance.voice = AVSpeechSynthesisVoice(language: "id-ID") // Indonesian language
+        utterance.rate = 0.5 // Set the speech rate
+        speechSynthesizer.speak(utterance)
+    }
     
     private func handlePencilPress() {
         // Check if any column has less than 6 items
-        if columnsData.contains(where: { $0.count < 6 }) {
+        if viewModel.cards.contains(where: { $0.count < 6 }) {
             showPlusButton.toggle() // Show/hide plus button based on current state
         } else {
             showPlusButton = false // Hide the plus button if all columns are filled
         }
     }
+
 
 }
 

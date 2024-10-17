@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103A0AA92CC1493900221E2B /* AACRuangMakanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A0AA82CC1493900221E2B /* AACRuangMakanViewModel.swift */; };
 		105D7EE92CBCA84B00F7AA96 /* AACRuangMakanView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105D7EE82CBCA84B00F7AA96 /* AACRuangMakanView 2.swift */; };
 		1E5863742CB637C00080373A /* TextHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5863732CB637B90080373A /* TextHeadline.swift */; };
 		1E5863782CB63C640080373A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5863772CB63C600080373A /* CustomButton.swift */; };
@@ -96,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		103A0AA82CC1493900221E2B /* AACRuangMakanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACRuangMakanViewModel.swift; sourceTree = "<group>"; };
 		105D7EE82CBCA84B00F7AA96 /* AACRuangMakanView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AACRuangMakanView 2.swift"; sourceTree = "<group>"; };
 		1E5863732CB637B90080373A /* TextHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeadline.swift; sourceTree = "<group>"; };
 		1E5863772CB63C600080373A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				DAE313042CB85677001DD0A0 /* ScheduleManager.swift */,
 				DAE313062CB86921001DD0A0 /* ActivitiesManager.swift */,
 				DAE1E7932CC0474400F5F9D1 /* StateManager.swift */,
+				103A0AA82CC1493900221E2B /* AACRuangMakanViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				9B78DD0D2CB74C510069DBC5 /* HomePageView.swift in Sources */,
 				DAE1E7822CBAF59A00F5F9D1 /* SettingActivityCard.swift in Sources */,
 				9B5A47B02CBE18AE00ECDF17 /* AACBoardViewModel.swift in Sources */,
+				103A0AA92CC1493900221E2B /* AACRuangMakanViewModel.swift in Sources */,
 				1E84D89B2CB4D99A0078B648 /* Item.swift in Sources */,
 				DAE313072CB86921001DD0A0 /* ActivitiesManager.swift in Sources */,
 				1EBBC2342CB78EF200673D97 /* DailyActivityView.swift in Sources */,
@@ -664,7 +668,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KataKita/Preview Content\"";
-				DEVELOPMENT_TEAM = V82QRJ28YB;
+				DEVELOPMENT_TEAM = NLFHS29F76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KataKita/Info.plist;
@@ -695,7 +699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KataKita/Preview Content\"";
-				DEVELOPMENT_TEAM = V82QRJ28YB;
+				DEVELOPMENT_TEAM = NLFHS29F76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KataKita/Info.plist;
