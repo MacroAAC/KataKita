@@ -18,4 +18,5 @@ struct Activity: Identifiable {
     var name: String
     var image: String // Optional
     var sequence: [Step]   // Activities consist of many steps (Sequence)!
+    var isCompleted: Bool?
 }

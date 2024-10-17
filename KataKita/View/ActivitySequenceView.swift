@@ -46,26 +46,7 @@ struct ActivitySequenceView: View {
                 }
                 .padding()
                 
-                CustomButtonSide(
-                    icon: "hand.thumbsup.fill",
-                    text: "SELESAI",
-                    width: Int(screenWidth * (150 / 1210.0)),
-                    height: Int(screenHeight * (50 / 834.0)),
-                    font: Int(screenWidth * (15 / 1210.0)),
-                    iconWidth: Int(screenWidth * (15 / 1210.0)) ,
-                    iconHeight: Int(screenHeight * (15 / 834.0)),
-                    bgColor: "F7F5F0",
-                    bgTransparency: buttonDoneCliked ? 1.0 : 0.0,
-                    fontColor: "000000",
-                    fontTransparency: 1.0,
-                    cornerRadius: 20,
-                    strokeColor: "000000",
-                    action:
-                        {
-                            buttonDoneCliked.toggle()
-                        }
-                    
-                )
+                
             }
             .padding()
             .onAppear{
