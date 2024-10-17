@@ -51,9 +51,14 @@ struct SettingsView: View {
                         Text("Pengaturan Aktivitas Harian")
                         Spacer()
                         NavigationLink(destination: AddDailyActivityView()) {
-                            Text("Detail")
-                                .foregroundColor(.gray)
+                            HStack{
+                                Spacer()
+                                
+                                Text("Detail")
+                                    .foregroundColor(.gray)
+                            }
                         }
+                        
                     }
                     
                     HStack {
