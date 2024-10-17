@@ -3,7 +3,6 @@ import PhotosUI
 
 struct AddImageAACView: View {
     @State var selectedImage: UIImage? = nil
-    @State private var showImage: Bool = true
     @State private var showImagePicker = false
     @State private var showCamera = false
     @State private var showingSymbolsView = false
@@ -14,24 +13,6 @@ struct AddImageAACView: View {
         NavigationStack {
             Form {
                 Section {
-                    Button(action: {
-                        showingSymbolsView = true
-                    }) {
-                        HStack {
-                            Text("Symbols")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    .background(
-                        NavigationLink(
-                            destination: AddSymbolsAACView(),
-                            isActive: $showingSymbolsView
-                        ) {
-                            EmptyView()
-                        }
-                    )
 
                     Button("Choose Image...") {
                         showImagePicker = true
@@ -45,10 +26,6 @@ struct AddImageAACView: View {
                     }
                     .sheet(isPresented: $showCamera) {
                         ImagePicker(sourceType: .camera, image: $selectedImage)
-                    }
-
-                    Toggle(isOn: $showImage) {
-                        Text("Show Image")
                     }
 
                     if let image = selectedImage {
