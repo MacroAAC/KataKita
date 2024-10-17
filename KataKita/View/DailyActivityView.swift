@@ -7,12 +7,13 @@
 import SwiftUI
 import AVFoundation
 
-/// 
+///
 struct DailyActivityView: View {
     @Environment(ScheduleManager.self) private var scheduleManager
     @Environment(\.dismiss) var dismiss
     @Environment(StateManager.self) private var stateManager
     
+
 //    @State private var selectedActivity: String = "Gosok Gigi"
 //    @State private var isSetting: Bool = false
 //
@@ -230,8 +231,9 @@ struct DailyActivityView: View {
                             }
                             .padding(.bottom, 160)
                         }
+                    }
                     
-              
+                    
                 }
                 .padding(50)
                 .frame(width: viewPortWidth * 0.75 - 100, height: viewPortHeight * 0.85 - 50, alignment: .topLeading)
