@@ -15,7 +15,7 @@ import UIKit
 class ActivityManager {
     var activity: Activity
     
-    init(_ activity: Activity = Activity(id: UUID(), name: "new activity", image: "", sequence: [] )) {
+    init(_ activity: Activity = Activity(id: UUID(), name: "new activity", image: "", ruangan: Ruangan(id: UUID(), name: ""), sequence: [] )) {
         self.activity = activity
     }
     // kasih underscore di depan parameter pertama biar gausah ngisi nama parameter ketika dipanggil

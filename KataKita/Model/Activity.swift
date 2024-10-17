@@ -17,6 +17,13 @@ struct Activity: Identifiable {
     var id: UUID
     var name: String
     var image: String // Optional
+    var ruangan: Ruangan
     var sequence: [Step]   // Activities consist of many steps (Sequence)!
     var isCompleted: Bool?
+}
+
+struct Ruangan: Identifiable {
+    let id: UUID
+    let name: String
+    
 }

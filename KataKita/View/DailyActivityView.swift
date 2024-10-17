@@ -13,13 +13,15 @@ struct DailyActivityView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(StateManager.self) private var stateManager
     
-
-//    @State private var selectedActivity: String = "Gosok Gigi"
-//    @State private var isSetting: Bool = false
-//
-//    @State private var currentIndex: Int = 0
-//    @State private var shouldNavigate: Bool = false
-
+    
+    @State private var selectedRuangan: String = ""
+    @State private var isSetting: Bool = false
+    @State private var isRuangan: Bool = false
+    
+    //
+    //    @State private var currentIndex: Int = 0
+    @State private var shouldNavigate: Bool = false
+    
     //MARK: viewport size
     let viewPortWidth = UIScreen.main.bounds.width
     let viewPortHeight = UIScreen.main.bounds.height
@@ -28,20 +30,20 @@ struct DailyActivityView: View {
     var selectedDay: Day {
         let day = Date().dayNumberOfWeek()
         switch day {
-            case 0:
-                return .SUNDAY([])
-            case 1:
-                return .MONDAY([])
-            case 2:
-                return .TUESDAY([])
-            case 3:
-                return .WEDNESDAY([])
-            case 4:
-                return .THURSDAY([])
-            case 5:
-                return .FRIDAY([])
-            default:
-                return .SATURDAY([])
+        case 0:
+            return .SUNDAY([])
+        case 1:
+            return .MONDAY([])
+        case 2:
+            return .TUESDAY([])
+        case 3:
+            return .WEDNESDAY([])
+        case 4:
+            return .THURSDAY([])
+        case 5:
+            return .FRIDAY([])
+        default:
+            return .SATURDAY([])
         }
     }
     
@@ -51,20 +53,20 @@ struct DailyActivityView: View {
     var dayToString: String {
         let day = Date().dayNumberOfWeek()
         switch day {
-            case 0:
-                return "Minggu"
-            case 1:
-                return "Senin"
-            case 2:
-                return "Selasa"
-            case 3:
-                return "Rabu"
-            case 4:
-                return "Kamis"
-            case 5:
-                return "Jumat"
-            default:
-                return "Sabtu"
+        case 0:
+            return "Minggu"
+        case 1:
+            return "Senin"
+        case 2:
+            return "Selasa"
+        case 3:
+            return "Rabu"
+        case 4:
+            return "Kamis"
+        case 5:
+            return "Jumat"
+        default:
+            return "Sabtu"
         }
     }
     
@@ -78,6 +80,7 @@ struct DailyActivityView: View {
     var isCompleted: Bool {
         return self.extractActivity.count <= self.stateManager.index
     }
+    
     
     var body: some View {
         VStack (spacing: 0) {
@@ -100,6 +103,7 @@ struct DailyActivityView: View {
                     )
                 }
                 Spacer()
+                
                 CustomButton(
                     icon: "keyboard",
                     width: 70,
@@ -107,12 +111,18 @@ struct DailyActivityView: View {
                     font: 50,
                     iconWidth: 30,
                     iconHeight: 30,
-                    bgColor: "013C5A",
+                    bgColor: "F7F5F0",
                     bgTransparency: 1.0,
-                    fontColor: "#ffffff",
+                    fontColor: "696767",
                     fontTransparency: 1.0,
-                    cornerRadius: 20
+                    cornerRadius: 20,
+                    action: {
+                        shouldNavigate = true
+                        
+                    }
                 )
+                
+                
                 CustomButton(
                     icon: "house.fill",
                     width: 70,
@@ -120,28 +130,36 @@ struct DailyActivityView: View {
                     font: 50,
                     iconWidth: 30,
                     iconHeight: 30,
-                    bgColor: "013C5A",
+                    bgColor: "F7F5F0",
                     bgTransparency: 1.0,
-                    fontColor: "#ffffff",
+                    fontColor: "696767",
                     fontTransparency: 1.0,
                     cornerRadius: 20,
                     action: {
                         dismiss()
                     }
                 )
-                CustomButton(
-                    icon: "gearshape.fill",
-                    width: 70,
-                    height: 70,
-                    font: 50,
-                    iconWidth: 30,
-                    iconHeight: 30,
-                    bgColor: "013C5A",
-                    bgTransparency: 1.0,
-                    fontColor: "#ffffff",
-                    fontTransparency: 1.0,
-                    cornerRadius: 20
-                )
+                
+                NavigationLink(destination: SettingsView()){
+                    CustomButton(
+                        icon: "gearshape.fill",
+                        width: 70,
+                        height: 70,
+                        font: 50,
+                        iconWidth: 30,
+                        iconHeight: 30,
+                        bgColor: "F7F5F0",
+                        bgTransparency: 1.0,
+                        fontColor: "696767",
+                        fontTransparency: 1.0,
+                        cornerRadius: 20,
+                        action: {
+                            selectedRuangan = "Settings"
+                            shouldNavigate = true
+                        }
+                    )
+                }
+                
             }
             .padding(.horizontal, 50)
             .frame(width: viewPortWidth, height: viewPortHeight * 0.15)
@@ -153,6 +171,7 @@ struct DailyActivityView: View {
                 LazyVStack (alignment: .center, spacing: 0) {
                     ForEach(Array(self.extractActivity.enumerated()), id: \.offset) { index, activity in
                         if self.stateManager.index <= index {
+                            
                             ActivityCard(
                                 icon: "ball",
                                 nomor: "",
@@ -169,11 +188,13 @@ struct DailyActivityView: View {
                                 cornerRadius: 20,
                                 isSystemImage: false
                             )
+                            
                         } else {
                             EmptyView()
                         }
                         
                     }
+                    
                 }
                 .padding(.vertical, 30)
                 .frame(width: viewPortWidth * 0.25 - 50)
@@ -182,7 +203,7 @@ struct DailyActivityView: View {
                         .fill(Color(hex: "F7F5F0", transparency: 1.0))
                 )
                 
-                                
+                
                 
                 // MARK: Viewport bagian kanan (Tahapan aktivitas)
                 VStack (alignment: .leading, spacing: 20) {
@@ -226,7 +247,10 @@ struct DailyActivityView: View {
                                         bgColor: "F7F5F0", bgTransparency: 1.0,
                                         fontColor: "000000", fontTransparency: 1.0,
                                         cornerRadius: 20, isSystemImage: false
+                                        
                                     )
+                                    
+                                    
                                 }
                             }
                             .padding(.bottom, 160)
@@ -240,7 +264,7 @@ struct DailyActivityView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .fill(Color(hex: "BDD4CE", transparency: 1.0))
-                        
+                    
                 )
                 .overlay(
                     VStack (spacing: 0) {
@@ -274,13 +298,29 @@ struct DailyActivityView: View {
                                         cornerRadius: 20,
                                         action: {
                                             self.stateManager.increment()
+                                            selectedRuangan = ""
+                                            if self.stateManager.index < self.extractActivity.count {
+                                                selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
+                                            } else {
+                                                selectedRuangan = getSelectedRuangan() // Fallback to the top one
+                                            }
                                         }
+                                        
                                     )
+                                   
                                 )
+                            
+                            VStack {
+                                Text("Selected Ruangan: \(selectedRuangan)")
+                                    .padding()
+                                
+                                // Existing views
+                            }
                         }
                     }
                     
                 )
+                
             }
             .padding(.horizontal, 50)
             .frame(width: viewPortWidth, height: viewPortHeight * 0.85, alignment: .topLeading)
@@ -289,8 +329,43 @@ struct DailyActivityView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear() {
             // statemanager
+            if self.stateManager.index < self.extractActivity.count {
+                selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
+            } else {
+                selectedRuangan = getSelectedRuangan() // Fallback to the top one
+            }
+            
+        }
+        NavigationLink(
+            destination: destinationForSelectedRuangan(),
+            isActive: $shouldNavigate
+        ) {
+            EmptyView()
+        }
+        
+    }
+    
+    func getSelectedRuangan() -> String {
+        if let firstActivity = extractActivity.first {
+            return firstActivity.ruangan.name
+        }
+        return ""
+    }
+    func destinationForSelectedRuangan() -> some View {
+        switch selectedRuangan {
+        case "RuangMakan":
+            return AnyView(AACRuangMakanView())
+        case "KamarMandi":
+            return AnyView(SettingsView())
+        case "RuangBelajar":
+            return AnyView(SettingsView())
+        case "Settings":
+            return AnyView(SettingsView())
+        default:
+            return AnyView(EmptyView())
         }
     }
+    
 }
 
 //#Preview {

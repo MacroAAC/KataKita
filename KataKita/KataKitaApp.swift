@@ -56,23 +56,24 @@ struct KataKitaApp: App {
                     self.activitiesManager.activities = [
                         Activity(
                             id: UUID(),
-                            name: "Memasang Pembalut",
+                            name: "Pipis",
                             image: "",
+                            ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
-                                Step(image: "", description: "Buka pembalut baru"),
-                                Step(image: "", description: "Lepas perekat pada bagian sayap"),
-                                Step(image: "", description: "Masukkan pembalut pada celana dalam"),
-                                Step(image: "", description: "Rekatkan pembalut pada celana dalam"),
-                                Step(image: "", description: "Buang ke tempat sampah"),
+                                Step(image: "", description: "Buka celana"),
+                                Step(image: "", description: "Duduk di toilet"),
+                                Step(image: "", description: "Buang air kecil"),
+                                Step(image: "", description: "Siram toilet"),
                                 Step(image: "", description: "Ambil sabun"),
                                 Step(image: "", description: "Cuci tangan dengan sabun"),
-                                Step(image: "", description: "Selesai")
+                                Step(image: "", description: "Keringkan tangan")
                             ]
                         ),
                         Activity(
                             id: UUID(),
                             name: "Mandi",
                             image: "",
+                            ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
                                 Step(image: "", description: "Siapkan Handuk"),
                                 Step(image: "", description: "Lepas semua baju yang dikenakan"),
@@ -90,6 +91,7 @@ struct KataKitaApp: App {
                             id: UUID(),
                             name: "Makan",
                             image: "",
+                            ruangan: Ruangan(id: UUID(), name: "RuangMakan"),
                             sequence: [
                                 Step(image: "", description: "Cuci tangan"),
                                 Step(image: "", description: "Ambil sendok, garpu, dan piring"),
@@ -101,6 +103,21 @@ struct KataKitaApp: App {
                                 Step(image: "", description: "Minum air putih setelah makan"),
                                 Step(image: "", description: "Cuci sendok, garpu dan piring yang kotor"),
                                 Step(image: "", description: "Kembalikan sendok, garpu, dan piring pada tempatnya")
+                            ]
+                        ),
+                        Activity(
+                            id: UUID(),
+                            name: "Belajar",
+                            image: "",
+                            ruangan: Ruangan(id: UUID(), name: "RuangBelajar"),
+                            sequence: [
+                                Step(image: "", description: "Siapkan buku dan alat tulis"),
+                                        Step(image: "", description: "Cari tempat yang nyaman untuk belajar"),
+                                        Step(image: "", description: "Buka buku pelajaran"),
+                                        Step(image: "", description: "Mulai membaca atau menulis catatan"),
+                                        Step(image: "", description: "Jika perlu, gunakan laptop atau perangkat lain"),
+                                        Step(image: "", description: "Fokus selama 25-30 menit"),
+                                        Step(image: "", description: "Ambil istirahat singkat")
                             ]
                         )
                     ]
