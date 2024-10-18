@@ -50,7 +50,7 @@ struct SettingActivityCard: View {
                     }
                 } label: {
                     Circle()
-                        .fill(Color(hex: "EB7D7B"))
+                        .fill(Color(hex: "EB7D7B", transparency: 1))
                         .frame(width: 20, height: 20)
                         .overlay(
                             Image(systemName: "minus").foregroundStyle(.white)

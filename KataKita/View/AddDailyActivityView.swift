@@ -102,7 +102,7 @@ struct AddDailyActivityView: View {
                             Text("Jumat").tag(5)
                             Text("Sabtu").tag(6)
                         }
-                        .accentColor(Color(hex: "B4B4B5"))
+                        .accentColor(Color(hex: "B4B4B5", transparency: 1))
                     }
                     .padding(15)
                     .background (
@@ -157,7 +157,7 @@ struct AddDailyActivityView: View {
                             } label: {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(
-                                        Color(hex: "EB7D7B")
+                                        Color(hex: "EB7D7B", transparency: 1)
                                     )
                                     .frame(width: 150, height: 40)
                                     .overlay(
