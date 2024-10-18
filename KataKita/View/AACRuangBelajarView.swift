@@ -53,7 +53,7 @@ struct AACRuangBelajarView: View {
                         .foregroundStyle(Color.black)
                         .frame(width: screenWidth * (15 / 1376), height: screenHeight * (15 / 1032))
                     TextHeadline(
-                        text: "Sequence",
+                        text: "Kembali",
                         size: 25,
                         color: "Black",
                         transparency: 1.0,

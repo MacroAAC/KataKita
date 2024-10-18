@@ -72,6 +72,12 @@ struct CustomButton: View {
                         transparency: fontTransparency,
                         weight: "medium"
                     )
+                    .padding(.horizontal)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .allowsTightening(true) // Allow the text to tighten if necessary
+
                 }
                 
                 Spacer()

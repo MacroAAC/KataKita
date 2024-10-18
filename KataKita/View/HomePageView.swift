@@ -28,7 +28,7 @@ struct HomePageView: View {
                         )
                         .padding(.trailing, 30)
                     }
-                    NavigationLink(destination: AACRuangMakanView()) {
+                    NavigationLink(destination: AACMenuView()) {
                         
                         CustomButton(
                             icon: "keyboard", text: "AAC", width: 280, height: 280,
@@ -67,7 +67,7 @@ struct HomePageView: View {
                     case "Jadwal":
                         AnyView(DailyActivityView())
                     case "AAC":
-                        AnyView(AACRuangMakanView())
+                        AnyView(AACMenuView())
                     default:
                         AnyView(EmptyView())
                     }
