@@ -79,6 +79,7 @@ struct HomePageView: View {
             )
             
         }
+        .navigationBarBackButtonHidden(true)
         
     }
 }
