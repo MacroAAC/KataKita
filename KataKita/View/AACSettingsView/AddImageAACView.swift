@@ -9,6 +9,7 @@ struct AddImageAACView: View {
     @State private var showingSymbolsView = false
     @State private var navigateToAddButton = false
     @State private var selectedSymbol = UIImage()
+    @State private var selectedColumnIndex: [Card] = []
     
     var body: some View {
         NavigationStack {
@@ -60,7 +61,7 @@ struct AddImageAACView: View {
                     navigateFromImage: .constant(true),
                     selectedSymbolName: .constant(""),
                     selectedImage: $selectedImage,
-                    categoryColor: .constant("#000000")
+                    categoryColor: .constant("#000000"), selectedColumnIndex: $selectedColumnIndex
                 ),
                 isActive: $navigateToAddButton
             ) {

@@ -20,7 +20,8 @@ struct AddButtonAACView: View {
         availableAssets.contains(textToSpeak.lowercased()) ? textToSpeak.lowercased() : nil
     }
     
-    @Binding var categoryColor: String 
+    @Binding var categoryColor: String
+    @Binding var selectedColumnIndex: [Card]
     
     var body: some View {
         NavigationStack {

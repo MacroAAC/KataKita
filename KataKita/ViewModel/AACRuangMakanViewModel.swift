@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 class AACRuangMakanViewModel: ObservableObject {
@@ -58,26 +57,23 @@ class AACRuangMakanViewModel: ObservableObject {
         let newCard = Card(icon: icon, name: text, category: category)
 
         // Add the new card to the rawData
-        // If there are existing rows in rawData, add to the first row; otherwise, create a new row
+        // If there are existing rows in rawData, add to the last row; otherwise, create a new row
         if !rawData.isEmpty {
-            rawData[0].append((icon, text, backgroundColor, fontColor))
+            rawData[rawData.count - 1].append((icon, text, backgroundColor, fontColor))
         } else {
             rawData.append([(icon, text, backgroundColor, fontColor)])
         }
 
         // Add the new card to the cards array
         if !cards.isEmpty {
-            // Add the new card to the first row of cards for simplicity
-//            cards[0].append(newCard)
-            cards.insert([newCard], at: 0)
+            // Append the new card to the last row of cards
+            cards[cards.count - 1].append(newCard)
         } else {
             // If no rows exist, create the first row with the new card
             cards.append([newCard])
         }
 
-//        loadCardsData()
-        
-        print("Added card: \(newCard)")
+        // Debugging statement to check the new card
+        print("Added card to last row: \(newCard)")
     }
-
 }
