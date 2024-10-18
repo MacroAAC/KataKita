@@ -12,14 +12,14 @@ import AVFoundation
 //    init(hex: String) {
 //        let scanner = Scanner(string: hex)
 //        _ = scanner.scanString("#")
-//        
+//
 //        var rgb: UInt64 = 0
 //        scanner.scanHexInt64(&rgb)
-//        
+//
 //        let r = Double((rgb >> 16) & 0xFF) / 255.0
 //        let g = Double((rgb >> 8) & 0xFF) / 255.0
 //        let b = Double(rgb & 0xFF) / 255.0
-//        
+//
 //        self.init(red: r, green: g, blue: b)
 //    }
 //}
@@ -36,19 +36,23 @@ struct AACRuangMakanView: View {
     @ObservedObject var viewModel = AACRuangMakanViewModel()
     
     @State private var selectedButton: [Card] = []
+    @State private var isHome: Bool = false
+    @State private var isSetting: Bool = false
+    @Environment(\.dismiss) var dismiss
+
     
     // Update columnsData to include an additional String for font color
-//    @State private var columnsData: [[(String, String, String, String)]] = [
-//        [("person.fill", "saya", "#FFEBAF", "#000000"), ("person.fill", "kamu", "#FFEBAF", "#000000"), ("person.fill", "dia", "#FFEBAF", "#000000"), ("person.fill", "kita", "#FFEBAF", "#000000"), ("person.fill", "mama", "#FFEBAF", "#000000"), ("person.fill", "papa", "#FFEBAF", "#000000")],
-//        [("person.fill", "apa", "#A77DFF", "#000000"), ("person.fill", "dimana", "#A77DFF", "#000000"), ("person.fill", "siapa", "#A77DFF", "#000000")],
-//        [("person.fill", "suka", "#FFB0C7", "#000000"), ("person.fill", "tidak suka", "#FFB0C7", "#000000"), ("person.fill", "mau", "#FFB0C7", "#000000"), ("person.fill", "tidak mau", "#FFB0C7", "#000000"), ("person.fill", "tolong", "#FFB0C7", "#000000")],
-//        [("person.fill", "makan", "#CFF0C8", "#000000"), ("person.fill", "minum", "#CFF0C8", "#000000"), ("person.fill", "putar", "#CFF0C8", "#000000"), ("person.fill", "buka", "#CFF0C8", "#000000"), ("person.fill", "tutup", "#CFF0C8", "#000000")],
-//        [("person.fill", "masukkan", "#CFF0C8", "#000000"), ("person.fill", "ambil", "#CFF0C8", "#000000"), ("person.fill", "kunyah", "#CFF0C8", "#000000"), ("person.fill", "potong", "#CFF0C8", "#000000"), ("person.fill", "buang", "#CFF0C8", "#000000")],
-//        [("person.fill", "dingin", "#D4F3FF", "#000000"), ("person.fill", "panas", "#D4F3FF", "#000000"), ("person.fill", "asin", "#D4F3FF", "#000000"), ("person.fill", "manis", "#D4F3FF", "#000000")],
-//        [("person.fill", "sendok", "#F2B95C", "#000000"), ("person.fill", "garpu", "#F2B95C", "#000000"), ("person.fill", "piring", "#F2B95C", "#000000"), ("person.fill", "mangkok", "#F2B95C", "#000000"), ("person.fill", "gelas", "#F2B95C", "#000000")],
-//        [("person.fill", "di", "#FFFFFF", "#000000"), ("person.fill", "ke", "#FFFFFF", "#000000"), ("person.fill", "dan", "#FFFFFF", "#000000")],
-//        [("person.fill", "hitam", "#000000", "#000000"), ("person.fill", "cokelat", "#835737", "#835737"), ("person.fill", "oranye", "#E9AE50", "#E9AE50"), ("person.fill", "merah", "#E54646", "#E54646"), ("person.fill", "ungu", "#B378D8", "#B378D8"), ("person.fill", "pink", "#EDB0DC", "#EDB0DC"), ("person.fill", "biru", "#889AE4", "#889AE4"), ("person.fill", "hijau", "#B7D273", "#B7D273"), ("person.fill", "kuning", "#EFDB76", "#EFDB76")]
-//    ]
+    //    @State private var columnsData: [[(String, String, String, String)]] = [
+    //        [("person.fill", "saya", "#FFEBAF", "#000000"), ("person.fill", "kamu", "#FFEBAF", "#000000"), ("person.fill", "dia", "#FFEBAF", "#000000"), ("person.fill", "kita", "#FFEBAF", "#000000"), ("person.fill", "mama", "#FFEBAF", "#000000"), ("person.fill", "papa", "#FFEBAF", "#000000")],
+    //        [("person.fill", "apa", "#A77DFF", "#000000"), ("person.fill", "dimana", "#A77DFF", "#000000"), ("person.fill", "siapa", "#A77DFF", "#000000")],
+    //        [("person.fill", "suka", "#FFB0C7", "#000000"), ("person.fill", "tidak suka", "#FFB0C7", "#000000"), ("person.fill", "mau", "#FFB0C7", "#000000"), ("person.fill", "tidak mau", "#FFB0C7", "#000000"), ("person.fill", "tolong", "#FFB0C7", "#000000")],
+    //        [("person.fill", "makan", "#CFF0C8", "#000000"), ("person.fill", "minum", "#CFF0C8", "#000000"), ("person.fill", "putar", "#CFF0C8", "#000000"), ("person.fill", "buka", "#CFF0C8", "#000000"), ("person.fill", "tutup", "#CFF0C8", "#000000")],
+    //        [("person.fill", "masukkan", "#CFF0C8", "#000000"), ("person.fill", "ambil", "#CFF0C8", "#000000"), ("person.fill", "kunyah", "#CFF0C8", "#000000"), ("person.fill", "potong", "#CFF0C8", "#000000"), ("person.fill", "buang", "#CFF0C8", "#000000")],
+    //        [("person.fill", "dingin", "#D4F3FF", "#000000"), ("person.fill", "panas", "#D4F3FF", "#000000"), ("person.fill", "asin", "#D4F3FF", "#000000"), ("person.fill", "manis", "#D4F3FF", "#000000")],
+    //        [("person.fill", "sendok", "#F2B95C", "#000000"), ("person.fill", "garpu", "#F2B95C", "#000000"), ("person.fill", "piring", "#F2B95C", "#000000"), ("person.fill", "mangkok", "#F2B95C", "#000000"), ("person.fill", "gelas", "#F2B95C", "#000000")],
+    //        [("person.fill", "di", "#FFFFFF", "#000000"), ("person.fill", "ke", "#FFFFFF", "#000000"), ("person.fill", "dan", "#FFFFFF", "#000000")],
+    //        [("person.fill", "hitam", "#000000", "#000000"), ("person.fill", "cokelat", "#835737", "#835737"), ("person.fill", "oranye", "#E9AE50", "#E9AE50"), ("person.fill", "merah", "#E54646", "#E54646"), ("person.fill", "ungu", "#B378D8", "#B378D8"), ("person.fill", "pink", "#EDB0DC", "#EDB0DC"), ("person.fill", "biru", "#889AE4", "#889AE4"), ("person.fill", "hijau", "#B7D273", "#B7D273"), ("person.fill", "kuning", "#EFDB76", "#EFDB76")]
+    //    ]
     
     let columns = [
         GridItem(.flexible()),
@@ -66,18 +70,44 @@ struct AACRuangMakanView: View {
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
+    
     var body: some View {
         VStack(spacing:-13) {
+                HStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .resizable()
+                            .fontWeight(.medium)
+                            .foregroundStyle(Color.black)
+                            .frame(width: screenWidth * (15 / 1376), height: screenHeight * (15 / 1032))
+                        TextHeadline(
+                            text: "Sequence",
+                            size: 25,
+                            color: "Black",
+                            transparency: 1.0,
+                            weight: "Light"
+                        )
+                    }
+                    Spacer()
+                }
+                .padding(.top,screenHeight * (120 / 1032))
+                .padding(.leading,screenWidth * (28 / 1376))
+        
             HStack {
                 Button(action: {
                     speakAllText(from: selectedButton)
                 }) {
                     ZStack {
+                        
                         Rectangle()
                             .fill(Color.white)
-                            .frame(width:screenWidth * (1190 / 1376),height:screenHeight * (180 / 1032))
+                            .frame(width:screenWidth * (1190 / 1376),height:screenHeight * (140 / 1032))
                             .cornerRadius(10)
                             .padding(.leading, screenWidth * (28 / 1376))
+                        
+                        
                         
                         // HStack for displaying the selected buttons
                         HStack {
@@ -112,17 +142,17 @@ struct AACRuangMakanView: View {
                                         .cornerRadius(5)
                                 }
                             }
-
+                            
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, screenWidth * (33 / 1376))
                         .padding()
-                     
+                        
                         HStack {
                             CustomButton(
                                 icon: "delete",
-                                width: Int(screenWidth * (100/1376.0)),
-                                height: Int(screenHeight * (100/1032.0)),
+                                width: Int(screenWidth * (120/1376.0)),
+                                height: Int(screenHeight * (180/1032.0)),
                                 font: Int(screenWidth * (40/1376.0)),
                                 iconWidth: Int(screenWidth * (50/1376.0)),
                                 iconHeight: Int(screenHeight * (50/1032.0)),
@@ -141,8 +171,9 @@ struct AACRuangMakanView: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing,screenWidth * (4/1376.0))
-
+                        
                     }
+                    .padding(.top, screenHeight * (10/1032.0))
                 }
                 
                 ZStack {
@@ -176,8 +207,8 @@ struct AACRuangMakanView: View {
                 .frame(maxWidth: .infinity)
                 
             }
-            .padding(.top,screenHeight * (110/1032.0))
-            .padding(.bottom,screenHeight * (50/1032.0))
+//            .padding(.top,screenHeight * (110/1032.0))
+            .padding(.bottom,screenHeight * (30/1032.0))
             
             
             HStack {
@@ -195,7 +226,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -214,7 +245,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -233,7 +264,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -252,7 +283,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -271,7 +302,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -290,7 +321,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -309,7 +340,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -328,7 +359,7 @@ struct AACRuangMakanView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
                 .padding(.trailing,screenWidth * (28/1376.0))
@@ -344,18 +375,18 @@ struct AACRuangMakanView: View {
                     .cornerRadius(40)
                 
                 ScrollView {
-                     LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)))], spacing: screenWidth * (10/1376.0)) {
-                         ForEach(0..<viewModel.cards.count, id: \.self) { columnIndex in
-                             VStack(spacing: screenWidth * (10/1376.0)) {
-                                 let rowLimit = (columnIndex == viewModel.cards.count - 1) ? 9 : 6
-                                 
-                                 ForEach(0..<rowLimit, id: \.self) { rowIndex in
-                                     if rowIndex < viewModel.cards[columnIndex].count {
-                                         let card = viewModel.cards[columnIndex][rowIndex]
-                                         
-                                         // Special design for the last column
-                                         if columnIndex == viewModel.cards.count - 1 {
-                                             CustomButton(
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)))], spacing: screenWidth * (10/1376.0)) {
+                        ForEach(0..<viewModel.cards.count, id: \.self) { columnIndex in
+                            VStack(spacing: screenWidth * (10/1376.0)) {
+                                let rowLimit = (columnIndex == viewModel.cards.count - 1) ? 9 : 6
+                                
+                                ForEach(0..<rowLimit, id: \.self) { rowIndex in
+                                    if rowIndex < viewModel.cards[columnIndex].count {
+                                        let card = viewModel.cards[columnIndex][rowIndex]
+                                        
+                                        // Special design for the last column
+                                        if columnIndex == viewModel.cards.count - 1 {
+                                            CustomButton(
                                                 text: card.name,
                                                 width: Int(screenWidth * (100/1376.0)),
                                                 height: Int(screenHeight * (60/1032.0)),
@@ -381,20 +412,20 @@ struct AACRuangMakanView: View {
                                                         }
                                                     }
                                                 }
-                                             )
-                                             .alert(isPresented: $showAlert) {
-                                                 Alert(
+                                            )
+                                            .alert(isPresented: $showAlert) {
+                                                Alert(
                                                     title: Text("Kotak Kata Penuh"),
                                                     message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
                                                     dismissButton: .default(Text("OK"), action: {
                                                         hasSpoken = true
                                                     })
-                                                 )
-                                             }
-                                             .padding(.bottom, screenHeight * (3/1032.0))
-                                         } else {
-                                             // Default button for other columns
-                                             CustomButton(
+                                                )
+                                            }
+                                            .padding(.bottom, screenHeight * (3/1032.0))
+                                        } else {
+                                            // Default button for other columns
+                                            CustomButton(
                                                 icon: card.icon,
                                                 text: card.name,
                                                 width: Int(screenWidth * (100/1376.0)),
@@ -421,105 +452,105 @@ struct AACRuangMakanView: View {
                                                         }
                                                     }
                                                 }
-                                             )
-                                             .alert(isPresented: $showAlert) {
-                                                 Alert(
-                                                     title: Text("Kotak Kata Penuh"),
-                                                     message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
-                                                     dismissButton: .default(Text("OK"), action: {
-                                                         hasSpoken = true
-                                                     })
-                                                 )
-                                             }
-                                         }
-                                     }
-                                     else if viewModel.cards[columnIndex].count < 6 {
-                                         let buttonsData = [
-                                             0: ("#FFEBAF", "#000000"),
-                                             1: ("#A77DFF", "#000000"),
-                                             2: ("#FFB0C7", "#000000"),
-                                             3: ("#CFF0C8", "#000000"),
-                                             4: ("#CFF0C8", "#000000"),
-                                             5: ("#D4F3FF", "#000000"),
-                                             6: ("#F2B95C", "#000000"),
-                                             7: ("#FFFFFF", "#000000")
-                                         ]
-                                         
-                                         if let (bgColor, fontColor) = buttonsData[columnIndex] {
-                                             // Show the CustomButton if showPlusButton is true
-                                             CustomButton(
-                                                 text: "+",
-                                                 width: Int(screenWidth * (100/1376.0)),
-                                                 height: Int(screenHeight * (100/1032.0)),
-                                                 font: Int(screenWidth * (18/1376.0)),
-                                                 iconWidth: Int(screenWidth * (50/1376.0)),
-                                                 iconHeight: Int(screenHeight * (50/1032.0)),
-                                                 bgColor: bgColor,
-                                                 bgTransparency: 1.0,
-                                                 fontColor: fontColor,
-                                                 fontTransparency: 1.0,
-                                                 cornerRadius: 15,
-                                                 isSystemImage: false,
-                                                 action: {
-                                                     selectedCategoryColor = bgColor
-                                                     showAACSettings = true
-                                                 }
-                                             )
-                                             .opacity(showPlusButton ? 1 : 0)
-                                         }
-                                     }
-
-
-                                 }
-                             }
-                         }
-                     }
-                     .padding(.top, screenHeight * (40/1032.0))
-                     .padding(.leading,screenWidth * (25/1376.0))
-                 }
-                 VStack{
-                     ZStack {
-                         Rectangle()
-                             .fill(Color(hex: "#EEEEEE", transparency: 1))
-                             .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
-                             .cornerRadius(20)
-                             .shadow(radius: 5,x: 3,y:4)
-                         
-                         CustomButton(
-                             icon: "pencil",
-                             width: Int(screenWidth * (50/1376.0)),
-                             height: Int(screenHeight * (50/1032.0)),
-                             font: Int(screenWidth * (40/1376.0)),
-                             iconWidth: Int(screenWidth * (40/1376.0)),
-                             iconHeight: Int(screenHeight * (40/1032.0)),
-                             bgColor: "#000000",
-                             bgTransparency: 0,
-                             fontColor: "#696767",
-                             fontTransparency: 1.0,
-                             cornerRadius: 20,
-                             isSystemImage: true,
-                             action:{
- //                                showAACSettings = true
-                                 handlePencilPress()
-                             }
-                         )
-                         
-                     }
-                     .sheet(isPresented: $showAACSettings) {
-
-                         AddButtonAACView(
-                             viewModel: AACRuangMakanViewModel(),
-                             navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
-                             selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
-                             navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
-                             navigateFromImage: CallAACSettingsView.$navigateFromImage,
-                             selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
-                             selectedImage: .constant(nil),
-                             categoryColor: $selectedCategoryColor
-                         )
-                     }
-
-
+                                            )
+                                            .alert(isPresented: $showAlert) {
+                                                Alert(
+                                                    title: Text("Kotak Kata Penuh"),
+                                                    message: Text("Kamu hanya bisa memilih 10 kata. Hapus kata yang sudah dipilih untuk memilih kata baru."),
+                                                    dismissButton: .default(Text("OK"), action: {
+                                                        hasSpoken = true
+                                                    })
+                                                )
+                                            }
+                                        }
+                                    }
+                                    else if viewModel.cards[columnIndex].count < 6 {
+                                        let buttonsData = [
+                                            0: ("#FFEBAF", "#000000"),
+                                            1: ("#A77DFF", "#000000"),
+                                            2: ("#FFB0C7", "#000000"),
+                                            3: ("#CFF0C8", "#000000"),
+                                            4: ("#CFF0C8", "#000000"),
+                                            5: ("#D4F3FF", "#000000"),
+                                            6: ("#F2B95C", "#000000"),
+                                            7: ("#FFFFFF", "#000000")
+                                        ]
+                                        
+                                        if let (bgColor, fontColor) = buttonsData[columnIndex] {
+                                            // Show the CustomButton if showPlusButton is true
+                                            CustomButton(
+                                                text: "+",
+                                                width: Int(screenWidth * (100/1376.0)),
+                                                height: Int(screenHeight * (100/1032.0)),
+                                                font: Int(screenWidth * (18/1376.0)),
+                                                iconWidth: Int(screenWidth * (50/1376.0)),
+                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                bgColor: bgColor,
+                                                bgTransparency: 1.0,
+                                                fontColor: fontColor,
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 15,
+                                                isSystemImage: false,
+                                                action: {
+                                                    selectedCategoryColor = bgColor
+                                                    showAACSettings = true
+                                                }
+                                            )
+                                            .opacity(showPlusButton ? 1 : 0)
+                                        }
+                                    }
+                                    
+                                    
+                                }
+                            }
+                        }
+                    }
+                    .padding(.top, screenHeight * (40/1032.0))
+                    .padding(.leading,screenWidth * (25/1376.0))
+                }
+                VStack{
+                    ZStack {
+                        Rectangle()
+                            .fill(Color(hex: "#EEEEEE", transparency: 1))
+                            .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
+                            .cornerRadius(20)
+                            .shadow(radius: 5,x: 3,y:4)
+                        
+                        CustomButton(
+                            icon: "pencil",
+                            width: Int(screenWidth * (50/1376.0)),
+                            height: Int(screenHeight * (50/1032.0)),
+                            font: Int(screenWidth * (40/1376.0)),
+                            iconWidth: Int(screenWidth * (40/1376.0)),
+                            iconHeight: Int(screenHeight * (40/1032.0)),
+                            bgColor: "#000000",
+                            bgTransparency: 0,
+                            fontColor: "#696767",
+                            fontTransparency: 1.0,
+                            cornerRadius: 20,
+                            isSystemImage: true,
+                            action:{
+                                //                                showAACSettings = true
+                                handlePencilPress()
+                            }
+                        )
+                        
+                    }
+                    .sheet(isPresented: $showAACSettings) {
+                        
+                        AddButtonAACView(
+                            viewModel: AACRuangMakanViewModel(),
+                            navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
+                            selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
+                            navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
+                            navigateFromImage: CallAACSettingsView.$navigateFromImage,
+                            selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
+                            selectedImage: .constant(nil),
+                            categoryColor: selectedCategoryColor
+                        )
+                    }
+                    
+                    
                     
                     
                     ZStack {
@@ -529,23 +560,25 @@ struct AACRuangMakanView: View {
                             .cornerRadius(20)
                             .shadow(radius: 5,x: 3,y:4)
                         
-                        CustomButton(
-                            icon: "home",
-                            width: Int(screenWidth * (50/1376.0)),
-                            height: Int(screenHeight * (50/1032.0)),
-                            font: Int(screenWidth * (40/1376.0)),
-                            iconWidth: Int(screenWidth * (40/1376.0)),
-                            iconHeight: Int(screenHeight * (40/1032.0)),
-                            bgColor: "#000000",
-                            bgTransparency: 0,
-                            fontColor: "#ffffff",
-                            fontTransparency: 1.0,
-                            cornerRadius: 20,
-                            isSystemImage: false,
-                            action:{
-                                
-                            }
-                        )
+                        NavigationLink (destination: HomePageView()){
+                            CustomButton(
+                                icon: "home",
+                                width: Int(screenWidth * (50/1376.0)),
+                                height: Int(screenHeight * (50/1032.0)),
+                                font: Int(screenWidth * (40/1376.0)),
+                                iconWidth: Int(screenWidth * (40/1376.0)),
+                                iconHeight: Int(screenHeight * (40/1032.0)),
+                                bgColor: "#000000",
+                                bgTransparency: 0,
+                                fontColor: "#ffffff",
+                                fontTransparency: 1.0,
+                                cornerRadius: 20,
+                                isSystemImage: false,
+                                action:{
+                                    isHome = true
+                                }
+                            )
+                        }
                         
                     }
                     
@@ -556,23 +589,25 @@ struct AACRuangMakanView: View {
                             .cornerRadius(20)
                             .shadow(radius: 5,x: 3,y:4)
                         
-                        CustomButton(
-                            icon: "settings",
-                            width: Int(screenWidth * (50/1376.0)),
-                            height: Int(screenHeight * (50/1032.0)),
-                            font: Int(screenWidth * (40/1376.0)),
-                            iconWidth: Int(screenWidth * (40/1376.0)),
-                            iconHeight: Int(screenHeight * (40/1032.0)),
-                            bgColor: "#000000",
-                            bgTransparency: 0,
-                            fontColor: "#ffffff",
-                            fontTransparency: 1.0,
-                            cornerRadius: 20,
-                            isSystemImage: false,
-                            action:{
-                                
-                            }
-                        )
+                        NavigationLink (destination: SettingsView()){
+                            CustomButton(
+                                icon: "settings",
+                                width: Int(screenWidth * (50/1376.0)),
+                                height: Int(screenHeight * (50/1032.0)),
+                                font: Int(screenWidth * (40/1376.0)),
+                                iconWidth: Int(screenWidth * (40/1376.0)),
+                                iconHeight: Int(screenHeight * (40/1032.0)),
+                                bgColor: "#000000",
+                                bgTransparency: 0,
+                                fontColor: "#ffffff",
+                                fontTransparency: 1.0,
+                                cornerRadius: 20,
+                                isSystemImage: false,
+                                action:{
+                                    isSetting = true
+                                }
+                            )
+                        }
                         
                     }
                 }
@@ -588,6 +623,19 @@ struct AACRuangMakanView: View {
             
         }
         .background(Color(hex: "#F7F5F0", transparency: 1))
+        .navigationBarBackButtonHidden(true)
+        NavigationLink (destination:
+                            SettingsView(),
+                        isActive: $isSetting
+        ){
+            
+        }
+        NavigationLink (destination:
+                            HomePageView(),
+                        isActive: $isHome
+        ){
+            
+        }
     }
     
     
@@ -620,8 +668,8 @@ struct AACRuangMakanView: View {
             showPlusButton = false // Hide the plus button if all columns are filled
         }
     }
-
-
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
