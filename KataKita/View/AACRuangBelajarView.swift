@@ -69,7 +69,7 @@ struct AACRuangBelajarView: View {
                                         fontColor: selectedButton[index].category.fontColor, // Convert hex string to Color
                                         fontTransparency: 1.0,
                                         cornerRadius: 10,
-                                        isSystemImage: true,
+                                        isSystemImage: false,
                                         action: {
                                             // Define the button action here if needed
                                         }
@@ -230,7 +230,7 @@ struct AACRuangBelajarView: View {
                 .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
-                    icon: "WarnaHijau",
+                    icon: "WarnaBiru",
                     width: Int(screenWidth * (100/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
@@ -249,7 +249,7 @@ struct AACRuangBelajarView: View {
                 .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
-                    icon: "WarnaBiru",
+                    icon: "WarnaOrange",
                     width: Int(screenWidth * (100/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
@@ -372,14 +372,14 @@ struct AACRuangBelajarView: View {
                                                 width: Int(screenWidth * (100/1376.0)),
                                                 height: Int(screenHeight * (100/1032.0)),
                                                 font: Int(screenWidth * (16/1376.0)),
-                                                iconWidth: Int(screenWidth * (40/1376.0)),
-                                                iconHeight: Int(screenHeight * (40/1032.0)),
+                                                iconWidth: Int(screenWidth * (65/1376.0)),
+                                                iconHeight: Int(screenHeight * (65/1032.0)),
                                                 bgColor: card.category.color,
                                                 bgTransparency: 1.0,
                                                 fontColor: card.category.fontColor,
                                                 fontTransparency: 1.0,
                                                 cornerRadius: 10,
-                                                isSystemImage: true,
+                                                isSystemImage: false,
                                                 action: {
                                                     if selectedButton.count < 10 {
                                                         showAlert = false
