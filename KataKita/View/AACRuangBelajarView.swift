@@ -21,6 +21,9 @@ struct AACRuangBelajarView: View {
     @ObservedObject var viewModel = AACRuangBelajarViewModel()
     @State private var selectedColumnIndex: [Card] = []
     @State private var selectedButton: [Card] = []
+    @State private var isHome: Bool = false
+    @State private var isSetting: Bool = false
+    @Environment(\.dismiss) var dismiss
     
     let columns = [
         GridItem(.flexible()),
@@ -41,13 +44,36 @@ struct AACRuangBelajarView: View {
     var body: some View {
         VStack(spacing:-13) {
             HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .fontWeight(.medium)
+                        .foregroundStyle(Color.black)
+                        .frame(width: screenWidth * (15 / 1376), height: screenHeight * (15 / 1032))
+                    TextHeadline(
+                        text: "Sequence",
+                        size: 25,
+                        color: "Black",
+                        transparency: 1.0,
+                        weight: "Light"
+                    )
+                }
+                Spacer()
+            }
+            .padding(.top,screenHeight * (110 / 1032))
+            .padding(.bottom,screenHeight * (20 / 1032))
+            .padding(.leading,screenWidth * (28 / 1376))
+            
+            HStack {
                 Button(action: {
                     speakAllText(from: selectedButton)
                 }) {
                     ZStack {
                         Rectangle()
                             .fill(Color.white)
-                            .frame(width:screenWidth * (1190 / 1376),height:screenHeight * (180 / 1032))
+                            .frame(width:screenWidth * (1190 / 1376),height:screenHeight * (140 / 1032))
                             .cornerRadius(10)
                             .padding(.leading, screenWidth * (28 / 1376))
                         
@@ -120,7 +146,7 @@ struct AACRuangBelajarView: View {
                 ZStack {
                     Rectangle()
                         .fill(Color.white.opacity(1.0))
-                        .frame(width: screenWidth * (130/1376.0),height: screenHeight * (130/1032.0))
+                        .frame(width: screenWidth * (110/1376.0),height: screenHeight * (110/1032.0))
                         .cornerRadius(20)
                         .shadow(radius: 5,x: 3,y:4)
                     
@@ -148,7 +174,6 @@ struct AACRuangBelajarView: View {
                 .frame(maxWidth: .infinity)
                 
             }
-            .padding(.top,screenHeight * (110/1032.0))
             .padding(.bottom,screenHeight * (50/1032.0))
             
             
@@ -306,7 +331,7 @@ struct AACRuangBelajarView: View {
                 .padding(.trailing,screenWidth * (28/1376.0))
                 
             }
-            .padding(.trailing,screenWidth * (213/1376.0))
+            .padding(.trailing,screenWidth * (218/1376.0))
             
             // ScrollView for buttons
             ZStack {
@@ -515,7 +540,7 @@ struct AACRuangBelajarView: View {
                             cornerRadius: 20,
                             isSystemImage: false,
                             action:{
-                                
+                                isHome = true
                             }
                         )
                         
@@ -542,7 +567,7 @@ struct AACRuangBelajarView: View {
                             cornerRadius: 20,
                             isSystemImage: false,
                             action:{
-                                
+                                isSetting = true
                             }
                         )
                         
@@ -560,6 +585,16 @@ struct AACRuangBelajarView: View {
             
         }
         .background(Color(hex: "#F7F5F0", transparency: 1))
+        .navigationBarBackButtonHidden(true)
+        NavigationLink (destination: SettingsView(), isActive: $isSetting
+        ){
+            
+        }
+        NavigationLink (destination: HomePageView(), isActive: $isHome
+        ){
+            
+        }
+
     }
     
     
