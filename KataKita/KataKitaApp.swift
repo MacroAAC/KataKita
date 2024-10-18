@@ -57,10 +57,10 @@ struct KataKitaApp: App {
                         Activity(
                             id: UUID(),
                             name: "Pipis",
-                            image: "CELANAPENDEK",
+                            image: "",
                             ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
-                                Step(image: "CELANAPENDEK", description: "Buka celana"),
+                                Step(image: "CELANA PENDEK", description: "Buka celana"),
                                 Step(image: "", description: "Duduk di toilet"),
                                 Step(image: "", description: "Buang air kecil"),
                                 Step(image: "", description: "Siram toilet"),
