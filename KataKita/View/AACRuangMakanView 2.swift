@@ -515,7 +515,7 @@ struct AACRuangMakanView: View {
                              navigateFromImage: CallAACSettingsView.$navigateFromImage,
                              selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
                              selectedImage: .constant(nil),
-                             categoryColor: selectedCategoryColor
+                             categoryColor: $selectedCategoryColor
                          )
                      }
 

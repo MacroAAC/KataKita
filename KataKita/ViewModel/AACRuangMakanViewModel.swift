@@ -1,14 +1,9 @@
-//
-//  AACRuangMakanViewModel.swift
-//  KataKita
-//
-//  Created by Lisandra Nicoline on 17/10/24.
-//
 
 import SwiftUI
 
 class AACRuangMakanViewModel: ObservableObject {
     @Published var cards: [[Card]] = []
+    private var rawData: [[(String, String, String, String)]] = [] // Store the raw data separately
 
     init() {
         loadCardsData()
@@ -16,7 +11,7 @@ class AACRuangMakanViewModel: ObservableObject {
 
     // Function to load the data and convert it to Card models
     func loadCardsData() {
-        let rawData = [
+        rawData = [
             [("person.fill", "saya", "#FFEBAF", "#000000"), ("person.fill", "kamu", "#FFEBAF", "#000000"), ("person.fill", "dia", "#FFEBAF", "#000000"), ("person.fill", "kita", "#FFEBAF", "#000000"), ("person.fill", "mama", "#FFEBAF", "#000000"), ("person.fill", "papa", "#FFEBAF", "#000000")],
             [("person.fill", "apa", "#A77DFF", "#000000"), ("person.fill", "dimana", "#A77DFF", "#000000"), ("person.fill", "siapa", "#A77DFF", "#000000")],
             [("person.fill", "suka", "#FFB0C7", "#000000"), ("person.fill", "tidak suka", "#FFB0C7", "#000000"), ("person.fill", "mau", "#FFB0C7", "#000000"), ("person.fill", "tidak mau", "#FFB0C7", "#000000"), ("person.fill", "tolong", "#FFB0C7", "#000000")],
@@ -53,23 +48,36 @@ class AACRuangMakanViewModel: ObservableObject {
     }
     
     func addCard(icon: String, text: String, backgroundColor: String) {
-        // Create a new category for this card (you can adjust this logic)
-        let category = Category(name: "New Category", color: backgroundColor, fontColor: "#000000") // Default font color
+        // Set default font color to black
+        let fontColor = "#000000"
+
+        // Create a new category for this card
+        let category = Category(name: "New Category", color: backgroundColor, fontColor: fontColor)
 
         // Create the new card
         let newCard = Card(icon: icon, name: text, category: category)
-                cards.append([newCard])
-                print("Added card: \(newCard)")
 
-        // Add the new card to the first row for simplicity (adjust this logic as needed)
+        // Add the new card to the rawData
+        // If there are existing rows in rawData, add to the first row; otherwise, create a new row
+        if !rawData.isEmpty {
+            rawData[0].append((icon, text, backgroundColor, fontColor))
+        } else {
+            rawData.append([(icon, text, backgroundColor, fontColor)])
+        }
+
+        // Add the new card to the cards array
         if !cards.isEmpty {
-            // Adding to the first row, modify if necessary
-            cards[0].append(newCard)
+            // Add the new card to the first row of cards for simplicity
+//            cards[0].append(newCard)
+            cards.insert([newCard], at: 0)
         } else {
             // If no rows exist, create the first row with the new card
             cards.append([newCard])
         }
-        
-    }
-}
 
+//        loadCardsData()
+        
+        print("Added card: \(newCard)")
+    }
+
+}

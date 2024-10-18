@@ -2,6 +2,7 @@ import SwiftUI
 import PhotosUI
 
 struct AddImageAACView: View {
+    @ObservedObject var viewModel: AACRuangMakanViewModel
     @State var selectedImage: UIImage? = nil
     @State private var showImagePicker = false
     @State private var showCamera = false
@@ -50,22 +51,22 @@ struct AddImageAACView: View {
                 }
             }
         )
-//        .background(
-//            NavigationLink(
-//                destination: AddButtonAACView(
-//                    navigateTooAddImage: .constant(false),
-//                    selectedSymbolImage: .constant(""),
-//                    navigateFromSymbols: .constant(false),
-//                    navigateFromImage: .constant(true),
-//                    selectedSymbolName: .constant(""),
-//                    selectedImage: $selectedImage,
-//                    categoryColor: "#000000"
-//                ),
-//                isActive: $navigateToAddButton
-//            ) {
-//                EmptyView()
-//            }
-//        )
+        .background(
+            NavigationLink(
+                destination: AddButtonAACView(
+                    viewModel: viewModel, navigateTooAddImage: .constant(false),
+                    selectedSymbolImage: .constant(""),
+                    navigateFromSymbols: .constant(false),
+                    navigateFromImage: .constant(true),
+                    selectedSymbolName: .constant(""),
+                    selectedImage: $selectedImage,
+                    categoryColor: .constant("#000000")
+                ),
+                isActive: $navigateToAddButton
+            ) {
+                EmptyView()
+            }
+        )
     }
 }
 
@@ -111,13 +112,13 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 }
 
-// MARK: - Preview
-struct AddImageAACView_Previews: PreviewProvider {
-    @State static var selectedImage: UIImage? = nil
-    
-    static var previews: some View {
-        NavigationStack {
-            AddImageAACView()
-        }
-    }
-}
+//// MARK: - Preview
+//struct AddImageAACView_Previews: PreviewProvider {
+//    @State static var selectedImage: UIImage? = nil
+//
+//    static var previews: some View {
+//        NavigationStack {
+//            AddImageAACView(viewModel: viewModel)
+//        }
+//    }
+//}

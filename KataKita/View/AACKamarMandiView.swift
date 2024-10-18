@@ -486,7 +486,7 @@ struct AACKamarMandiView: View {
                              navigateFromImage: CallAACSettingsView.$navigateFromImage,
                              selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
                              selectedImage: .constant(nil),
-                             categoryColor: selectedCategoryColor // Pass the selected category color
+                             categoryColor: $selectedCategoryColor // Pass the selected category color
                          )
                      }
 
