@@ -5,8 +5,9 @@ struct AddButtonAACView: View {
     @State private var textToSpeak: String = ""
     @State private var showingAddImageView = false
     @State private var navigatesFromImage = false
-    
-    let availableAssets = ["delete", "home", "trash", "settings", "ball", "plusimage"]
+    @State private var navigateToCekVMView = false
+
+    let availableAssets = ["delete", "home", "trash", "settings", "ball", "plusimage", "air"]
     
     @Binding var navigateTooAddImage: Bool
     @Binding var selectedSymbolImage: String
@@ -19,7 +20,8 @@ struct AddButtonAACView: View {
         availableAssets.contains(textToSpeak.lowercased()) ? textToSpeak.lowercased() : nil
     }
     
-    var categoryColor: String // This should be set when initializing AddButtonAACView
+    @Binding var categoryColor: String
+    @Binding var selectedColumnIndex: [Card]
     
     var body: some View {
         NavigationStack {
@@ -102,15 +104,20 @@ struct AddButtonAACView: View {
                 }
             }
             .navigationDestination(isPresented: $showingAddImageView) {
-                AddImageAACView()
+                AddImageAACView(viewModel: viewModel)
             }
-            .navigationBarTitle("Add Button", displayMode: .inline)
             .navigationBarItems(
                 trailing: Button("Done") {
                     print("Done button pressed") // Debugging statement
                     handleDoneAction()
+                    navigateToCekVMView = true
                 }
             )
+                
+            NavigationLink(destination: cekVMview(viewModel: viewModel), isActive: $navigateToCekVMView) {
+                EmptyView()
+            }
+
         }
         .onAppear {
             print("View appeared, showingAddImageView: \(showingAddImageView)")
@@ -121,23 +128,26 @@ struct AddButtonAACView: View {
     }
     
     private func handleDoneAction() {
-        let icon = matchedAsset ?? ""
-        let text = textToSpeak
-        let color = categoryColor
-        
-        // Debugging statement to verify values
+        // Fetch icon, text, and color from input
+        let icon = matchedAsset ?? "" // Use matchedAsset if available, or an empty string
+        let text = textToSpeak // Text entered by the user
+        let color = categoryColor // Background color of the category
+
+        // Debugging statement to check values before saving
         print("Handling done action: Icon: \(icon), Text: \(text), Background Color: \(color)")
 
-        // Save the button data to the view model
+        // Call the function to save data to ViewModel
         saveButtonData(icon: icon, text: text, backgroundColor: color)
     }
-    
+
+
     private func saveButtonData(icon: String, text: String, backgroundColor: String) {
+        // Menambahkan kartu baru ke ViewModel
         viewModel.addCard(icon: icon, text: text, backgroundColor: backgroundColor)
+        
+        // Debugging statement setelah menyimpan data
         print("Saved card data: Icon: \(icon), Text: \(text), Background Color: \(backgroundColor)")
     }
-        
-
 }
 
 
