@@ -113,29 +113,7 @@ struct AACRuangMakanView: View {
                         .padding(.leading, screenWidth * (33 / 1376))
                         .padding()
                      
-                        HStack {
-                            CustomButton(
-                                icon: "delete",
-                                width: Int(screenWidth * (100/1376.0)),
-                                height: Int(screenHeight * (100/1032.0)),
-                                font: Int(screenWidth * (40/1376.0)),
-                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                iconHeight: Int(screenHeight * (50/1032.0)),
-                                bgColor: "#000000",
-                                bgTransparency: 0,
-                                fontColor: "#ffffff",
-                                fontTransparency: 1.0,
-                                cornerRadius: 20,
-                                isSystemImage: false,
-                                action:{
-                                    if !selectedButton.isEmpty {
-                                        selectedButton.removeLast()
-                                    }
-                                }
-                            )
-                        }
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding(.trailing,screenWidth * (4/1376.0))
+                        
 
                     }
                 }

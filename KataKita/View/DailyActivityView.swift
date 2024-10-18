@@ -367,9 +367,9 @@ struct DailyActivityView: View {
         case "RuangMakan":
             return AnyView(AACRuangMakanView())
         case "KamarMandi":
-            return AnyView(SettingsView())
+            return AnyView(AACKamarMandiView())
         case "RuangBelajar":
-            return AnyView(SettingsView())
+            return AnyView(AACRuangBelajarView())
         case "Settings":
             return AnyView(SettingsView())
         default:
