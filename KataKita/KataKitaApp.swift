@@ -57,7 +57,7 @@ struct KataKitaApp: App {
                         Activity(
                             id: UUID(),
                             name: "Pipis",
-                            image: "",
+                            image: "TOILET",
                             ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
                                 Step(image: "CELANA PENDEK", description: "Buka celana"),
@@ -93,31 +93,58 @@ struct KataKitaApp: App {
                             image: "MAKAN",
                             ruangan: Ruangan(id: UUID(), name: "RuangMakan"),
                             sequence: [
-                                Step(image: "", description: "Cuci tangan"),
-                                Step(image: "", description: "Ambil sendok, garpu, dan piring"),
+                                Step(image: "", description: "Ambil piring"),
+                                Step(image: "", description: "Ambil sendok dan garpu"),
                                 Step(image: "", description: "Duduk di meja makan"),
-                                Step(image: "", description: "Ambil nasi secukupnya"),
-                                Step(image: "", description: "Ambil lauk secukupnya"),
                                 Step(image: "", description: "Berdoa sebelum makan"),
-                                Step(image: "", description: "Makan sampai habis"),
+                                Step(image: "", description: "Mulai makan sampai habis"),
                                 Step(image: "", description: "Minum air putih setelah makan"),
-                                Step(image: "", description: "Cuci sendok, garpu dan piring yang kotor"),
+                                Step(image: "", description: "Lap mulut setelah habis makan"),
                                 Step(image: "", description: "Kembalikan sendok, garpu, dan piring pada tempatnya")
                             ]
                         ),
                         Activity(
                             id: UUID(),
-                            name: "Belajar",
+                            name: "Cuci tangan",
+                            image: "",
+                            ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
+                            sequence: [
+                                        Step(image: "", description: "Buka keran air"),
+                                        Step(image: "", description: "Basahi tangan dengan air"),
+                                        Step(image: "", description: "Ambil sabun"),
+                                        Step(image: "", description: "Gosok sabun di tangan kiri"),
+                                        Step(image: "", description: "Gosok sabun di tangan kanan"),
+                                        Step(image: "", description: "Bilas sabun dengan air"),
+                                        Step(image: "", description: "Keringkan tangan")
+                            ]
+                        ),
+                        Activity(
+                            id: UUID(),
+                            name: "Cuci Piring",
+                            image: "MEJA BELAJAR",
+                            ruangan: Ruangan(id: UUID(), name: "RuangMakan"),
+                            sequence: [
+                                        Step(image: "", description: "Ambil piring dan sendok garpu kotor"),
+                                        Step(image: "", description: "Basahilah dengan air"),
+                                        Step(image: "", description: "Ambil spon dan beri sabun"),
+                                        Step(image: "", description: "Gosok piring dan sendok garpu dengan sabun dan spon"),
+                                        Step(image: "", description: "Jika perlu, gunakan laptop atau perangkat lain"),
+                                        Step(image: "", description: "Bilas semua dengan air bersih"),
+                                        Step(image: "", description: "Letakkan di tempat pengeringan")
+                            ]
+                        ),
+                        Activity(
+                            id: UUID(),
+                            name: "Mewarnai",
                             image: "MEJA BELAJAR",
                             ruangan: Ruangan(id: UUID(), name: "RuangBelajar"),
                             sequence: [
-                                Step(image: "", description: "Siapkan buku dan alat tulis"),
-                                        Step(image: "", description: "Cari tempat yang nyaman untuk belajar"),
-                                        Step(image: "", description: "Buka buku pelajaran"),
-                                        Step(image: "", description: "Mulai membaca atau menulis catatan"),
-                                        Step(image: "", description: "Jika perlu, gunakan laptop atau perangkat lain"),
-                                        Step(image: "", description: "Fokus selama 25-30 menit"),
-                                        Step(image: "", description: "Ambil istirahat singkat")
+                                        Step(image: "", description: "Ambil buku dan pewarna"),
+                                        Step(image: "", description: "Duduk di meja belajar"),
+                                        Step(image: "", description: "Buka buku dan siapkan alat pewarna"),
+                                        Step(image: "", description: "Mulai mewarnai tugas yang diberikan"),
+                                        Step(image: "", description: "Setelah selesai, rapikan alat mewarnai"),
+                                        Step(image: "", description: "Kembalikan peralatan pada tempatnya")
                             ]
                         )
                     ]

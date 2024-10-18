@@ -57,7 +57,6 @@ struct CustomButtonSide: View {
                         transparency: fontTransparency,
                         weight: "medium"
                     )
-                    .padding(.trailing,8)
 
                 }
                 
@@ -78,9 +77,6 @@ struct CustomButtonSide: View {
                             .padding(.bottom,8)
                     }
                 }
-                
-                
-                
                 Spacer()
             }
         }
@@ -102,6 +98,27 @@ struct CustomButtonSide: View {
         .shadow(color: Color(hex: "000000", transparency: 0.1), radius:10)
     }
 }
+
+
+//#Preview {
+//    CustomButtonSide(
+//        icon: "SELESAI 1",
+//        text: "Selesai",
+//        width: 150,
+//        height: 50,
+//        font: 14,
+//        iconWidth: 30,
+//        iconHeight: 30,
+//        bgColor: "#013C5A",
+//        bgTransparency: 0,
+//        fontColor: "#F7F5F0",
+//        fontTransparency: 1.0,
+//        cornerRadius: 20,
+//        isSystemImage: false
+//        
+//    )
+//    
+//}
 
 // Text only
 #Preview {
@@ -127,4 +144,6 @@ struct CustomButtonSide: View {
 #Preview {
     CustomButtonSide(icon: "ball", text: "Custom", width: 153, height: 153, font: 24, iconWidth: 80, iconHeight: 60, bgColor: "#000000", bgTransparency: 1.0, fontColor: "#ffffff", fontTransparency: 1.0, cornerRadius: 20, isSystemImage: false)
 }
+
+
 

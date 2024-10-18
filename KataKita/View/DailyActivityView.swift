@@ -292,16 +292,20 @@ struct DailyActivityView: View {
                                 .fill(Color(hex: "BDD4CE", transparency: 1.0))
                                 .frame(height: 100)
                                 .overlay(
-                                    CustomButton(
+                                    CustomButtonSide(
+                                        icon: "SELESAI 1",
                                         text: "Selesai",
                                         width: 150,
                                         height: 50,
                                         font: 14,
+                                        iconWidth: 35,
+                                        iconHeight: 35,
                                         bgColor: "#013C5A",
                                         bgTransparency: 1.0,
                                         fontColor: "#F7F5F0",
                                         fontTransparency: 1.0,
                                         cornerRadius: 20,
+                                        isSystemImage: false,
                                         action: {
                                             self.stateManager.increment()
                                             selectedRuangan = ""
@@ -312,9 +316,32 @@ struct DailyActivityView: View {
                                             } else {
                                                 selectedRuangan = getSelectedRuangan() // Fallback to the top one
                                             }
-                                        }
-                                        
-                                    )
+                                        })
+                                    
+//                                    CustomButtonSide(
+//                                        icon: "SELESAI 1",
+//                                        text: "Selesai",
+//                                        width: 150,
+//                                        height: 50,
+//                                        font: 14,
+//                                        bgColor: "#013C5A",
+//                                        bgTransparency: 1.0,
+//                                        fontColor: "#F7F5F0",
+//                                        fontTransparency: 1.0,
+//                                        cornerRadius: 20,
+//                                        action: {
+//                                            self.stateManager.increment()
+//                                            selectedRuangan = ""
+//                                            if self.stateManager.index < self.extractActivity.count {
+//                                                selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
+//                                                let currentActivity = self.extractActivity[self.stateManager.index]
+//                                                speakText(currentActivity.name)
+//                                            } else {
+//                                                selectedRuangan = getSelectedRuangan() // Fallback to the top one
+//                                            }
+//                                        }
+//                                        
+//                                    )
                                    
                                 )
                             
