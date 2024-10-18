@@ -1,30 +1,15 @@
 //
-//  RuangMakanView.swift
+//  AACKamarMandiView.swift
 //  KataKita
 //
-//  Created by Lisandra Nicoline on 14/10/24.
+//  Created by Lisandra Nicoline on 18/10/24.
 //
 
 import SwiftUI
 import AVFoundation
 
-//extension Color {
-//    init(hex: String) {
-//        let scanner = Scanner(string: hex)
-//        _ = scanner.scanString("#")
-//        
-//        var rgb: UInt64 = 0
-//        scanner.scanHexInt64(&rgb)
-//        
-//        let r = Double((rgb >> 16) & 0xFF) / 255.0
-//        let g = Double((rgb >> 8) & 0xFF) / 255.0
-//        let b = Double(rgb & 0xFF) / 255.0
-//        
-//        self.init(red: r, green: g, blue: b)
-//    }
-//}
 
-struct AACRuangMakanView: View {
+struct AACKamarMandiView: View {
     @State private var showAACSettings = false
     @State private var pencilPressed = false
     @State private var showPlusButton = false
@@ -33,22 +18,9 @@ struct AACRuangMakanView: View {
     @State private var selectedCategoryColor: String = "#FFFFFF"
     
     @StateObject private var boardModel = AACBoardModel()
-    @ObservedObject var viewModel = AACRuangMakanViewModel()
+    @ObservedObject var viewModel = AACKamarMandiViewModel()
     
     @State private var selectedButton: [Card] = []
-    
-    // Update columnsData to include an additional String for font color
-//    @State private var columnsData: [[(String, String, String, String)]] = [
-//        [("person.fill", "saya", "#FFEBAF", "#000000"), ("person.fill", "kamu", "#FFEBAF", "#000000"), ("person.fill", "dia", "#FFEBAF", "#000000"), ("person.fill", "kita", "#FFEBAF", "#000000"), ("person.fill", "mama", "#FFEBAF", "#000000"), ("person.fill", "papa", "#FFEBAF", "#000000")],
-//        [("person.fill", "apa", "#A77DFF", "#000000"), ("person.fill", "dimana", "#A77DFF", "#000000"), ("person.fill", "siapa", "#A77DFF", "#000000")],
-//        [("person.fill", "suka", "#FFB0C7", "#000000"), ("person.fill", "tidak suka", "#FFB0C7", "#000000"), ("person.fill", "mau", "#FFB0C7", "#000000"), ("person.fill", "tidak mau", "#FFB0C7", "#000000"), ("person.fill", "tolong", "#FFB0C7", "#000000")],
-//        [("person.fill", "makan", "#CFF0C8", "#000000"), ("person.fill", "minum", "#CFF0C8", "#000000"), ("person.fill", "putar", "#CFF0C8", "#000000"), ("person.fill", "buka", "#CFF0C8", "#000000"), ("person.fill", "tutup", "#CFF0C8", "#000000")],
-//        [("person.fill", "masukkan", "#CFF0C8", "#000000"), ("person.fill", "ambil", "#CFF0C8", "#000000"), ("person.fill", "kunyah", "#CFF0C8", "#000000"), ("person.fill", "potong", "#CFF0C8", "#000000"), ("person.fill", "buang", "#CFF0C8", "#000000")],
-//        [("person.fill", "dingin", "#D4F3FF", "#000000"), ("person.fill", "panas", "#D4F3FF", "#000000"), ("person.fill", "asin", "#D4F3FF", "#000000"), ("person.fill", "manis", "#D4F3FF", "#000000")],
-//        [("person.fill", "sendok", "#F2B95C", "#000000"), ("person.fill", "garpu", "#F2B95C", "#000000"), ("person.fill", "piring", "#F2B95C", "#000000"), ("person.fill", "mangkok", "#F2B95C", "#000000"), ("person.fill", "gelas", "#F2B95C", "#000000")],
-//        [("person.fill", "di", "#FFFFFF", "#000000"), ("person.fill", "ke", "#FFFFFF", "#000000"), ("person.fill", "dan", "#FFFFFF", "#000000")],
-//        [("person.fill", "hitam", "#000000", "#000000"), ("person.fill", "cokelat", "#835737", "#835737"), ("person.fill", "oranye", "#E9AE50", "#E9AE50"), ("person.fill", "merah", "#E54646", "#E54646"), ("person.fill", "ungu", "#B378D8", "#B378D8"), ("person.fill", "pink", "#EDB0DC", "#EDB0DC"), ("person.fill", "biru", "#889AE4", "#889AE4"), ("person.fill", "hijau", "#B7D273", "#B7D273"), ("person.fill", "kuning", "#EFDB76", "#EFDB76")]
-//    ]
     
     let columns = [
         GridItem(.flexible()),
@@ -506,7 +478,6 @@ struct AACRuangMakanView: View {
                          
                      }
                      .sheet(isPresented: $showAACSettings) {
-
                          AddButtonAACView(
                              viewModel: AACRuangMakanViewModel(),
                              navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
@@ -515,7 +486,7 @@ struct AACRuangMakanView: View {
                              navigateFromImage: CallAACSettingsView.$navigateFromImage,
                              selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
                              selectedImage: .constant(nil),
-                             categoryColor: selectedCategoryColor
+                             categoryColor: selectedCategoryColor // Pass the selected category color
                          )
                      }
 
@@ -591,6 +562,7 @@ struct AACRuangMakanView: View {
     }
     
     
+    
     func speakText(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
@@ -624,9 +596,4 @@ struct AACRuangMakanView: View {
 
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        AACRuangMakanView()
-    }
-}
 
