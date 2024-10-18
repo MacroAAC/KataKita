@@ -45,7 +45,7 @@ struct CustomButton: View {
         Button(action: {
             action?()
         }) {
-            VStack(spacing: 4) {
+            VStack(spacing: 0) {
                 Spacer()
                 
                 if let icon = icon, !icon.isEmpty {
@@ -55,14 +55,12 @@ struct CustomButton: View {
                             .scaledToFit()
                             .frame(width: CGFloat(iconWidth ?? 24), height: CGFloat(iconHeight ?? 24))
                             .foregroundColor(Color(hex: fontColor, transparency: fontTransparency))
-                            .padding(.bottom,8)
                     } else {
                         Image(icon)
                             .resizable()
                             .scaledToFit()
                             .frame(width: CGFloat(iconWidth ?? 24), height: CGFloat(iconHeight ?? 24))
                             .foregroundColor(Color(hex: fontColor, transparency: fontTransparency))
-                            .padding(.bottom,8)
                     }
                 }
                 
