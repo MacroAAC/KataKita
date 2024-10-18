@@ -32,12 +32,12 @@ struct SettingActivityCard: View {
                     .frame(width: 70, height: 70)
                     .overlay(Image(activity.image)
                         .resizable()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 55, height: 55)
                         )
                 
                 TextContent(
                     text: "\(activity.name)",
-                    size: 20,
+                    size: 25,
                     color: "313131",
                     weight: "Light")
                 
