@@ -13,7 +13,8 @@ struct DailyActivityView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(StateManager.self) private var stateManager
     
-    
+    private let speechSynthesizer = AVSpeechSynthesizer()
+
     @State private var selectedRuangan: String = ""
     @State private var isSetting: Bool = false
     @State private var isRuangan: Bool = false
@@ -173,7 +174,7 @@ struct DailyActivityView: View {
                         if self.stateManager.index <= index {
                             
                             ActivityCard(
-                                icon: "ball",
+                                icon: "\(activity.image)",
                                 nomor: "",
                                 text: "\(activity.name)",
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
@@ -186,7 +187,10 @@ struct DailyActivityView: View {
                                 fontColor: "000000",
                                 fontTransparency: 1.0,
                                 cornerRadius: 20,
-                                isSystemImage: false
+                                isSystemImage: false,
+                                action: {
+                                    speakText(activity.name)
+                                }
                             )
                             
                         } else {
@@ -239,15 +243,17 @@ struct DailyActivityView: View {
                                 
                                 ForEach(Array(self.steps.enumerated()), id: \.offset) { i, step in
                                     ActivityCard(
-                                        icon: "ball",
+                                        icon: "\(step.image)",
                                         nomor: "\(i + 1)",
                                         text: step.description,
                                         width: Int((viewPortWidth * 0.75 - 290) / 4), height: Int(viewPortWidth * (180 / 1210.0)),
                                         font: Int(viewPortWidth * (15 / 1210.0)), iconWidth: Int(viewPortWidth * (50 / 1210.0)), iconHeight: Int(viewPortHeight * (50 / 834.0)),
                                         bgColor: "F7F5F0", bgTransparency: 1.0,
                                         fontColor: "000000", fontTransparency: 1.0,
-                                        cornerRadius: 20, isSystemImage: false
-                                        
+                                        cornerRadius: 20, isSystemImage: false,
+                                        action: {
+                                            speakText(step.description)
+                                        }
                                     )
                                     
                                     
@@ -301,6 +307,8 @@ struct DailyActivityView: View {
                                             selectedRuangan = ""
                                             if self.stateManager.index < self.extractActivity.count {
                                                 selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
+                                                let currentActivity = self.extractActivity[self.stateManager.index]
+                                                speakText(currentActivity.name)
                                             } else {
                                                 selectedRuangan = getSelectedRuangan() // Fallback to the top one
                                             }
@@ -310,12 +318,12 @@ struct DailyActivityView: View {
                                    
                                 )
                             
-                            VStack {
-                                Text("Selected Ruangan: \(selectedRuangan)")
-                                    .padding()
-                                
-                                // Existing views
-                            }
+//                            VStack {
+//                                Text("Selected Ruangan: \(selectedRuangan)")
+//                                    .padding()
+//                                
+//                                // Existing views
+//                            }
                         }
                     }
                     
@@ -331,10 +339,13 @@ struct DailyActivityView: View {
             // statemanager
             if self.stateManager.index < self.extractActivity.count {
                 selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
+                
+                let currentActivity = self.extractActivity[self.stateManager.index]
+                speakText(currentActivity.name)
             } else {
                 selectedRuangan = getSelectedRuangan() // Fallback to the top one
             }
-            
+          
         }
         NavigationLink(
             destination: destinationForSelectedRuangan(),
@@ -365,6 +376,20 @@ struct DailyActivityView: View {
             return AnyView(EmptyView())
         }
     }
+    
+    private func speakText(_ text: String) {
+            // Stop any ongoing speech
+            if speechSynthesizer.isSpeaking {
+                speechSynthesizer.stopSpeaking(at: .immediate)
+            }
+            
+            // Create a speech utterance
+            let utterance = AVSpeechUtterance(string: text)
+            utterance.voice = AVSpeechSynthesisVoice(language: "id-ID") // Set the language as needed
+            
+            // Speak the text
+            speechSynthesizer.speak(utterance)
+        }
     
 }
 

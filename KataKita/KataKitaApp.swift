@@ -57,10 +57,10 @@ struct KataKitaApp: App {
                         Activity(
                             id: UUID(),
                             name: "Pipis",
-                            image: "",
+                            image: "CELANAPENDEK",
                             ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
-                                Step(image: "", description: "Buka celana"),
+                                Step(image: "CELANAPENDEK", description: "Buka celana"),
                                 Step(image: "", description: "Duduk di toilet"),
                                 Step(image: "", description: "Buang air kecil"),
                                 Step(image: "", description: "Siram toilet"),
@@ -72,7 +72,7 @@ struct KataKitaApp: App {
                         Activity(
                             id: UUID(),
                             name: "Mandi",
-                            image: "",
+                            image: "BAK MANDI",
                             ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
                                 Step(image: "", description: "Siapkan Handuk"),
@@ -90,7 +90,7 @@ struct KataKitaApp: App {
                         Activity(
                             id: UUID(),
                             name: "Makan",
-                            image: "",
+                            image: "MAKAN",
                             ruangan: Ruangan(id: UUID(), name: "RuangMakan"),
                             sequence: [
                                 Step(image: "", description: "Cuci tangan"),
@@ -108,7 +108,7 @@ struct KataKitaApp: App {
                         Activity(
                             id: UUID(),
                             name: "Belajar",
-                            image: "",
+                            image: "MEJA BELAJAR",
                             ruangan: Ruangan(id: UUID(), name: "RuangBelajar"),
                             sequence: [
                                 Step(image: "", description: "Siapkan buku dan alat tulis"),
