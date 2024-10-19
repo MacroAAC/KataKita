@@ -479,7 +479,7 @@ struct AACRuangMakanView: View {
                                             4: ("#CFF0C8", "#000000"),
                                             5: ("#D4F3FF", "#000000"),
                                             6: ("#F2B95C", "#000000"),
-                                            7: ("#FFFFFF", "#000000")
+                                            7: ("#F2B95C", "#000000")
                                         ]
                                         
                                         if let (bgColor, fontColor) = buttonsData[columnIndex] {
@@ -516,46 +516,46 @@ struct AACRuangMakanView: View {
                     .padding(.leading,screenWidth * (25/1376.0))
                 }
                 VStack{
-                    ZStack {
-                        Rectangle()
-                            .fill(Color(hex: "#EEEEEE", transparency: 1))
-                            .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
-                            .cornerRadius(20)
-                            .shadow(radius: 5,x: 3,y:4)
-                        
-                        CustomButton(
-                            icon: "pencil",
-                            width: Int(screenWidth * (50/1376.0)),
-                            height: Int(screenHeight * (50/1032.0)),
-                            font: Int(screenWidth * (40/1376.0)),
-                            iconWidth: Int(screenWidth * (40/1376.0)),
-                            iconHeight: Int(screenHeight * (40/1032.0)),
-                            bgColor: "#000000",
-                            bgTransparency: 0,
-                            fontColor: "#696767",
-                            fontTransparency: 1.0,
-                            cornerRadius: 20,
-                            isSystemImage: true,
-                            action:{
-                                //                                showAACSettings = true
-                                handlePencilPress()
-                            }
-                        )
-                        
-                    }
-                    .sheet(isPresented: $showAACSettings) {
-                        
-                        AddButtonAACView(
-                            viewModel: AACRuangMakanViewModel(),
-                            navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
-                            selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
-                            navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
-                            navigateFromImage: CallAACSettingsView.$navigateFromImage,
-                            selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
-                            selectedImage: .constant(nil),
-                            categoryColor: $selectedCategoryColor, selectedColumnIndex: $selectedColumnIndex
-                        )
-                    }
+//                    ZStack {
+//                        Rectangle()
+//                            .fill(Color(hex: "#EEEEEE", transparency: 1))
+//                            .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
+//                            .cornerRadius(20)
+//                            .shadow(radius: 5,x: 3,y:4)
+//                        
+//                        CustomButton(
+//                            icon: "pencil",
+//                            width: Int(screenWidth * (50/1376.0)),
+//                            height: Int(screenHeight * (50/1032.0)),
+//                            font: Int(screenWidth * (40/1376.0)),
+//                            iconWidth: Int(screenWidth * (40/1376.0)),
+//                            iconHeight: Int(screenHeight * (40/1032.0)),
+//                            bgColor: "#000000",
+//                            bgTransparency: 0,
+//                            fontColor: "#696767",
+//                            fontTransparency: 1.0,
+//                            cornerRadius: 20,
+//                            isSystemImage: true,
+//                            action:{
+//                                //                                showAACSettings = true
+//                                handlePencilPress()
+//                            }
+//                        )
+//                        
+//                    }
+//                    .sheet(isPresented: $showAACSettings) {
+//                        
+//                        AddButtonAACView(
+//                            viewModel: AACRuangMakanViewModel(),
+//                            navigateTooAddImage: CallAACSettingsView.$navigateTooAddImage,
+//                            selectedSymbolImage: CallAACSettingsView.$selectedSymbolImage,
+//                            navigateFromSymbols: CallAACSettingsView.$navigateFromSymbols,
+//                            navigateFromImage: CallAACSettingsView.$navigateFromImage,
+//                            selectedSymbolName: CallAACSettingsView.$selectedSymbolName,
+//                            selectedImage: .constant(nil),
+//                            categoryColor: $selectedCategoryColor, selectedColumnIndex: $selectedColumnIndex
+//                        )
+//                    }
                     
                     
                     
@@ -615,7 +615,7 @@ struct AACRuangMakanView: View {
                     }
                 }
                 .padding(.leading,screenWidth * (1230/1376.0))
-                .padding(.top,screenHeight * (270/1032.0))
+                .padding(.top,screenHeight * (370/1032.0))
                 
             }
             
