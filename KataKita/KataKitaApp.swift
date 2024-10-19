@@ -20,6 +20,19 @@ public extension Collection where Indices.Iterator.Element == Index {
     }
 }
 
+func resolveIcon(for iconName: String) -> String {
+    if let _ = UIImage(named: iconName) {
+        return iconName
+    } else if let _ = UIImage(named: iconName.uppercased()) {
+        return iconName.uppercased()
+    } else if let _ = UIImage(named: iconName.lowercased()) {
+        return iconName.lowercased()
+    } else {
+        // Fallback option if no icon is found
+        return "defaultIcon" // You can define a default icon
+    }
+}
+
 @main
 struct KataKitaApp: App {
     @State private var scheduleManager = ScheduleManager()
@@ -57,94 +70,94 @@ struct KataKitaApp: App {
                         Activity(
                             id: UUID(),
                             name: "Pipis",
-                            image: "TOILET",
+                            image: resolveIcon(for: "TOILET"),
                             ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
-                                Step(image: "CELANA PENDEK", description: "Buka celana"),
-                                Step(image: "", description: "Duduk di toilet"),
-                                Step(image: "", description: "Buang air kecil"),
-                                Step(image: "", description: "Siram toilet"),
-                                Step(image: "", description: "Ambil sabun"),
-                                Step(image: "", description: "Cuci tangan dengan sabun"),
-                                Step(image: "", description: "Keringkan tangan")
+                                Step(image: resolveIcon(for: "CELANA PENDEK"), description: "Buka celana"),
+                                Step(image: resolveIcon(for: ""), description: "Duduk di toilet"),
+                                Step(image: resolveIcon(for: ""), description: "Buang air kecil"),
+                                Step(image: resolveIcon(for: ""), description: "Siram toilet"),
+                                Step(image: resolveIcon(for: ""), description: "Ambil sabun"),
+                                Step(image: resolveIcon(for: ""), description: "Cuci tangan dengan sabun"),
+                                Step(image: resolveIcon(for: ""), description: "Keringkan tangan")
                             ]
                         ),
                         Activity(
                             id: UUID(),
                             name: "Mandi",
-                            image: "BAK MANDI",
+                            image: resolveIcon(for: "BAK MANDI"),
                             ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
-                                Step(image: "", description: "Siapkan Handuk"),
-                                Step(image: "", description: "Lepas semua baju yang dikenakan"),
-                                Step(image: "", description: "Siram seluruh tubuh menggunakan gayung"),
-                                Step(image: "", description: "Bersihkan badan menggunakan sabun"),
-                                Step(image: "", description: "Siram kembali seluruh tubuh hingga bersih dari sabun"),
-                                Step(image: "", description: "Ambil pasta gigi dan sikat gigi"),
-                                Step(image: "", description: "Gosok gigimu hingga bersih"),
-                                Step(image: "", description: "Kumur-kumur untuk menghilangkan busa pada mulutmu"),
-                                Step(image: "", description: "Keringkan badanmu menggunakan handuk"),
-                                Step(image: "", description: "Pakai bajumu yang bersih")
+                                Step(image: resolveIcon(for: ""), description: "Siapkan Handuk"),
+                                Step(image: resolveIcon(for: ""), description: "Lepas semua baju yang dikenakan"),
+                                Step(image: resolveIcon(for: ""), description: "Siram seluruh tubuh menggunakan gayung"),
+                                Step(image: resolveIcon(for: ""), description: "Bersihkan badan menggunakan sabun"),
+                                Step(image: resolveIcon(for: ""), description: "Siram kembali seluruh tubuh hingga bersih dari sabun"),
+                                Step(image: resolveIcon(for: ""), description: "Ambil pasta gigi dan sikat gigi"),
+                                Step(image: resolveIcon(for: ""), description: "Gosok gigimu hingga bersih"),
+                                Step(image: resolveIcon(for: ""), description: "Kumur-kumur untuk menghilangkan busa pada mulutmu"),
+                                Step(image: resolveIcon(for: ""), description: "Keringkan badanmu menggunakan handuk"),
+                                Step(image: resolveIcon(for: ""), description: "Pakai bajumu yang bersih")
                             ]
                         ),
                         Activity(
                             id: UUID(),
                             name: "Makan",
-                            image: "MAKAN",
+                            image: resolveIcon(for: "MAKAN"),
                             ruangan: Ruangan(id: UUID(), name: "RuangMakan"),
                             sequence: [
-                                Step(image: "", description: "Ambil piring"),
-                                Step(image: "", description: "Ambil sendok dan garpu"),
-                                Step(image: "", description: "Duduk di meja makan"),
-                                Step(image: "", description: "Berdoa sebelum makan"),
-                                Step(image: "", description: "Mulai makan sampai habis"),
-                                Step(image: "", description: "Minum air putih setelah makan"),
-                                Step(image: "", description: "Lap mulut setelah habis makan"),
-                                Step(image: "", description: "Kembalikan sendok, garpu, dan piring pada tempatnya")
+                                Step(image: resolveIcon(for: ""), description: "Ambil piring"),
+                                Step(image: resolveIcon(for: ""), description: "Ambil sendok dan garpu"),
+                                Step(image: resolveIcon(for: ""), description: "Duduk di meja makan"),
+                                Step(image: resolveIcon(for: ""), description: "Berdoa sebelum makan"),
+                                Step(image: resolveIcon(for: ""), description: "Mulai makan sampai habis"),
+                                Step(image: resolveIcon(for: "MINUM"), description: "Minum air putih setelah makan"),
+                                Step(image: resolveIcon(for: ""), description: "Lap mulut setelah habis makan"),
+                                Step(image: resolveIcon(for: ""), description: "Kembalikan sendok, garpu, dan piring pada tempatnya")
                             ]
                         ),
                         Activity(
                             id: UUID(),
-                            name: "Cuci tangan",
-                            image: "",
+                            name: "Cuci Tangan",
+                            image: resolveIcon(for: "cucitangan"),
                             ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
                             sequence: [
-                                        Step(image: "", description: "Buka keran air"),
-                                        Step(image: "", description: "Basahi tangan dengan air"),
-                                        Step(image: "", description: "Ambil sabun"),
-                                        Step(image: "", description: "Gosok sabun di tangan kiri"),
-                                        Step(image: "", description: "Gosok sabun di tangan kanan"),
-                                        Step(image: "", description: "Bilas sabun dengan air"),
-                                        Step(image: "", description: "Keringkan tangan")
+                                        Step(image: resolveIcon(for: "keran"), description: "Buka keran air"),
+                                        Step(image: resolveIcon(for: ""), description: "Basahi tangan dengan air"),
+                                        Step(image: resolveIcon(for: ""), description: "Ambil sabun"),
+                                        Step(image: resolveIcon(for: ""), description: "Gosok sabun di tangan kiri"),
+                                        Step(image: resolveIcon(for: ""), description: "Gosok sabun di tangan kanan"),
+                                        Step(image: resolveIcon(for: ""), description: "Bilas sabun dengan air"),
+                                        Step(image: resolveIcon(for: ""), description: "Keringkan tangan")
                             ]
                         ),
                         Activity(
                             id: UUID(),
                             name: "Cuci Piring",
-                            image: "MEJA BELAJAR",
+                            image: resolveIcon(for: "piring"),
                             ruangan: Ruangan(id: UUID(), name: "RuangMakan"),
                             sequence: [
-                                        Step(image: "", description: "Ambil piring dan sendok garpu kotor"),
-                                        Step(image: "", description: "Basahilah dengan air"),
-                                        Step(image: "", description: "Ambil spon dan beri sabun"),
-                                        Step(image: "", description: "Gosok piring dan sendok garpu dengan sabun dan spon"),
-                                        Step(image: "", description: "Jika perlu, gunakan laptop atau perangkat lain"),
-                                        Step(image: "", description: "Bilas semua dengan air bersih"),
-                                        Step(image: "", description: "Letakkan di tempat pengeringan")
+                                        Step(image: resolveIcon(for: ""), description: "Ambil piring dan sendok garpu kotor"),
+                                        Step(image: resolveIcon(for: ""), description: "Basahilah dengan air"),
+                                        Step(image: resolveIcon(for: ""), description: "Ambil spon dan beri sabun"),
+                                        Step(image: resolveIcon(for: ""), description: "Gosok piring dan sendok garpu dengan sabun dan spon"),
+                                        Step(image: resolveIcon(for: ""), description: "Jika perlu, gunakan laptop atau perangkat lain"),
+                                        Step(image: resolveIcon(for: ""), description: "Bilas semua dengan air bersih"),
+                                        Step(image: resolveIcon(for: ""), description: "Letakkan di tempat pengeringan")
                             ]
                         ),
                         Activity(
                             id: UUID(),
                             name: "Mewarnai",
-                            image: "MEJA BELAJAR",
+                            image: resolveIcon(for: "WARNAI"),
                             ruangan: Ruangan(id: UUID(), name: "RuangBelajar"),
                             sequence: [
-                                        Step(image: "", description: "Ambil buku dan pewarna"),
-                                        Step(image: "", description: "Duduk di meja belajar"),
-                                        Step(image: "", description: "Buka buku dan siapkan alat pewarna"),
-                                        Step(image: "", description: "Mulai mewarnai tugas yang diberikan"),
-                                        Step(image: "", description: "Setelah selesai, rapikan alat mewarnai"),
-                                        Step(image: "", description: "Kembalikan peralatan pada tempatnya")
+                                        Step(image: resolveIcon(for: ""), description: "Ambil buku dan pewarna"),
+                                        Step(image: resolveIcon(for: ""), description: "Duduk di meja belajar"),
+                                        Step(image: resolveIcon(for: ""), description: "Buka buku dan siapkan alat pewarna"),
+                                        Step(image: resolveIcon(for: ""), description: "Mulai mewarnai tugas yang diberikan"),
+                                        Step(image: resolveIcon(for: ""), description: "Setelah selesai, rapikan alat mewarnai"),
+                                        Step(image: resolveIcon(for: ""), description: "Kembalikan peralatan pada tempatnya")
                             ]
                         )
                     ]

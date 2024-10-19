@@ -17,7 +17,8 @@ class AACRuangMakanViewModel: ObservableObject {
     // Function to load the data and convert it to Card models
     func loadCardsData() {
         let rawData = [
-            [("saya", "saya", "#FFEBAF", "#000000"), ("kamu", "kamu", "#FFEBAF", "#000000"), ("dia", "dia", "#FFEBAF", "#000000"), ("kita", "kita", "#FFEBAF", "#000000"), ("ibu", "ibu", "#FFEBAF", "#000000"), ("person.fill", "ayah", "#FFEBAF", "#000000")],
+            [("saya", "saya", "#FFEBAF", "#000000"), ("kamu", "kamu", "#FFEBAF", "#000000"), ("dia", "dia", "#FFEBAF", "#000000"), ("kita", "kita", "#FFEBAF", "#000000"), ("ibu", "ibu", "#FFEBAF", "#000000"),
+             ("ayah", "ayah", "#FFEBAF", "#000000")],
             [("apa", "apa", "#A77DFF", "#000000"), ("dimana", "dimana", "#A77DFF", "#000000"), ("kapan", "kapan", "#A77DFF", "#000000"), ("siapa", "siapa", "#A77DFF", "#000000")],
             [("suka", "suka", "#FFB0C7", "#000000"), ("tidak suka", "tidak suka", "#FFB0C7", "#000000"), ("mau", "mau", "#FFB0C7", "#000000"), ("tidak mau", "tidak mau", "#FFB0C7", "#000000"), ("tolong", "tolong", "#FFB0C7", "#000000")],
             [("makan", "makan", "#CFF0C8", "#000000"), ("minum", "minum", "#CFF0C8", "#000000"), ("putar", "putar", "#CFF0C8", "#000000"), ("buka", "buka", "#CFF0C8", "#000000"), ("tutup", "tutup", "#CFF0C8", "#000000"), ("masukkan", "masukkan", "#CFF0C8", "#000000")],
