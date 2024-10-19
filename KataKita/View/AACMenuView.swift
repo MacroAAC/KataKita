@@ -122,7 +122,7 @@ struct AACMenuView: View {
                     ) {
                         NavigationLink(destination: AACRuangMakanView()){
                             ActivityCard(
-                                icon: "MAKAN", // Assuming `ruangan` has an image
+                                icon: "makan", // Assuming `ruangan` has an image
                                 nomor: "",
                                 text: "Ruang Makan",
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
@@ -148,7 +148,7 @@ struct AACMenuView: View {
                         
                         NavigationLink(destination: AACKamarMandiView()){
                             ActivityCard(
-                                icon: "TOILET",
+                                icon: "toilet",
                                 nomor: "",
                                 text: "Kamar Mandi",
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
@@ -173,7 +173,7 @@ struct AACMenuView: View {
                         }
                         NavigationLink(destination: AACRuangBelajarView()){
                             ActivityCard(
-                                icon: "BACA",
+                                icon: "baca",
                                 nomor: "",
                                 text: "Ruang Belajar",
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
