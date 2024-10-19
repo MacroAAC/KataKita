@@ -19,8 +19,7 @@ struct DailyActivityView: View {
     @State private var isSetting: Bool = false
     @State private var isRuangan: Bool = false
     
-    //
-    //    @State private var currentIndex: Int = 0
+    @State private var currentIndex: Int = 0
     @State private var shouldNavigate: Bool = false
     
     //MARK: viewport size
@@ -210,152 +209,219 @@ struct DailyActivityView: View {
                 
                 
                 // MARK: Viewport bagian kanan (Tahapan aktivitas)
-                VStack (alignment: .leading, spacing: 20) {
-                    TextHeadline(
-                        text: "Tahapan aktivitas",
-                        size: 24,
-                        color: "Black",
-                        transparency: 1.0,
-                        weight: "Light"
-                    )
-                    if self.isCompleted {
-                        Spacer()
-                        TextContent(
-                            text: "Kamu telah menyelesaikan aktivitasmu!",
-                            size: 24,
-                            color: "Black",
-                            transparency: 1.0,
-                            weight: "Light"
-                        )
-                        .frame(maxWidth: .infinity)
-                        Spacer()
-                    } else {
-                        ScrollView{
-                            LazyVGrid(
-                                columns: [
-                                    GridItem(.flexible()),
-                                    GridItem(.flexible()),
-                                    GridItem(.flexible()),
-                                    GridItem(.flexible()),
-                                ],
-                                spacing: 30
-                            ) {
-                                
-                                ForEach(Array(self.steps.enumerated()), id: \.offset) { i, step in
-                                    ActivityCard(
-                                        icon: "\(step.image)",
-                                        nomor: "\(i + 1)",
-                                        text: step.description,
-                                        width: Int((viewPortWidth * 0.75 - 290) / 4), height: Int(viewPortWidth * (180 / 1210.0)),
-                                        font: Int(viewPortWidth * (15 / 1210.0)), iconWidth: Int(viewPortWidth * (80 / 1210.0)), iconHeight: Int(viewPortHeight * (80 / 834.0)),
-                                        bgColor: "F7F5F0", bgTransparency: 1.0,
-                                        fontColor: "000000", fontTransparency: 1.0,
-                                        cornerRadius: 20, isSystemImage: false,
-                                        action: {
-                                            speakText(step.description)
+                ScrollViewReader { proxy in
+                HStack {
+                        VStack (alignment: .leading, spacing: 20) {
+                            TextHeadline(
+                                text: "Tahapan aktivitas",
+                                size: 24,
+                                color: "Black",
+                                transparency: 1.0,
+                                weight: "Light"
+                            )
+                            if self.isCompleted {
+                                Spacer()
+                                TextContent(
+                                    text: "Kamu telah menyelesaikan aktivitasmu!",
+                                    size: 24,
+                                    color: "Black",
+                                    transparency: 1.0,
+                                    weight: "Light"
+                                )
+                                .frame(maxWidth: .infinity)
+                                Spacer()
+                            } else {
+                                ScrollView{
+                                    LazyVGrid(
+                                        columns: [
+                                            GridItem(.flexible()),
+                                            GridItem(.flexible()),
+                                            GridItem(.flexible()),
+                                            GridItem(.flexible()),
+                                        ],
+                                        spacing: 30
+                                    ) {
+                                        
+                                        ForEach(Array(self.steps.enumerated()), id: \.offset) { i, step in
+                                            ActivityCard(
+                                                icon: "\(step.image)",
+                                                nomor: "\(i + 1)",
+                                                text: step.description,
+                                                width: Int((viewPortWidth * 0.75 - 290) / 4), height: Int(viewPortWidth * (180 / 1210.0)),
+                                                font: Int(viewPortWidth * (15 / 1210.0)), iconWidth: Int(viewPortWidth * (80 / 1210.0)), iconHeight: Int(viewPortHeight * (80 / 834.0)),
+                                                bgColor: "F7F5F0", bgTransparency: 1.0,
+                                                fontColor: "000000", fontTransparency: 1.0,
+                                                cornerRadius: 20, isSystemImage: false,
+                                                action: {
+                                                    speakText(step.description)
+                                                }
+                                            )
+                                            
+                                            
                                         }
-                                    )
-                                    
-                                    
+                                    }
+                                    .padding(.bottom, 160)
                                 }
                             }
-                            .padding(.bottom, 160)
-                        }
-                    }
-                    
-                    
-                }
-                .padding(50)
-                .frame(width: viewPortWidth * 0.75 - 100, height: viewPortHeight * 0.85 - 50, alignment: .topLeading)
-                .background(
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(hex: "BDD4CE", transparency: 1.0))
-                    
-                )
-                .overlay(
-                    VStack (spacing: 0) {
-                        Spacer()
-                        Rectangle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [Color(hex: "BDD4CE", transparency: 0), Color(hex: "BDD4CE", transparency: 1.0)],
-                                    startPoint: .top, endPoint: .bottom)
-                            )
-                            .frame(height: 60)
-                        
-                        if self.isCompleted {
-                            RoundedRectangle(cornerRadius: 30)
-                                .fill(Color(hex: "BDD4CE", transparency: 1.0))
-                                .frame(height: 100)
-                        } else {
-                            RoundedRectangle(cornerRadius: 30)
-                                .fill(Color(hex: "BDD4CE", transparency: 1.0))
-                                .frame(height: 100)
-                                .overlay(
-                                    CustomButtonSide(
-                                        icon: "SELESAI 1",
-                                        text: "Selesai",
-                                        width: 150,
-                                        height: 50,
-                                        font: 14,
-                                        iconWidth: 35,
-                                        iconHeight: 35,
-                                        bgColor: "#013C5A",
-                                        bgTransparency: 1.0,
-                                        fontColor: "#F7F5F0",
-                                        fontTransparency: 1.0,
-                                        cornerRadius: 20,
-                                        isSystemImage: false,
-                                        action: {
-                                            self.stateManager.increment()
-                                            selectedRuangan = ""
-                                            if self.stateManager.index < self.extractActivity.count {
-                                                selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
-                                                let currentActivity = self.extractActivity[self.stateManager.index]
-                                                speakText(currentActivity.name)
-                                            } else {
-                                                selectedRuangan = getSelectedRuangan() // Fallback to the top one
-                                            }
-                                        })
-                                    
-//                                    CustomButtonSide(
-//                                        icon: "SELESAI 1",
-//                                        text: "Selesai",
-//                                        width: 150,
-//                                        height: 50,
-//                                        font: 14,
-//                                        bgColor: "#013C5A",
-//                                        bgTransparency: 1.0,
-//                                        fontColor: "#F7F5F0",
-//                                        fontTransparency: 1.0,
-//                                        cornerRadius: 20,
-//                                        action: {
-//                                            self.stateManager.increment()
-//                                            selectedRuangan = ""
-//                                            if self.stateManager.index < self.extractActivity.count {
-//                                                selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
-//                                                let currentActivity = self.extractActivity[self.stateManager.index]
-//                                                speakText(currentActivity.name)
-//                                            } else {
-//                                                selectedRuangan = getSelectedRuangan() // Fallback to the top one
-//                                            }
-//                                        }
-//                                        
-//                                    )
-                                   
-                                )
                             
-//                            VStack {
-//                                Text("Selected Ruangan: \(selectedRuangan)")
-//                                    .padding()
-//                                
-//                                // Existing views
-//                            }
+                            
+                        }
+                        .padding(50)
+                        .frame(width: viewPortWidth * 0.75 - 100, height: viewPortHeight * 0.85 - 50, alignment: .topLeading)
+                        .background(
+                            RoundedRectangle(cornerRadius: 30)
+                                .fill(Color(hex: "BDD4CE", transparency: 1.0))
+                            
+                        )
+                        .overlay(
+                            VStack (spacing: 0) {
+                                Spacer()
+                                Rectangle()
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color(hex: "BDD4CE", transparency: 0), Color(hex: "BDD4CE", transparency: 1.0)],
+                                            startPoint: .top, endPoint: .bottom)
+                                    )
+                                    .frame(height: 60)
+                                
+                                if self.isCompleted {
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .fill(Color(hex: "BDD4CE", transparency: 1.0))
+                                        .frame(height: 100)
+                                } else {
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .fill(Color(hex: "BDD4CE", transparency: 1.0))
+                                        .frame(height: 100)
+                                        .overlay(
+                                            CustomButtonSide(
+                                                icon: "SELESAI 1",
+                                                text: "Selesai",
+                                                width: 150,
+                                                height: 50,
+                                                font: 14,
+                                                iconWidth: 35,
+                                                iconHeight: 35,
+                                                bgColor: "#F7F5F0",
+                                                bgTransparency: 1.0,
+                                                fontColor: "#000000",
+                                                fontTransparency: 1.0,
+                                                cornerRadius: 20,
+                                                isSystemImage: false,
+                                                action: {
+                                                    self.stateManager.increment()
+                                                    selectedRuangan = ""
+                                                    if self.stateManager.index < self.extractActivity.count {
+                                                        selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
+                                                        let currentActivity = self.extractActivity[self.stateManager.index]
+                                                        speakText(currentActivity.name)
+                                                    } else {
+                                                        selectedRuangan = getSelectedRuangan() // Fallback to the top one
+                                                    }
+                                                })
+                                            
+                                            //                                    CustomButtonSide(
+                                            //                                        icon: "SELESAI 1",
+                                            //                                        text: "Selesai",
+                                            //                                        width: 150,
+                                            //                                        height: 50,
+                                            //                                        font: 14,
+                                            //                                        bgColor: "#013C5A",
+                                            //                                        bgTransparency: 1.0,
+                                            //                                        fontColor: "#F7F5F0",
+                                            //                                        fontTransparency: 1.0,
+                                            //                                        cornerRadius: 20,
+                                            //                                        action: {
+                                            //                                            self.stateManager.increment()
+                                            //                                            selectedRuangan = ""
+                                            //                                            if self.stateManager.index < self.extractActivity.count {
+                                            //                                                selectedRuangan = self.extractActivity[self.stateManager.index].ruangan.name
+                                            //                                                let currentActivity = self.extractActivity[self.stateManager.index]
+                                            //                                                speakText(currentActivity.name)
+                                            //                                            } else {
+                                            //                                                selectedRuangan = getSelectedRuangan() // Fallback to the top one
+                                            //                                            }
+                                            //                                        }
+                                            //
+                                            //                                    )
+                                            
+                                        )
+                                    
+                                    //                            VStack {
+                                    //                                Text("Selected Ruangan: \(selectedRuangan)")
+                                    //                                    .padding()
+                                    //
+                                    //                                // Existing views
+                                    //                            }
+                                }
+                            }
+                            
+                        )
+                        // Button for scroll
+                        VStack {
+                            CustomButton(
+                                icon: "arrowtriangle.up",
+                                width: 40,
+                                height: 40,
+                                font: 24,
+                                iconWidth: 20,
+                                iconHeight: 20,
+                                bgColor: "000000",
+                                bgTransparency: 0,
+                                fontColor: "#000000",
+                                fontTransparency: 1.0,
+                                cornerRadius: 20,
+                                isSystemImage: true,
+                                
+                                action: {
+                                    withAnimation {
+                                        let newIndex = max(currentIndex - 2, 0)
+                                        proxy.scrollTo(newIndex, anchor: .center)
+                                        currentIndex = newIndex
+                                        print(currentIndex)
+                                    }
+                                }
+                            )
+                            
+                            CustomButton(
+                                icon: "arrowtriangle.down",
+                                width: 40,
+                                height: 40,
+                                font: 24,
+                                iconWidth: 20,
+                                iconHeight: 20,
+                                bgColor: "000000",
+                                bgTransparency: 0,
+                                fontColor: "#000000",
+                                fontTransparency: 1.0,
+                                cornerRadius: 20,
+                                isSystemImage: true,
+                                action: {
+                                    withAnimation {
+                                        let stepsCount = steps.count
+
+                                        // Calculate the maximum index allowed
+                                        let maxIndex = stepsCount - 1
+
+                                        // Calculate the desired index (move forward by 2)
+                                        let calculatedIndex = currentIndex + 2
+
+                                        // Ensure the index doesn't exceed the maximum valid index
+                                        let newIndex = min(calculatedIndex, maxIndex)
+
+                                        // Scroll to the new index in the scroll proxy
+                                        proxy.scrollTo(newIndex, anchor: .center)
+
+                                        // Update the current index
+                                        currentIndex = newIndex
+                                        print(currentIndex)
+                                    }
+                                }
+                                
+                            )
+                            
                         }
                     }
-                    
-                )
-                
+                }
             }
             .padding(.horizontal, 50)
             .frame(width: viewPortWidth, height: viewPortHeight * 0.85, alignment: .topLeading)

@@ -86,8 +86,11 @@ struct ActivityCard: View {
                             transparency: fontTransparency,
                             weight: "medium"
                         )
+                        .padding(2)
                         .multilineTextAlignment(.center)
-                       
+                        .lineLimit(2)  // Limit the text to two lines
+                        .minimumScaleFactor(0.5)  // Shrink the font if text overflows two lines
+                        .allowsTightening(true)
    
                     }
                     

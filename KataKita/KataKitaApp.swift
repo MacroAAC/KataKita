@@ -76,30 +76,32 @@ struct KataKitaApp: App {
                                 Step(image: resolveIcon(for: "CELANA PENDEK"), description: "Buka celana"),
                                 Step(image: resolveIcon(for: ""), description: "Duduk di toilet"),
                                 Step(image: resolveIcon(for: ""), description: "Buang air kecil"),
+                                Step(image: resolveIcon(for: ""), description: "Bersihkan daerah kemaluan pakai tisu"),
+                                Step(image: resolveIcon(for: ""), description: "Pakai celana kembali"),
                                 Step(image: resolveIcon(for: ""), description: "Siram toilet"),
                                 Step(image: resolveIcon(for: ""), description: "Ambil sabun"),
                                 Step(image: resolveIcon(for: ""), description: "Cuci tangan dengan sabun"),
                                 Step(image: resolveIcon(for: ""), description: "Keringkan tangan")
                             ]
                         ),
-                        Activity(
-                            id: UUID(),
-                            name: "Mandi",
-                            image: resolveIcon(for: "BAK MANDI"),
-                            ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
-                            sequence: [
-                                Step(image: resolveIcon(for: ""), description: "Siapkan Handuk"),
-                                Step(image: resolveIcon(for: ""), description: "Lepas semua baju yang dikenakan"),
-                                Step(image: resolveIcon(for: ""), description: "Siram seluruh tubuh menggunakan gayung"),
-                                Step(image: resolveIcon(for: ""), description: "Bersihkan badan menggunakan sabun"),
-                                Step(image: resolveIcon(for: ""), description: "Siram kembali seluruh tubuh hingga bersih dari sabun"),
-                                Step(image: resolveIcon(for: ""), description: "Ambil pasta gigi dan sikat gigi"),
-                                Step(image: resolveIcon(for: ""), description: "Gosok gigimu hingga bersih"),
-                                Step(image: resolveIcon(for: ""), description: "Kumur-kumur untuk menghilangkan busa pada mulutmu"),
-                                Step(image: resolveIcon(for: ""), description: "Keringkan badanmu menggunakan handuk"),
-                                Step(image: resolveIcon(for: ""), description: "Pakai bajumu yang bersih")
-                            ]
-                        ),
+//                        Activity(
+//                            id: UUID(),
+//                            name: "Mandi",
+//                            image: resolveIcon(for: "BAK MANDI"),
+//                            ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
+//                            sequence: [
+//                                Step(image: resolveIcon(for: ""), description: "Siapkan Handuk"),
+//                                Step(image: resolveIcon(for: ""), description: "Lepas semua baju yang dikenakan"),
+//                                Step(image: resolveIcon(for: ""), description: "Siram seluruh tubuh menggunakan gayung"),
+//                                Step(image: resolveIcon(for: ""), description: "Bersihkan badan menggunakan sabun"),
+//                                Step(image: resolveIcon(for: ""), description: "Siram kembali seluruh tubuh hingga bersih dari sabun"),
+//                                Step(image: resolveIcon(for: ""), description: "Ambil pasta gigi dan sikat gigi"),
+//                                Step(image: resolveIcon(for: ""), description: "Gosok gigimu hingga bersih"),
+//                                Step(image: resolveIcon(for: ""), description: "Kumur-kumur untuk menghilangkan busa pada mulutmu"),
+//                                Step(image: resolveIcon(for: ""), description: "Keringkan badanmu menggunakan handuk"),
+//                                Step(image: resolveIcon(for: ""), description: "Pakai bajumu yang bersih")
+//                            ]
+//                        ),
                         Activity(
                             id: UUID(),
                             name: "Makan",
@@ -141,7 +143,6 @@ struct KataKitaApp: App {
                                         Step(image: resolveIcon(for: ""), description: "Basahilah dengan air"),
                                         Step(image: resolveIcon(for: ""), description: "Ambil spon dan beri sabun"),
                                         Step(image: resolveIcon(for: ""), description: "Gosok piring dan sendok garpu dengan sabun dan spon"),
-                                        Step(image: resolveIcon(for: ""), description: "Jika perlu, gunakan laptop atau perangkat lain"),
                                         Step(image: resolveIcon(for: ""), description: "Bilas semua dengan air bersih"),
                                         Step(image: resolveIcon(for: ""), description: "Letakkan di tempat pengeringan")
                             ]

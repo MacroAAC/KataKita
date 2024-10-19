@@ -119,26 +119,32 @@ struct AACRuangBelajarView: View {
                         HStack {
                             CustomButton(
                                 icon: "delete",
-                                width: Int(screenWidth * (100/1376.0)),
-                                height: Int(screenHeight * (100/1032.0)),
+                                width: Int(screenWidth * (90/1376.0)),
+                                height: Int(screenHeight * (140/1032.0)),
                                 font: Int(screenWidth * (40/1376.0)),
                                 iconWidth: Int(screenWidth * (50/1376.0)),
                                 iconHeight: Int(screenHeight * (50/1032.0)),
-                                bgColor: "#000000",
-                                bgTransparency: 0,
+                                bgColor: "#ffffff",
+                                bgTransparency: 0.01,
                                 fontColor: "#ffffff",
-                                fontTransparency: 1.0,
+                                fontTransparency: 0,
                                 cornerRadius: 20,
                                 isSystemImage: false,
-                                action:{
+                                action: {
                                     if !selectedButton.isEmpty {
                                         selectedButton.removeLast()
                                     }
                                 }
                             )
+                           
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing,screenWidth * (4/1376.0))
+                        .onTapGesture {
+                            if !selectedButton.isEmpty {
+                                selectedButton.removeLast()
+                            }
+                        }
 
                     }
                 }
