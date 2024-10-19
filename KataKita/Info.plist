@@ -4,6 +4,8 @@
 <dict>
 	<key>ATSApplicationFontsPath</key>
 	<string>Fonts/</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0.0</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Made-Black.otf</string>

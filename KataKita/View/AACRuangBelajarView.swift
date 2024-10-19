@@ -83,7 +83,7 @@ struct AACRuangBelajarView: View {
                                 if index < 11 {
                                     // Display CustomButton for the first 11 items
                                     CustomButton(
-                                        icon: selectedButton[index].icon, // Access the icon from the Card model
+                                        icon: resolveIcon(for: selectedButton[index].icon), // Access the icon from the Card model
                                         text: selectedButton[index].name, // Access the name from the Card model
                                         width: Int(screenWidth * (100 / 1376)),
                                         height: Int(screenHeight * (100 / 1032)),
@@ -392,7 +392,7 @@ struct AACRuangBelajarView: View {
                                          } else {
                                              // Default button for other columns
                                              CustomButton(
-                                                icon: card.icon,
+                                                icon: resolveIcon(for: card.icon),
                                                 text: card.name,
                                                 width: Int(screenWidth * (100/1376.0)),
                                                 height: Int(screenHeight * (100/1032.0)),
@@ -628,6 +628,19 @@ struct AACRuangBelajarView: View {
             showPlusButton = false // Hide the plus button if all columns are filled
         }
     }
+    
+    func resolveIcon(for iconName: String) -> String {
+            if let _ = UIImage(named: iconName) {
+                return iconName
+            } else if let _ = UIImage(named: iconName.uppercased()) {
+                return iconName.uppercased()
+            } else if let _ = UIImage(named: iconName.lowercased()) {
+                return iconName.lowercased()
+            } else {
+                // Fallback option if no icon is found
+                return "defaultIcon" // You can define a default icon
+            }
+        }
 
 
 }
