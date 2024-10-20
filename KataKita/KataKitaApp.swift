@@ -84,24 +84,6 @@ struct KataKitaApp: App {
                                 Step(image: resolveIcon(for: ""), description: "Keringkan tangan")
                             ]
                         ),
-//                        Activity(
-//                            id: UUID(),
-//                            name: "Mandi",
-//                            image: resolveIcon(for: "BAK MANDI"),
-//                            ruangan: Ruangan(id: UUID(), name: "KamarMandi"),
-//                            sequence: [
-//                                Step(image: resolveIcon(for: ""), description: "Siapkan Handuk"),
-//                                Step(image: resolveIcon(for: ""), description: "Lepas semua baju yang dikenakan"),
-//                                Step(image: resolveIcon(for: ""), description: "Siram seluruh tubuh menggunakan gayung"),
-//                                Step(image: resolveIcon(for: ""), description: "Bersihkan badan menggunakan sabun"),
-//                                Step(image: resolveIcon(for: ""), description: "Siram kembali seluruh tubuh hingga bersih dari sabun"),
-//                                Step(image: resolveIcon(for: ""), description: "Ambil pasta gigi dan sikat gigi"),
-//                                Step(image: resolveIcon(for: ""), description: "Gosok gigimu hingga bersih"),
-//                                Step(image: resolveIcon(for: ""), description: "Kumur-kumur untuk menghilangkan busa pada mulutmu"),
-//                                Step(image: resolveIcon(for: ""), description: "Keringkan badanmu menggunakan handuk"),
-//                                Step(image: resolveIcon(for: ""), description: "Pakai bajumu yang bersih")
-//                            ]
-//                        ),
                         Activity(
                             id: UUID(),
                             name: "Makan",
@@ -144,6 +126,11 @@ struct KataKitaApp: App {
                                         Step(image: resolveIcon(for: ""), description: "Ambil spon dan beri sabun"),
                                         Step(image: resolveIcon(for: ""), description: "Gosok piring dan sendok garpu dengan sabun dan spon"),
                                         Step(image: resolveIcon(for: ""), description: "Bilas semua dengan air bersih"),
+                                        Step(image: resolveIcon(for: ""), description: "Letakkan di tempat pengeringan"),
+                                        Step(image: resolveIcon(for: ""), description: "Basahilah dengan air"),
+                                        Step(image: resolveIcon(for: ""), description: "Ambil spon dan beri sabun"),
+                                        Step(image: resolveIcon(for: ""), description: "Gosok piring dan sendok garpu dengan sabun dan spon"),
+                                        Step(image: resolveIcon(for: ""), description: "Bilas semua dengan air bersih"),
                                         Step(image: resolveIcon(for: ""), description: "Letakkan di tempat pengeringan")
                             ]
                         ),
@@ -153,12 +140,13 @@ struct KataKitaApp: App {
                             image: resolveIcon(for: "WARNAI"),
                             ruangan: Ruangan(id: UUID(), name: "RuangBelajar"),
                             sequence: [
-                                        Step(image: resolveIcon(for: ""), description: "Ambil buku dan pewarna"),
-                                        Step(image: resolveIcon(for: ""), description: "Duduk di meja belajar"),
-                                        Step(image: resolveIcon(for: ""), description: "Buka buku dan siapkan alat pewarna"),
-                                        Step(image: resolveIcon(for: ""), description: "Mulai mewarnai tugas yang diberikan"),
-                                        Step(image: resolveIcon(for: ""), description: "Setelah selesai, rapikan alat mewarnai"),
-                                        Step(image: resolveIcon(for: ""), description: "Kembalikan peralatan pada tempatnya")
+                                        Step(image: resolveIcon(for: "ambil buku"), description: "Ambil buku"),
+                                        Step(image: resolveIcon(for: "ambil pewarna"), description: "Ambil pewarna"),
+                                        Step(image: resolveIcon(for: "duduk di meja belajar"), description: "Duduk di meja belajar"),
+                                        Step(image: resolveIcon(for: "buka buku dan alat pewarna"), description: "Buka buku dan siapkan alat pewarna"),
+                                        Step(image: resolveIcon(for: "mewarnai"), description: "Mulai mewarnai tugas yang diberikan"),
+                                        Step(image: resolveIcon(for: "rapikan alat dan buku"), description: "Setelah selesai, rapikan alat mewarnai"),
+                                        Step(image: resolveIcon(for: "kembaliukan ke tempat asalnya"), description: "Kembalikan peralatan pada tempatnya")
                             ]
                         )
                     ]
