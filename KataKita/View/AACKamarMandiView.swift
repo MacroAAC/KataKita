@@ -62,7 +62,7 @@ struct AACKamarMandiView: View {
                 }
                 Spacer()
             }
-            .padding(.top,screenHeight * (110 / 1032))
+            .padding(.top,screenHeight * (50 / 1032))
             .padding(.bottom,screenHeight * (20 / 1032))
             .padding(.leading,screenWidth * (28 / 1376))
             
@@ -343,10 +343,10 @@ struct AACKamarMandiView: View {
             ZStack {
                 Rectangle()
                     .fill(Color.white.opacity(1.0))
-                    .frame(width: screenWidth * (1370/1376.0),height: screenHeight * (800/1032.0))
+                    .frame(width: screenWidth * (1370/1376.0),height: screenHeight * (730/1032.0))
                     .cornerRadius(40)
                 
-                ScrollView {
+                VStack {
                      LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)))], spacing: screenWidth * (10/1376.0)) {
                          ForEach(0..<viewModel.cards.count, id: \.self) { columnIndex in
                              VStack(spacing: screenWidth * (10/1376.0)) {
@@ -477,7 +477,7 @@ struct AACKamarMandiView: View {
                              }
                          }
                      }
-                     .padding(.top, screenHeight * (40/1032.0))
+                     .padding(.top, screenHeight * (0/1032.0))
                      .padding(.leading,screenWidth * (25/1376.0))
                  }
                  VStack{

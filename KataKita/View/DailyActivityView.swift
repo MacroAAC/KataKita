@@ -315,8 +315,9 @@ struct DailyActivityView: View {
                                                         let currentActivity = self.extractActivity[self.stateManager.index]
                                                         speakText(currentActivity.name)
                                                     } else {
-                                                        selectedRuangan = getSelectedRuangan() // Fallback to the top one
+                                                        selectedRuangan = getSelectedRuangan()
                                                     }
+                                                    proxy.scrollTo(0, anchor: .top)
                                                 })
                                             
                                             //                                    CustomButtonSide(
@@ -368,14 +369,14 @@ struct DailyActivityView: View {
                                 bgColor: "000000",
                                 bgTransparency: 0,
                                 fontColor: "#000000",
-                                fontTransparency: 1.0,
+                                fontTransparency: self.isCompleted ? 0.0 : 1.0,
                                 cornerRadius: 20,
                                 isSystemImage: true,
                                 
                                 action: {
                                     withAnimation {
-                                        let newIndex = max(currentIndex - 2, 0)
-                                        proxy.scrollTo(newIndex, anchor: .center)
+                                        let newIndex = max(currentIndex - 4, 0)
+                                        proxy.scrollTo(newIndex, anchor: .top)
                                         currentIndex = newIndex
                                         print(currentIndex)
                                     }
@@ -392,7 +393,7 @@ struct DailyActivityView: View {
                                 bgColor: "000000",
                                 bgTransparency: 0,
                                 fontColor: "#000000",
-                                fontTransparency: 1.0,
+                                fontTransparency: self.isCompleted ? 0.0 : 1.0,
                                 cornerRadius: 20,
                                 isSystemImage: true,
                                 action: {
@@ -403,14 +404,14 @@ struct DailyActivityView: View {
                                         let maxIndex = stepsCount - 1
 
                                         // Calculate the desired index (move forward by 2)
-                                        let calculatedIndex = currentIndex + 2
+                                        let calculatedIndex = currentIndex + 4
 
                                         // Ensure the index doesn't exceed the maximum valid index
                                         let newIndex = min(calculatedIndex, maxIndex)
 
                                         // Scroll to the new index in the scroll proxy
-                                        proxy.scrollTo(newIndex, anchor: .center)
-
+                                        proxy.scrollTo(newIndex, anchor: .top)
+                                        
                                         // Update the current index
                                         currentIndex = newIndex
                                         print(currentIndex)
