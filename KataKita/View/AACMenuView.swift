@@ -122,7 +122,7 @@ struct AACMenuView: View {
                     ) {
                         NavigationLink(destination: AACRuangMakanView()){
                             ActivityCard(
-                                icon: "MAKAN", // Assuming `ruangan` has an image
+                                icon: resolveIcon(for: "MAKAN"), // Assuming `ruangan` has an image
                                 nomor: "",
                                 text: "Ruang Makan",
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
@@ -148,7 +148,7 @@ struct AACMenuView: View {
                         
                         NavigationLink(destination: AACKamarMandiView()){
                             ActivityCard(
-                                icon: "TOILET",
+                                icon: resolveIcon(for: "TOILET"),
                                 nomor: "",
                                 text: "Kamar Mandi",
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
@@ -173,7 +173,7 @@ struct AACMenuView: View {
                         }
                         NavigationLink(destination: AACRuangBelajarView()){
                             ActivityCard(
-                                icon: "BACA",
+                                icon: resolveIcon(for: "BACA"),
                                 nomor: "",
                                 text: "Ruang Belajar",
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
@@ -272,6 +272,19 @@ struct AACMenuView: View {
             // Speak the text
             speechSynthesizer.speak(utterance)
         }
+    
+    func resolveIcon(for iconName: String) -> String {
+        if let _ = UIImage(named: iconName) {
+            return iconName
+        } else if let _ = UIImage(named: iconName.uppercased()) {
+            return iconName.uppercased()
+        } else if let _ = UIImage(named: iconName.lowercased()) {
+            return iconName.lowercased()
+        } else {
+            // Fallback option if no icon is found
+            return "defaultIcon" // You can define a default icon
+        }
+    }
 }
 
 #Preview {
