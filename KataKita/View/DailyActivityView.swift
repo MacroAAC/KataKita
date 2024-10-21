@@ -294,7 +294,7 @@ struct DailyActivityView: View {
                                         .frame(height: 100)
                                         .overlay(
                                             CustomButtonSide(
-                                                icon: "SELESAI 1",
+                                                icon: resolveIcon(for: "SELESAI 1"),
                                                 text: "Selesai",
                                                 width: 250,
                                                 height: 80,
@@ -483,6 +483,19 @@ struct DailyActivityView: View {
             
             // Speak the text
             speechSynthesizer.speak(utterance)
+        }
+    
+    func resolveIcon(for iconName: String) -> String {
+            if let _ = UIImage(named: iconName) {
+                return iconName
+            } else if let _ = UIImage(named: iconName.uppercased()) {
+                return iconName.uppercased()
+            } else if let _ = UIImage(named: iconName.lowercased()) {
+                return iconName.lowercased()
+            } else {
+                // Fallback option if no icon is found
+                return "defaultIcon" // You can define a default icon
+            }
         }
     
 }
