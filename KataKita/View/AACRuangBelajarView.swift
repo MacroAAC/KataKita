@@ -580,7 +580,7 @@ struct AACRuangBelajarView: View {
                     }
                 }
                 .padding(.leading,screenWidth * (1230/1376.0))
-                .padding(.top,screenHeight * (370/1032.0))
+                .padding(.top,screenHeight * (440/1032.0))
                 
             }
             
