@@ -41,6 +41,9 @@ struct CustomButton: View {
         self.action = action
     }
     
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
+    
     var body: some View {
         Button(action: {
             action?()
@@ -74,10 +77,9 @@ struct CustomButton: View {
                     )
                     .padding(.horizontal)
                     .lineLimit(1)
-                    .minimumScaleFactor(0.5)
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .allowsTightening(true) // Allow the text to tighten if necessary
-
+                    .minimumScaleFactor(0.3)
+                    .allowsTightening(true)
                 }
                 
                 Spacer()

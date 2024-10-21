@@ -116,6 +116,7 @@ struct AACMenuView: View {
                             GridItem(.flexible()),
                             GridItem(.flexible()),
                             GridItem(.flexible()),
+                            GridItem(.flexible())
                         
                         ],
                         spacing: 30
@@ -154,8 +155,8 @@ struct AACMenuView: View {
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
                                 height: Int(viewPortWidth * (180 / 1210.0)),
                                 font: Int(viewPortWidth * (15 / 1210.0)),
-                                iconWidth: Int(viewPortWidth * (80 / 1210.0)),
-                                iconHeight: Int(viewPortHeight * (80 / 834.0)),
+                                iconWidth: Int(viewPortWidth * (95 / 1210.0)),
+                                iconHeight: Int(viewPortHeight * (95 / 834.0)),
                                 bgColor: "F7F5F0",
                                 bgTransparency: 1.0,
                                 fontColor: "000000",
@@ -179,8 +180,8 @@ struct AACMenuView: View {
                                 width: Int((viewPortWidth * 0.75 - 290) / 4),
                                 height: Int(viewPortWidth * (180 / 1210.0)),
                                 font: Int(viewPortWidth * (15 / 1210.0)),
-                                iconWidth: Int(viewPortWidth * (95 / 1210.0)),
-                                iconHeight: Int(viewPortHeight * (95 / 834.0)),
+                                iconWidth: Int(viewPortWidth * (80 / 1210.0)),
+                                iconHeight: Int(viewPortHeight * (80 / 834.0)),
                                 bgColor: "F7F5F0",
                                 bgTransparency: 1.0,
                                 fontColor: "000000",
@@ -194,6 +195,32 @@ struct AACMenuView: View {
                                 }
                             )
                             
+                        }
+                        
+                        NavigationLink(destination: AACRuangBermainView()){
+                            ActivityCard(
+                                icon: resolveIcon(for: "BERMAIN"),
+                                nomor: "",
+                                text: "Ruang Bermain",
+                                width: Int((viewPortWidth * 0.75 - 290) / 4),
+                                height: Int(viewPortWidth * (180 / 1210.0)),
+                                font: Int(viewPortWidth * (15 / 1210.0)),
+                                iconWidth: Int(viewPortWidth * (80 / 1210.0)),
+                                iconHeight: Int(viewPortHeight * (80 / 834.0)),
+                                bgColor: "F7F5F0",
+                                bgTransparency: 1.0,
+                                fontColor: "000000",
+                                fontTransparency: 1.0,
+                                cornerRadius: 20,
+                                isSystemImage: false,
+                                action: {
+                                    selectedRuangan = "RuangBermain"
+                                    shouldNavigate = true
+                                    speakText(selectedRuangan)
+
+                                }
+                            )
+                           
                         }
 //                        ForEach(Array(self.ruangan.enumerated()), id: \.offset) { i, ruangan in
 //                            ActivityCard(
@@ -252,6 +279,8 @@ struct AACMenuView: View {
             return AnyView(AACKamarMandiView())
         case "RuangBelajar":
             return AnyView(AACRuangBelajarView())
+        case "RuangBermain":
+            return AnyView(AACRuangBermainView())
         case "Settings":
             return AnyView(SettingsView())
         default:

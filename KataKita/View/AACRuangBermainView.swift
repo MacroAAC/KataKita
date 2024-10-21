@@ -1,15 +1,15 @@
 //
-//  AACKamarMandiView.swift
+//  AACRuangBelajarTestView.swift
 //  KataKita
 //
-//  Created by Lisandra Nicoline on 18/10/24.
+//  Created by Lisandra Nicoline on 21/10/24.
 //
 
 import SwiftUI
 import AVFoundation
 
 
-struct AACKamarMandiView: View {
+struct AACRuangBermainView: View {
     @State private var showAACSettings = false
     @State private var pencilPressed = false
     @State private var showPlusButton = false
@@ -18,7 +18,7 @@ struct AACKamarMandiView: View {
     @State private var selectedCategoryColor: String = "#FFFFFF"
     
     @StateObject private var boardModel = AACBoardModel()
-    @ObservedObject var viewModel = AACKamarMandiViewModel()
+    @ObservedObject var viewModel = AACRuangBermainViewModel()
     @State private var selectedColumnIndex: [Card] = []
     @State private var selectedButton: [Card] = []
     @State private var isHome: Bool = false
@@ -183,16 +183,16 @@ struct AACKamarMandiView: View {
                 .frame(maxWidth: .infinity)
                 
             }
-            .padding(.bottom,screenHeight * (30/1032.0))
+            .padding(.bottom,screenHeight * (50/1032.0))
             
             
-            HStack(spacing: -5) {
+            HStack {
                 CustomButton(
                     icon: "WarnaKuning",
-                    width: Int(screenWidth * (140/1376.0)),
+                    width: Int(screenWidth * (150/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
+                    iconWidth: Int(screenWidth * (150/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -201,16 +201,17 @@ struct AACKamarMandiView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        
+
                     }
                 )
+                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaUngu",
-                    width: Int(screenWidth * (140/1376.0)),
+                    width: Int(screenWidth * (150/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
+                    iconWidth: Int(screenWidth * (150/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -219,35 +220,18 @@ struct AACKamarMandiView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        
+
                     }
                 )
-                
-                CustomButton(
-                    icon: "WarnaPink",
-                    width: Int(screenWidth * (140/1376.0)),
-                    height: Int(screenHeight * (50/1032.0)),
-                    font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
-                    iconHeight: Int(screenHeight * (50/1032.0)),
-                    bgColor: "#000000",
-                    bgTransparency: 0,
-                    fontColor: "#ffffff",
-                    fontTransparency: 1.0,
-                    cornerRadius: 0,
-                    isSystemImage: false,
-                    action:{
-                        
-                    }
-                )
-                .padding(.trailing,screenWidth * (5/1376.0))
+                .padding(.trailing,screenWidth * (33/1376.0))
+               
                 
                 CustomButton(
                     icon: "WarnaHijau",
-                    width: Int(screenWidth * (140/1376.0)),
+                    width: Int(screenWidth * (150/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
+                    iconWidth: Int(screenWidth * (150/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -256,34 +240,18 @@ struct AACKamarMandiView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        
+
                     }
                 )
+                .padding(.trailing,screenWidth * (33/1376.0))
                 
-                CustomButton(
-                    icon: "WarnaBiru",
-                    width: Int(screenWidth * (140/1376.0)),
-                    height: Int(screenHeight * (50/1032.0)),
-                    font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
-                    iconHeight: Int(screenHeight * (50/1032.0)),
-                    bgColor: "#000000",
-                    bgTransparency: 0,
-                    fontColor: "#ffffff",
-                    fontTransparency: 1.0,
-                    cornerRadius: 0,
-                    isSystemImage: false,
-                    action:{
-                        
-                    }
-                )
                 
                 CustomButton(
                     icon: "WarnaOrange",
-                    width: Int(screenWidth * (140/1376.0)),
+                    width: Int(screenWidth * (150/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
+                    iconWidth: Int(screenWidth * (150/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -292,17 +260,17 @@ struct AACKamarMandiView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        
+
                     }
                 )
-                .padding(.trailing,screenWidth * (5/1376.0))
+                .padding(.trailing,screenWidth * (33/1376.0))
                 
                 CustomButton(
                     icon: "WarnaOrange",
-                    width: Int(screenWidth * (140/1376.0)),
+                    width: Int(screenWidth * (150/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
+                    iconWidth: Int(screenWidth * (150/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -311,44 +279,28 @@ struct AACKamarMandiView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-                        
+
                     }
                 )
+                .padding(.trailing,screenWidth * (33/1376.0))
                 
-                CustomButton(
-                    icon: "WarnaAbu",
-                    width: Int(screenWidth * (140/1376.0)),
-                    height: Int(screenHeight * (50/1032.0)),
-                    font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (110/1376.0)),
-                    iconHeight: Int(screenHeight * (50/1032.0)),
-                    bgColor: "#000000",
-                    bgTransparency: 0,
-                    fontColor: "#ffffff",
-                    fontTransparency: 1.0,
-                    cornerRadius: 0,
-                    isSystemImage: false,
-                    action:{
-                        
-                    }
-                )
-                .padding(.trailing,screenWidth * (9/1376.0))
+
                 
             }
-            .padding(.trailing,screenWidth * (235/1376.0))
+            .padding(.trailing,screenWidth * (278/1376.0))
             
             // ScrollView for buttons
             ZStack {
                 Rectangle()
                     .fill(Color.white.opacity(1.0))
-                    .frame(width: screenWidth * (1370/1376.0),height: screenHeight * (750/1032.0))
+                    .frame(width: screenWidth * (1370/1376.0),height: screenHeight * (730/1032.0))
                     .cornerRadius(40)
                 
                 VStack {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)), alignment: .top)], spacing: screenWidth * (10/1376.0)) {
+                     LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (180/1376.0)))], spacing: screenWidth * (200/1376.0)) {
                          ForEach(0..<viewModel.cards.count, id: \.self) { columnIndex in
-                             VStack(spacing: screenWidth * (10/1376.0)) {
-                                 let rowLimit = (columnIndex == viewModel.cards.count - 1) ? 9 : 6
+                             VStack(/*spacing: screenWidth * (20/1376.0)*/) {
+                                 let rowLimit = (columnIndex == viewModel.cards.count - 1) ? 9 : 4
                                  
                                  ForEach(0..<rowLimit, id: \.self) { rowIndex in
                                      if rowIndex < viewModel.cards[columnIndex].count {
@@ -358,11 +310,11 @@ struct AACKamarMandiView: View {
                                          if columnIndex == viewModel.cards.count - 1 {
                                              CustomButton(
                                                 text: card.name,
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (67/1032.0)),
+                                                width: Int(screenWidth * (130/1376.0)),
+                                                height: Int(screenHeight * (60/1032.0)),
                                                 font: Int(screenWidth * (18/1376.0)),
-                                                iconWidth: Int(screenWidth * (50/1376.0)),
-                                                iconHeight: Int(screenHeight * (50/1032.0)),
+                                                iconWidth: Int(screenWidth * (30/1376.0)),
+                                                iconHeight: Int(screenHeight * (30/1032.0)),
                                                 bgColor: card.category.color,
                                                 bgTransparency: 1.0,
                                                 fontColor: card.category.fontColor,
@@ -392,17 +344,17 @@ struct AACKamarMandiView: View {
                                                     })
                                                  )
                                              }
-                                             .padding(.bottom, screenHeight * (3/1032.0))
+                                             .padding(.bottom, screenHeight * (6/1032.0))
                                          } else {
                                              // Default button for other columns
                                              CustomButton(
                                                 icon: resolveIcon(for: card.icon),
                                                 text: card.name,
-                                                width: Int(screenWidth * (110/1376.0)),
-                                                height: Int(screenHeight * (110/1032.0)),
-                                                font: Int(screenWidth * (28/1376.0)),
-                                                iconWidth: Int(screenWidth * (75/1376.0)),
-                                                iconHeight: Int(screenHeight * (75/1032.0)),
+                                                width: Int(screenWidth * (150/1376.0)),
+                                                height: Int(screenHeight * (150/1032.0)),
+                                                font: Int(screenWidth * (38/1376.0)),
+                                                iconWidth: Int(screenWidth * (115/1376.0)),
+                                                iconHeight: Int(screenHeight * (115/1032.0)),
                                                 bgColor: card.category.color,
                                                 bgTransparency: 1.0,
                                                 fontColor: card.category.fontColor,
@@ -432,18 +384,19 @@ struct AACKamarMandiView: View {
                                                      })
                                                  )
                                              }
+                                             .padding(.bottom, screenHeight * (13/1032.0))
                                          }
                                      }
                                      else if viewModel.cards[columnIndex].count < 6 {
                                          let buttonsData = [
-                                            0: ("#FFEBAF", "#000000"),
-                                            1: ("#A77DFF", "#000000"),
-                                            2: ("#FFB0C7", "#000000"),
-                                            3: ("#CFF0C8", "#000000"),
-                                            4: ("#D4F3FF", "#000000"),
-                                            5: ("#F2B95C", "#000000"),
-                                            6: ("#F2B95C", "#000000"),
-                                            7: ("#FFFFFF", "#000000")
+                                             0: ("#FFEBAF", "#000000"),
+                                             1: ("#A77DFF", "#000000"),
+                                             2: ("#FFB0C7", "#000000"),
+                                             3: ("#CFF0C8", "#000000"),
+                                             4: ("#D4F3FF", "#000000"),
+                                             5: ("#F2B95C", "#000000"),
+                                             6: ("#F2B95C", "#000000"),
+                                             7: ("#FFFFFF", "#000000")
                                          ]
                                          
                                          if let (bgColor, fontColor) = buttonsData[columnIndex] {
@@ -463,6 +416,7 @@ struct AACKamarMandiView: View {
                                                  isSystemImage: false,
                                                  action: {
                                                      selectedCategoryColor = bgColor
+                                                     print(selectedCategoryColor)
                                                      showAACSettings = true
                                                  }
                                              )
@@ -476,7 +430,7 @@ struct AACKamarMandiView: View {
                          }
                      }
                      .padding(.top, screenHeight * (0/1032.0))
-                     .padding(.leading,screenWidth * (25/1376.0))
+                     .padding(.leading,screenWidth * (60/1376.0))
                  }
                  VStack{
 //                     ZStack {
@@ -485,7 +439,7 @@ struct AACKamarMandiView: View {
 //                             .frame(width: screenWidth * (90/1376.0),height: screenHeight * (90/1032.0))
 //                             .cornerRadius(20)
 //                             .shadow(radius: 5,x: 3,y:4)
-//                         
+//
 //                         CustomButton(
 //                             icon: "pencil",
 //                             width: Int(screenWidth * (50/1376.0)),
@@ -504,7 +458,7 @@ struct AACKamarMandiView: View {
 //                                 handlePencilPress()
 //                             }
 //                         )
-//                         
+//
 //                     }
 //                     .sheet(isPresented: $showAACSettings) {
 //                         AddButtonAACView(
@@ -518,7 +472,7 @@ struct AACKamarMandiView: View {
 //                             categoryColor: $selectedCategoryColor, selectedColumnIndex: $selectedColumnIndex // Pass the selected category color
 //                         )
 //                     }
-
+//
 
                     
                     
@@ -548,8 +502,6 @@ struct AACKamarMandiView: View {
                         )
                         
                     }
-                     
-                    .padding(.bottom,screenHeight * (15/1032.0))
                     
                     ZStack {
                         Rectangle()
@@ -573,13 +525,13 @@ struct AACKamarMandiView: View {
                             isSystemImage: false,
                             action:{
                                 isSetting = true
-}
+                            }
                         )
                         
                     }
                 }
-                .padding(.leading,screenWidth * (1230/1376.0))
-                .padding(.top,screenHeight * (500/1032.0))
+                .padding(.leading,screenWidth * (1150/1376.0))
+                .padding(.top,screenHeight * (440/1032.0))
                 
             }
             
@@ -599,6 +551,7 @@ struct AACKamarMandiView: View {
         ){
             
         }
+
     }
     
     
