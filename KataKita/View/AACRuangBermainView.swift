@@ -352,7 +352,7 @@ struct AACRuangBermainView: View {
                                                 text: card.name,
                                                 width: Int(screenWidth * (150/1376.0)),
                                                 height: Int(screenHeight * (150/1032.0)),
-                                                font: Int(screenWidth * (38/1376.0)),
+                                                font: Int(screenWidth * (48/1376.0)),
                                                 iconWidth: Int(screenWidth * (115/1376.0)),
                                                 iconHeight: Int(screenHeight * (115/1032.0)),
                                                 bgColor: card.category.color,

@@ -133,6 +133,7 @@ struct AACRuangBelajarView: View {
                                 action: {
                                     if !selectedButton.isEmpty {
                                         selectedButton.removeLast()
+                                        speechSynthesizer.stopSpeaking(at: .immediate)
                                     }
                                 }
                             )
@@ -143,6 +144,7 @@ struct AACRuangBelajarView: View {
                         .onTapGesture {
                             if !selectedButton.isEmpty {
                                 selectedButton.removeLast()
+                                speechSynthesizer.stopSpeaking(at: .immediate)
                             }
                         }
                     }
@@ -171,12 +173,14 @@ struct AACRuangBelajarView: View {
                         action:{
                             if !selectedButton.isEmpty {
                                 selectedButton.removeAll()
+                                speechSynthesizer.stopSpeaking(at: .immediate)
                             }
                         }
                     )
                     .onTapGesture {
                         if !selectedButton.isEmpty {
                             selectedButton.removeAll()
+                            speechSynthesizer.stopSpeaking(at: .immediate)
                         }
                     }
                     
