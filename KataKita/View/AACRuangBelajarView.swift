@@ -145,7 +145,6 @@ struct AACRuangBelajarView: View {
                                 selectedButton.removeLast()
                             }
                         }
-
                     }
                 }
                 
@@ -175,21 +174,27 @@ struct AACRuangBelajarView: View {
                             }
                         }
                     )
+                    .onTapGesture {
+                        if !selectedButton.isEmpty {
+                            selectedButton.removeAll()
+                        }
+                    }
                     
                 }
                 .frame(maxWidth: .infinity)
                 
             }
-            .padding(.bottom,screenHeight * (50/1032.0))
+            .padding(.bottom,screenHeight * (30/1032.0))
+
             
             
-            HStack {
+            HStack(spacing: -5) {
                 CustomButton(
                     icon: "WarnaKuning",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -198,17 +203,16 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaUngu",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -217,17 +221,16 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaPink",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -236,17 +239,17 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
+                .padding(.trailing,screenWidth * (5/1376.0))
                 
                 CustomButton(
                     icon: "WarnaHijau",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -255,17 +258,16 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaBiru",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -274,17 +276,16 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaOrange",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -293,17 +294,17 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
+                .padding(.trailing,screenWidth * (5/1376.0))
                 
                 CustomButton(
                     icon: "WarnaOrange",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -312,17 +313,16 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
                 
                 CustomButton(
                     icon: "WarnaAbu",
-                    width: Int(screenWidth * (100/1376.0)),
+                    width: Int(screenWidth * (140/1376.0)),
                     height: Int(screenHeight * (50/1032.0)),
                     font: Int(screenWidth * (40/1376.0)),
-                    iconWidth: Int(screenWidth * (100/1376.0)),
+                    iconWidth: Int(screenWidth * (110/1376.0)),
                     iconHeight: Int(screenHeight * (50/1032.0)),
                     bgColor: "#000000",
                     bgTransparency: 0,
@@ -331,23 +331,23 @@ struct AACRuangBelajarView: View {
                     cornerRadius: 0,
                     isSystemImage: false,
                     action:{
-
+                        
                     }
                 )
-                .padding(.trailing,screenWidth * (28/1376.0))
+                .padding(.trailing,screenWidth * (9/1376.0))
                 
             }
-            .padding(.trailing,screenWidth * (218/1376.0))
+            .padding(.trailing,screenWidth * (235/1376.0))
             
             // ScrollView for buttons
             ZStack {
                 Rectangle()
                     .fill(Color.white.opacity(1.0))
-                    .frame(width: screenWidth * (1370/1376.0),height: screenHeight * (730/1032.0))
+                    .frame(width: screenWidth * (1370/1376.0),height: screenHeight * (750/1032.0))
                     .cornerRadius(40)
                 
                 VStack {
-                     LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)))], spacing: screenWidth * (10/1376.0)) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: screenWidth * (120/1376.0)), alignment: .top)], spacing: screenWidth * (10/1376.0)) {
                          ForEach(0..<viewModel.cards.count, id: \.self) { columnIndex in
                              VStack(spacing: screenWidth * (10/1376.0)) {
                                  let rowLimit = (columnIndex == viewModel.cards.count - 1) ? 9 : 6
@@ -361,7 +361,7 @@ struct AACRuangBelajarView: View {
                                              CustomButton(
                                                 text: card.name,
                                                 width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (60/1032.0)),
+                                                height: Int(screenHeight * (67/1032.0)),
                                                 font: Int(screenWidth * (18/1376.0)),
                                                 iconWidth: Int(screenWidth * (50/1376.0)),
                                                 iconHeight: Int(screenHeight * (50/1032.0)),
@@ -400,11 +400,11 @@ struct AACRuangBelajarView: View {
                                              CustomButton(
                                                 icon: resolveIcon(for: card.icon),
                                                 text: card.name,
-                                                width: Int(screenWidth * (100/1376.0)),
-                                                height: Int(screenHeight * (100/1032.0)),
-                                                font: Int(screenWidth * (16/1376.0)),
-                                                iconWidth: Int(screenWidth * (65/1376.0)),
-                                                iconHeight: Int(screenHeight * (65/1032.0)),
+                                                width: Int(screenWidth * (110/1376.0)),
+                                                height: Int(screenHeight * (110/1032.0)),
+                                                font: Int(screenWidth * (28/1376.0)),
+                                                iconWidth: Int(screenWidth * (75/1376.0)),
+                                                iconHeight: Int(screenHeight * (75/1032.0)),
                                                 bgColor: card.category.color,
                                                 bgTransparency: 1.0,
                                                 fontColor: card.category.fontColor,
@@ -550,7 +550,9 @@ struct AACRuangBelajarView: View {
                             }
                         )
                         
+                        
                     }
+                    .padding(.bottom,screenHeight * (15/1032.0))
                     
                     ZStack {
                         Rectangle()
@@ -580,7 +582,7 @@ struct AACRuangBelajarView: View {
                     }
                 }
                 .padding(.leading,screenWidth * (1230/1376.0))
-                .padding(.top,screenHeight * (440/1032.0))
+                .padding(.top,screenHeight * (500/1032.0))
                 
             }
             
